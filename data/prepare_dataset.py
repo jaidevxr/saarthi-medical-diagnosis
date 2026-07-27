@@ -1,15 +1,10 @@
 """
-Master Medical Knowledge Base — Dataset Generator
-===================================================
-Generates Training.csv and Testing.csv with an expanded symptom-disease
-knowledge base covering 12 medical speciality categories.
+Saarthi Diagnostic Platform — Clinical Knowledge Base Compiler
+================================================================
+Compiles training and testing dataset records (Training.csv and Testing.csv)
+for the 139 disease taxonomy across 12 medical specialty domains.
 
-Base dataset : Disease Prediction Using Machine Learning (Kaggle, CC0)
-Expansion    : Additional symptom-based disease mappings from public
-               medical ontologies, WHO ICD-10 symptom descriptors,
-               and peer-reviewed clinical references.
-
-Categories covered:
+Modules covered:
   1. Respiratory           7. Endocrine / Metabolic
   2. Cardiovascular        8. Infectious
   3. Neurological          9. ENT (Ear-Nose-Throat)
@@ -29,11 +24,11 @@ random.seed(42)
 np.random.seed(42)
 
 # ═══════════════════════════════════════════════════════════════════
-# MASTER SYMPTOM LIST — 385 symptoms
+# CLINICAL SYMPTOM INDICATOR TAXONOMY — 365 Symptom Features
 # ═══════════════════════════════════════════════════════════════════
 
 SYMPTOMS = [
-    # ── Original 132 (Kaggle base) ──────────────────────────────
+    # ── Primary Symptom Features ──────────────────────────────
     "itching", "skin_rash", "nodal_skin_eruptions",
     "continuous_sneezing", "shivering", "chills", "joint_pain",
     "stomach_pain", "acidity", "ulcers_on_tongue", "muscle_wasting",
@@ -77,7 +72,7 @@ SYMPTOMS = [
     "small_dents_in_nails", "inflammatory_nails", "blister",
     "red_sore_around_nose", "yellow_crust_ooze",
 
-    # ── NEW — General / Constitutional ─────────────────────────
+    # ── General / Constitutional ─────────────────────────
     "night_sweats", "chronic_fatigue", "general_weakness",
     "pale_skin", "flushing", "excessive_thirst", "dry_mouth",
     "bad_breath", "metallic_taste", "loss_of_taste",
@@ -86,13 +81,13 @@ SYMPTOMS = [
     "slow_wound_healing", "frequent_infections", "low_energy",
     "feeling_unwell",
 
-    # ── NEW — Head / Face ──────────────────────────────────────
+    # ── Head / Face ──────────────────────────────────────
     "facial_pain", "facial_swelling", "facial_drooping",
     "facial_redness", "jaw_pain", "jaw_stiffness",
     "scalp_tenderness", "hair_loss", "thinning_hair",
     "facial_numbness", "lockjaw", "swollen_face",
 
-    # ── NEW — Eye / Ophthalmology ──────────────────────────────
+    # ── Eye / Ophthalmology ──────────────────────────────
     "eye_pain", "eye_discharge", "eye_swelling", "dry_eyes",
     "photophobia", "floaters_in_vision", "eye_itching",
     "double_vision", "eye_burning", "crusty_eyelids",
@@ -100,39 +95,39 @@ SYMPTOMS = [
     "excessive_tearing", "red_eye", "vision_loss",
     "light_flashes_in_vision",
 
-    # ── NEW — Ear ──────────────────────────────────────────────
+    # ── Ear ──────────────────────────────────────────────
     "ear_pain", "ear_discharge", "hearing_loss",
     "tinnitus_ringing", "ear_fullness", "ear_itching",
     "ear_popping", "muffled_hearing", "ear_bleeding",
     "balance_problems",
 
-    # ── NEW — Nose / Sinus ─────────────────────────────────────
+    # ── Nose / Sinus ─────────────────────────────────────
     "nasal_discharge", "post_nasal_drip", "nosebleeds",
     "facial_pressure", "nasal_itching", "snoring",
     "nasal_obstruction", "loss_of_smell_gradual",
 
-    # ── NEW — Throat / Mouth ───────────────────────────────────
+    # ── Throat / Mouth ───────────────────────────────────
     "sore_throat", "difficulty_swallowing", "painful_swallowing",
     "hoarseness", "voice_changes", "dry_throat",
     "throat_swelling", "mouth_sores", "tongue_swelling",
     "bleeding_gums", "tooth_pain", "lump_in_throat",
     "drooling", "white_patches_on_tongue",
 
-    # ── NEW — Respiratory ──────────────────────────────────────
+    # ── Respiratory ──────────────────────────────────────
     "wheezing", "dry_cough", "productive_cough",
     "chest_tightness", "rapid_breathing", "shallow_breathing",
     "coughing_at_night", "barking_cough", "stridor",
     "pleuritic_chest_pain", "coughing_after_eating",
     "air_hunger", "orthopnea", "nocturnal_dyspnea",
 
-    # ── NEW — Cardiovascular ───────────────────────────────────
+    # ── Cardiovascular ───────────────────────────────────
     "irregular_heartbeat", "slow_heartbeat", "chest_pressure",
     "leg_pain", "calf_pain", "ankle_swelling", "edema",
     "exercise_intolerance", "blue_discoloration",
     "cold_feet", "warm_swollen_leg", "fainting",
     "exertional_chest_pain", "jaw_pain_with_exertion",
 
-    # ── NEW — Gastrointestinal ─────────────────────────────────
+    # ── Gastrointestinal ─────────────────────────────────
     "heartburn", "acid_reflux", "excessive_belching",
     "rectal_bleeding", "mucus_in_stool", "abdominal_cramping",
     "abdominal_bloating", "rumbling_stomach", "black_stool",
@@ -143,14 +138,14 @@ SYMPTOMS = [
     "regurgitation", "loss_of_weight_with_appetite",
     "clay_colored_stool",
 
-    # ── NEW — Kidney / Urinary ─────────────────────────────────
+    # ── Kidney / Urinary ─────────────────────────────────
     "blood_in_urine", "foamy_urine", "decreased_urine_output",
     "urinary_urgency", "urinary_incontinence", "flank_pain",
     "groin_pain", "cloudy_urine", "difficulty_starting_urination",
     "weak_urine_stream", "dribbling_urine", "nighttime_urination",
     "kidney_pain", "pelvic_pressure",
 
-    # ── NEW — Musculoskeletal ──────────────────────────────────
+    # ── Musculoskeletal ──────────────────────────────────
     "morning_stiffness", "muscle_cramps", "muscle_twitching",
     "bone_pain", "joint_redness", "joint_warmth",
     "limited_range_of_motion", "gait_abnormality", "foot_pain",
@@ -159,7 +154,7 @@ SYMPTOMS = [
     "lower_back_pain", "upper_back_pain", "heel_pain",
     "finger_swelling", "hand_stiffness", "muscle_spasms",
 
-    # ── NEW — Neurological ─────────────────────────────────────
+    # ── Neurological ─────────────────────────────────────
     "seizures", "tremors", "memory_loss", "numbness",
     "tingling", "coordination_problems", "involuntary_movements",
     "sensitivity_to_light", "sensitivity_to_sound",
@@ -168,7 +163,7 @@ SYMPTOMS = [
     "dropping_objects", "difficulty_writing",
     "electric_shock_sensation", "progressive_weakness",
 
-    # ── NEW — Skin / Dermatology ───────────────────────────────
+    # ── Skin / Dermatology ───────────────────────────────
     "dry_skin", "oily_skin", "skin_thickening", "skin_warmth",
     "skin_tenderness", "open_sores", "skin_ulcers", "skin_bumps",
     "skin_lesions", "skin_flaking", "skin_cracking",
@@ -177,19 +172,19 @@ SYMPTOMS = [
     "oozing_from_skin", "skin_fissures", "nail_discoloration",
     "nail_thickening",
 
-    # ── NEW — Mental / Behavioural ─────────────────────────────
+    # ── Mental / Behavioural ─────────────────────────────
     "panic_attacks", "mood_changes", "agitation", "apathy",
     "confusion_episodes", "tearfulness", "hopelessness",
     "social_withdrawal", "poor_concentration",
     "sleep_disturbance", "nightmares", "loss_of_interest",
 
-    # ── NEW — Reproductive / Hormonal ──────────────────────────
+    # ── Reproductive / Hormonal ──────────────────────────
     "pelvic_pain", "menstrual_cramps", "heavy_periods",
     "breast_tenderness", "hot_flashes", "vaginal_discharge",
     "vaginal_itching", "testicular_pain", "low_libido",
     "irregular_periods",
 
-    # ── NEW — Immune / Systemic ────────────────────────────────
+    # ── Immune / Systemic ────────────────────────────────
     "photosensitivity", "dry_eyes_and_mouth", "raynaud_phenomenon",
     "butterfly_rash", "mouth_ulcers_recurrent",
 ]
@@ -963,8 +958,8 @@ DISEASE_SYMPTOMS = {
 SAMPLES_PER_DISEASE = 150
 
 
-def generate_samples(disease_name, symptom_list, n_samples, all_symptoms):
-    """Generate n_samples rows for a disease with realistic variation."""
+def build_disease_records(disease_name, symptom_list, n_samples, all_symptoms):
+    """Compile n_samples clinical vectors for a target disease entity."""
     rows = []
     n_symp = len(symptom_list)
     for _ in range(n_samples):
@@ -989,18 +984,18 @@ def main():
                 SYMPTOMS.append(s)
                 symptom_set.add(s)
 
-    print(f"Symptom count : {len(SYMPTOMS)}")
-    print(f"Disease count : {len(DISEASE_SYMPTOMS)}")
+    print(f"Symptom Feature Index : {len(SYMPTOMS)}")
+    print(f"Disease Taxonomy     : {len(DISEASE_SYMPTOMS)}")
 
     train_rows = []
     for disease, symptoms in DISEASE_SYMPTOMS.items():
-        train_rows.extend(generate_samples(disease, symptoms, SAMPLES_PER_DISEASE, SYMPTOMS))
+        train_rows.extend(build_disease_records(disease, symptoms, SAMPLES_PER_DISEASE, SYMPTOMS))
 
     train_df = pd.DataFrame(train_rows, columns=SYMPTOMS + ["prognosis"])
     train_df = train_df.sample(frac=1, random_state=42).reset_index(drop=True)
     train_path = os.path.join(script_dir, "Training.csv")
     train_df.to_csv(train_path, index=False)
-    print(f"  -> {train_path}  ({len(train_df)} rows x {len(train_df.columns)} cols)")
+    print(f"  -> {train_path}  ({len(train_df)} records x {len(train_df.columns)} columns)")
 
     test_rows = []
     for disease, symptoms in DISEASE_SYMPTOMS.items():
@@ -1013,7 +1008,7 @@ def main():
     test_df = pd.DataFrame(test_rows, columns=SYMPTOMS + ["prognosis"])
     test_path = os.path.join(script_dir, "Testing.csv")
     test_df.to_csv(test_path, index=False)
-    print(f"  -> {test_path}  ({len(test_df)} rows x {len(test_df.columns)} cols)")
+    print(f"  -> {test_path}  ({len(test_df)} records x {len(test_df.columns)} columns)")
 
 
 if __name__ == "__main__":

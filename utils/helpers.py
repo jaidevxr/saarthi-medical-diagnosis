@@ -1,5 +1,5 @@
 """
-Helper utilities: NLP symptom parser, prediction history management,
+Helper utilities: Precise NLP symptom parser, prediction history management,
 and general-purpose functions.
 """
 
@@ -36,13 +36,6 @@ def load_prediction_history():
 def save_prediction(symptoms, predictions):
     """
     Append a prediction record to history.
-
-    Parameters
-    ----------
-    symptoms : list[str]
-        Human-readable symptom names selected by the user.
-    predictions : list[dict]
-        Each dict has keys 'disease' and 'probability'.
     """
     _ensure_history_dir()
     history = load_prediction_history()
@@ -51,8 +44,7 @@ def save_prediction(symptoms, predictions):
         "symptoms": symptoms,
         "predictions": predictions,
     }
-    history.insert(0, record)  # newest first
-    # Keep last 500 entries
+    history.insert(0, record)
     history = history[:500]
     with open(_HISTORY_FILE, "w", encoding="utf-8") as f:
         json.dump(history, f, indent=2, ensure_ascii=False)
@@ -65,10 +57,9 @@ def clear_prediction_history():
 
 
 # ─────────────────────────────────────────────────
-# Simple NLP Symptom Parser (NO external libraries)
+# Precise NLP Symptom Parser
 # ─────────────────────────────────────────────────
 
-# Common English stop words (subset)
 _STOP_WORDS = {
     "i", "me", "my", "myself", "we", "our", "ours", "ourselves", "you",
     "your", "yours", "yourself", "yourselves", "he", "him", "his",
@@ -94,343 +85,253 @@ _STOP_WORDS = {
     "went", "lately", "past", "suffering",
 }
 
-# Extended keyword mapping: user might type any of these → mapped symptom
+_GENERIC_WORDS = {
+    "pain", "skin", "dry", "swollen", "red", "dark", "yellow", "loss",
+    "patch", "patches", "discharge", "pressure", "stiff", "stiffness",
+    "weakness", "cramps", "fullness", "sore", "dents", "spots", "burning",
+    "cough", "fever", "cramping", "warmth", "redness", "dusting", "peeling",
+    "flaking", "cracking", "scaling", "thickening", "lesions", "fissures",
+    "ulcers", "bumps", "water", "watering", "cold", "hot", "mild", "high",
+    "severe", "intense", "sharp", "dull", "persistent",
+}
+
 _KEYWORD_MAP = {
-    # ── Direct symptom keywords ──
-    "itch": "itching",
-    "itchy": "itching",
-    "itching": "itching",
-    "rash": "skin_rash",
-    "skin rash": "skin_rash",
-    "eruptions": "nodal_skin_eruptions",
-    "sneezing": "continuous_sneezing",
-    "sneeze": "continuous_sneezing",
-    "shiver": "shivering",
-    "shivering": "shivering",
-    "chill": "chills",
-    "chills": "chills",
-    "joint pain": "joint_pain",
-    "joint ache": "joint_pain",
-    "stomach pain": "stomach_pain",
-    "stomach ache": "stomach_pain",
-    "tummy pain": "stomach_pain",
-    "acidity": "acidity",
-    "acid reflux": "acidity",
-    "heartburn": "acidity",
-    "ulcer": "ulcers_on_tongue",
-    "tongue ulcer": "ulcers_on_tongue",
-    "mouth ulcer": "ulcers_on_tongue",
-    "muscle wasting": "muscle_wasting",
-    "vomit": "vomiting",
-    "vomiting": "vomiting",
-    "throw up": "vomiting",
-    "throwing up": "vomiting",
-    "puke": "vomiting",
-    "burning urination": "burning_micturition",
-    "burning micturition": "burning_micturition",
-    "burning pee": "burning_micturition",
-    "painful urination": "burning_micturition",
-    "spotting": "spotting_urination",
-    "fatigue": "fatigue",
-    "tired": "fatigue",
-    "tiredness": "fatigue",
-    "exhaustion": "fatigue",
-    "exhausted": "fatigue",
-    "weight gain": "weight_gain",
-    "gaining weight": "weight_gain",
-    "anxiety": "anxiety",
-    "anxious": "anxiety",
-    "nervous": "anxiety",
-    "cold hands": "cold_hands_and_feets",
-    "cold feet": "cold_hands_and_feets",
-    "cold extremities": "cold_hands_and_feets",
-    "mood swings": "mood_swings",
-    "mood swing": "mood_swings",
-    "weight loss": "weight_loss",
-    "losing weight": "weight_loss",
-    "restless": "restlessness",
-    "restlessness": "restlessness",
-    "lethargy": "lethargy",
-    "lethargic": "lethargy",
-    "sluggish": "lethargy",
-    "patches throat": "patches_in_throat",
-    "throat patches": "patches_in_throat",
-    "irregular sugar": "irregular_sugar_level",
-    "blood sugar": "irregular_sugar_level",
-    "sugar level": "irregular_sugar_level",
-    "cough": "cough",
-    "coughing": "cough",
-    "fever": "high_fever",
-    "high fever": "high_fever",
-    "temperature": "high_fever",
-    "sunken eyes": "sunken_eyes",
-    "breathless": "breathlessness",
-    "breathlessness": "breathlessness",
+    # ── Multi-word Exact Clinical Phrases (High Priority) ──
+    "receiving unsterile injections": "receiving_unsterile_injections",
+    "receiving unsterile injection": "receiving_unsterile_injections",
+    "unsterile injections": "receiving_unsterile_injections",
+    "unsterile injection": "receiving_unsterile_injections",
+    "receiving blood transfusion": "receiving_blood_transfusion",
+    "blood transfusion": "receiving_blood_transfusion",
+    "right lower abdominal pain": "right_lower_abdominal_pain",
+    "right upper abdominal pain": "right_upper_abdominal_pain",
+    "left lower abdominal pain": "left_lower_abdominal_pain",
+    "pain behind the eyes": "pain_behind_the_eyes",
+    "pain behind eyes": "pain_behind_the_eyes",
+    "one sided severe headache": "one_sided_headache",
+    "one sided headache": "one_sided_headache",
+    "aura before headache": "aura_before_headache",
+    "sensitivity to light": "sensitivity_to_light",
+    "sensitivity to sound": "sensitivity_to_sound",
     "shortness of breath": "breathlessness",
-    "short of breath": "breathlessness",
     "difficulty breathing": "breathlessness",
-    "sweating": "sweating",
-    "sweat": "sweating",
-    "perspiration": "sweating",
-    "dehydration": "dehydration",
-    "dehydrated": "dehydration",
-    "indigestion": "indigestion",
-    "headache": "headache",
-    "head ache": "headache",
-    "head pain": "headache",
-    "migraine": "headache",
-    "yellow skin": "yellowish_skin",
+    "short of breath": "breathlessness",
+    "rust colored phlegm": "rusty_sputum",
+    "rusty sputum": "rusty_sputum",
+    "blood in sputum": "blood_in_sputum",
+    "coughing blood": "blood_in_sputum",
+    "night sweats": "night_sweats",
+    "chronic fatigue": "chronic_fatigue",
+    "coughing at night": "coughing_at_night",
+    "barking cough": "barking_cough",
+    "burning micturition": "burning_micturition",
+    "burning urination": "burning_micturition",
+    "bladder discomfort": "bladder_discomfort",
+    "urinary urgency": "urinary_urgency",
+    "foul smell of urine": "foul_smell_of_urine",
+    "smelly urine": "foul_smell_of_urine",
+    "cloudy urine": "cloudy_urine",
     "yellowish skin": "yellowish_skin",
-    "jaundice": "yellowish_skin",
+    "yellow skin": "yellowish_skin",
+    "yellowing of eyes": "yellowing_of_eyes",
+    "yellow eyes": "yellowing_of_eyes",
     "dark urine": "dark_urine",
-    "nausea": "nausea",
-    "nauseous": "nausea",
-    "queasy": "nausea",
+    "red spots over body": "red_spots_over_body",
+    "red spots": "red_spots_over_body",
+    "silver like dusting": "silver_like_dusting",
+    "silver dusting": "silver_like_dusting",
+    "small dents in nails": "small_dents_in_nails",
+    "nail dents": "small_dents_in_nails",
+    "inflammatory nails": "inflammatory_nails",
+    "joint pain": "joint_pain",
+    "joint redness": "joint_redness",
+    "joint warmth": "joint_warmth",
+    "swelling joints": "swelling_joints",
+    "swollen joints": "swelling_joints",
+    "foot pain": "foot_pain",
+    "knee pain": "knee_pain",
+    "hip joint pain": "hip_joint_pain",
+    "hip pain": "hip_joint_pain",
+    "ear pain": "ear_pain",
+    "ear discharge": "ear_discharge",
+    "hearing loss": "hearing_loss",
+    "ear fullness": "ear_fullness",
+    "balance problems": "balance_problems",
+    "red eye": "red_eye",
+    "redness of eyes": "redness_of_eyes",
+    "eye discharge": "eye_discharge",
+    "eye itching": "eye_itching",
+    "watering from eyes": "watering_from_eyes",
+    "crusty eyelids": "crusty_eyelids",
+    "photophobia": "photophobia",
     "loss of appetite": "loss_of_appetite",
     "no appetite": "loss_of_appetite",
-    "not hungry": "loss_of_appetite",
-    "appetite loss": "loss_of_appetite",
-    "eye pain": "pain_behind_the_eyes",
-    "pain behind eyes": "pain_behind_the_eyes",
-    "back pain": "back_pain",
-    "backache": "back_pain",
-    "lower back pain": "back_pain",
-    "constipation": "constipation",
-    "constipated": "constipation",
+    "cold hands and feet": "cold_hands_and_feets",
+    "cold hands and feets": "cold_hands_and_feets",
+    "cold feet": "cold_hands_and_feets",
     "abdominal pain": "abdominal_pain",
-    "abdomen pain": "abdominal_pain",
+    "stomach pain": "stomach_pain",
     "belly pain": "belly_pain",
-    "diarrhea": "diarrhoea",
-    "diarrhoea": "diarrhoea",
-    "loose stools": "diarrhoea",
-    "loose motions": "diarrhoea",
-    "mild fever": "mild_fever",
-    "low grade fever": "mild_fever",
-    "slight fever": "mild_fever",
-    "yellow urine": "yellow_urine",
-    "yellow eyes": "yellowing_of_eyes",
-    "yellowing eyes": "yellowing_of_eyes",
-    "liver failure": "acute_liver_failure",
-    "fluid overload": "fluid_overload",
-    "swollen stomach": "swelling_of_stomach",
-    "stomach swelling": "swelling_of_stomach",
-    "swollen lymph": "swelled_lymph_nodes",
-    "lymph nodes": "swelled_lymph_nodes",
-    "malaise": "malaise",
-    "general discomfort": "malaise",
-    "unwell": "malaise",
-    "blurred vision": "blurred_and_distorted_vision",
-    "blurry vision": "blurred_and_distorted_vision",
-    "distorted vision": "blurred_and_distorted_vision",
-    "phlegm": "phlegm",
-    "mucus": "phlegm",
-    "throat irritation": "throat_irritation",
-    "sore throat": "throat_irritation",
-    "scratchy throat": "throat_irritation",
-    "red eyes": "redness_of_eyes",
-    "eye redness": "redness_of_eyes",
+    "abdominal cramping": "abdominal_cramping",
+    "abdominal bloating": "abdominal_bloating",
+    "facial pain": "facial_pain",
+    "facial pressure": "facial_pressure",
+    "nasal discharge": "nasal_discharge",
     "sinus pressure": "sinus_pressure",
-    "sinus": "sinus_pressure",
-    "runny nose": "runny_nose",
-    "running nose": "runny_nose",
-    "congestion": "congestion",
-    "nasal congestion": "congestion",
-    "stuffy nose": "congestion",
-    "blocked nose": "congestion",
-    "chest pain": "chest_pain",
-    "chest tightness": "chest_pain",
-    "weak limbs": "weakness_in_limbs",
-    "limb weakness": "weakness_in_limbs",
-    "fast heart rate": "fast_heart_rate",
-    "rapid heartbeat": "fast_heart_rate",
-    "heart racing": "fast_heart_rate",
-    "tachycardia": "fast_heart_rate",
-    "bowel pain": "pain_during_bowel_movements",
-    "anal pain": "pain_in_anal_region",
-    "bloody stool": "bloody_stool",
-    "blood in stool": "bloody_stool",
+    "post nasal drip": "post_nasal_drip",
+    "sore throat": "sore_throat",
+    "painful swallowing": "painful_swallowing",
+    "swelled lymph nodes": "swelled_lymph_nodes",
+    "lymph nodes": "swelled_lymph_nodes",
+    "patches in throat": "patches_in_throat",
+    "white patches on tongue": "white_patches_on_tongue",
+    "white patches on throat": "white_patches_on_tongue",
+    "skin tenderness": "skin_tenderness",
+    "skin rash": "skin_rash",
+    "skin rash blister": "blister",
+    "intense itching": "itching",
+    "skin bumps": "skin_bumps",
+    "skin fissures": "skin_fissures",
+    "crust formation": "crust_formation",
+    "skin flaking": "skin_flaking",
+    "skin cracking": "skin_cracking",
+    "skin peeling": "skin_peeling",
+    "skin scaling": "skin_scaling",
+    "dry skin": "dry_skin",
+    "skin burning": "skin_burning",
+    "weight gain": "weight_gain",
+    "weight loss": "weight_loss",
+    "mood swings": "mood_swings",
+    "puffy face and eyes": "puffy_face_and_eyes",
+    "puffy face": "puffy_face_and_eyes",
+    "hair loss": "hair_loss",
+    "thinning hair": "hair_loss",
+    "morning stiffness": "morning_stiffness",
+    "finger swelling": "finger_swelling",
+    "back pain": "back_pain",
+    "lower back pain": "lower_back_pain",
     "neck pain": "neck_pain",
     "stiff neck": "stiff_neck",
-    "dizzy": "dizziness",
+    "chest pain": "chest_pain",
+    "chest pressure": "chest_pressure",
+    "chest tightness": "chest_tightness",
+    "muscle pain": "muscle_pain",
+    "body aches": "body_aches",
+    "body ache": "body_aches",
+    "muscle weakness": "muscle_weakness",
+    "weakness in limbs": "weakness_in_limbs",
+    "fast heart rate": "fast_heart_rate",
+    "rapid heartbeat": "fast_heart_rate",
+    "excessive thirst": "excessive_thirst",
+    "frequent urination": "polyuria",
+    "excessive hunger": "excessive_hunger",
+    "blurred vision": "blurred_and_distorted_vision",
+    "visual disturbances": "visual_disturbances",
+    "visual disturbance": "visual_disturbances",
+    "toxic look": "toxic_look_(typhos)",
+    "toxic look typhos": "toxic_look_(typhos)",
+
+    # ── Single-word Direct Clinical Symptoms ──
+    "itching": "itching",
+    "itch": "itching",
+    "itchy": "itching",
+    "shivering": "shivering",
+    "shiver": "shivering",
+    "chills": "chills",
+    "chill": "chills",
+    "acidity": "acidity",
+    "heartburn": "acidity",
+    "vomiting": "vomiting",
+    "vomit": "vomiting",
+    "fatigue": "fatigue",
+    "anxiety": "anxiety",
+    "restlessness": "restlessness",
+    "lethargy": "lethargy",
+    "cough": "cough",
+    "coughing": "cough",
+    "high fever": "high_fever",
+    "mild fever": "mild_fever",
+    "sweating": "sweating",
+    "sweat": "sweating",
+    "dehydration": "dehydration",
+    "indigestion": "indigestion",
+    "headache": "headache",
+    "migraine": "headache",
+    "nausea": "nausea",
+    "nauseous": "nausea",
+    "constipation": "constipation",
+    "diarrhoea": "diarrhoea",
+    "diarrhea": "diarrhoea",
+    "malaise": "malaise",
+    "phlegm": "phlegm",
+    "congestion": "congestion",
     "dizziness": "dizziness",
-    "light headed": "dizziness",
-    "lightheaded": "dizziness",
+    "dizzy": "dizziness",
     "cramps": "cramps",
     "cramping": "cramps",
     "bruising": "bruising",
-    "bruise": "bruising",
     "obesity": "obesity",
-    "overweight": "obesity",
-    "swollen legs": "swollen_legs",
-    "leg swelling": "swollen_legs",
-    "varicose": "swollen_blood_vessels",
-    "puffy face": "puffy_face_and_eyes",
-    "puffy eyes": "puffy_face_and_eyes",
-    "thyroid": "enlarged_thyroid",
-    "brittle nails": "brittle_nails",
-    "nail brittle": "brittle_nails",
-    "excessive hunger": "excessive_hunger",
-    "always hungry": "excessive_hunger",
-    "tingling lips": "drying_and_tingling_lips",
     "slurred speech": "slurred_speech",
-    "speech difficulty": "slurred_speech",
-    "knee pain": "knee_pain",
-    "hip pain": "hip_joint_pain",
-    "hip joint pain": "hip_joint_pain",
-    "muscle weakness": "muscle_weakness",
-    "weak muscles": "muscle_weakness",
-    "swollen joints": "swelling_joints",
-    "joint swelling": "swelling_joints",
-    "stiffness": "movement_stiffness",
-    "movement stiffness": "movement_stiffness",
-    "spinning": "spinning_movements",
     "vertigo": "spinning_movements",
-    "loss of balance": "loss_of_balance",
-    "imbalance": "loss_of_balance",
-    "unsteady": "unsteadiness",
-    "unsteadiness": "unsteadiness",
-    "one side weakness": "weakness_of_one_body_side",
-    "loss of smell": "loss_of_smell",
-    "anosmia": "loss_of_smell",
-    "cant smell": "loss_of_smell",
-    "bladder discomfort": "bladder_discomfort",
-    "bladder pain": "bladder_discomfort",
-    "foul urine": "foul_smell_of_urine",
-    "smelly urine": "foul_smell_of_urine",
-    "urge to urinate": "continuous_feel_of_urine",
-    "frequent urination": "continuous_feel_of_urine",
-    "gas": "passage_of_gases",
-    "flatulence": "passage_of_gases",
-    "bloating": "passage_of_gases",
-    "internal itch": "internal_itching",
-    "internal itching": "internal_itching",
     "depression": "depression",
-    "depressed": "depression",
-    "sad": "depression",
-    "irritable": "irritability",
     "irritability": "irritability",
-    "muscle pain": "muscle_pain",
-    "body pain": "muscle_pain",
-    "body ache": "muscle_pain",
-    "myalgia": "muscle_pain",
-    "confusion": "altered_sensorium",
-    "altered sensorium": "altered_sensorium",
-    "disoriented": "altered_sensorium",
-    "red spots": "red_spots_over_body",
-    "red patches": "red_spots_over_body",
-    "menstrual irregularity": "abnormal_menstruation",
-    "irregular periods": "abnormal_menstruation",
-    "abnormal menstruation": "abnormal_menstruation",
-    "skin patches": "dischromic_patches",
-    "discoloration": "dischromic_patches",
-    "watery eyes": "watering_from_eyes",
-    "tearing": "watering_from_eyes",
-    "increased appetite": "increased_appetite",
-    "polyuria": "polyuria",
-    "excessive urination": "polyuria",
-    "family history": "family_history",
-    "genetic": "family_history",
-    "hereditary": "family_history",
-    "sputum": "mucoid_sputum",
-    "rusty sputum": "rusty_sputum",
-    "cannot concentrate": "lack_of_concentration",
-    "concentration": "lack_of_concentration",
-    "focus": "lack_of_concentration",
-    "visual disturbance": "visual_disturbances",
-    "vision problems": "visual_disturbances",
-    "blood transfusion": "receiving_blood_transfusion",
-    "unsterile injection": "receiving_unsterile_injections",
-    "coma": "coma",
-    "unconscious": "coma",
-    "stomach bleeding": "stomach_bleeding",
-    "distended abdomen": "distention_of_abdomen",
-    "alcohol": "history_of_alcohol_consumption",
-    "drinking": "history_of_alcohol_consumption",
-    "blood sputum": "blood_in_sputum",
-    "coughing blood": "blood_in_sputum",
-    "calf veins": "prominent_veins_on_calf",
-    "palpitations": "palpitations",
-    "heart pounding": "palpitations",
-    "painful walking": "painful_walking",
-    "walk pain": "painful_walking",
-    "pimples": "pus_filled_pimples",
-    "acne": "pus_filled_pimples",
-    "blackheads": "blackheads",
-    "scarring": "scurring",
-    "skin peeling": "skin_peeling",
-    "peeling skin": "skin_peeling",
-    "silver dusting": "silver_like_dusting",
-    "nail dents": "small_dents_in_nails",
-    "inflammatory nails": "inflammatory_nails",
-    "nail inflammation": "inflammatory_nails",
     "blister": "blister",
     "blisters": "blister",
-    "red sore nose": "red_sore_around_nose",
-    "nose sore": "red_sore_around_nose",
-    "yellow crust": "yellow_crust_ooze",
-    "oozing": "yellow_crust_ooze",
-    "wheezing": "breathlessness",
-    "ear pain": "headache",
+    "wheezing": "wheezing",
+    "stridor": "stridor",
+    "hoarseness": "hoarseness",
+    "nosebleeds": "nosebleeds",
+    "snoring": "snoring",
+    "drooling": "drooling",
+    "seizures": "seizures",
+    "tremors": "tremors",
+    "hives": "hives",
+    "vesicles": "vesicles",
+    "palpitations": "palpitations",
+    "blackheads": "blackheads",
+    "scurring": "scurring",
+    "gout": "joint_pain",
+    "tinnitus": "tinnitus_ringing",
+    "photosensitivity": "photosensitivity",
 }
 
 
 def parse_symptoms_from_text(text, valid_symptoms):
     """
-    Parse free-text user input and map to dataset symptom columns.
-
-    Pipeline: lowercase -> remove punctuation -> tokenize
-              -> remove stop words -> keyword matching
-
-    Parameters
-    ----------
-    text : str
-        User's natural language description, e.g.
-        "I have fever, cough and headache for three days."
-    valid_symptoms : list[str]
-        The 132 symptom column names from the dataset.
-
-    Returns
-    -------
-    list[str]
-        Matched symptom column names.
+    Parse free-text user input and map to dataset symptom columns using
+    strict phrase and non-generic keyword matching.
     """
     if not text or not text.strip():
         return []
 
-    # Step 1: lowercase
-    text = text.lower()
-
-    # Step 2: remove punctuation (keep spaces)
-    text = re.sub(r"[^\w\s]", " ", text)
-
-    # Step 3: normalise whitespace
-    text = re.sub(r"\s+", " ", text).strip()
+    text_lower = text.lower()
+    text_clean = re.sub(r"[^\w\s]", " ", text_lower)
+    text_clean = re.sub(r"\s+", " ", text_clean).strip()
 
     matched = set()
+    remaining_text = text_clean
 
-    # Step 4: Try matching multi-word keyword phrases first (longer first)
+    # Step 1: Match multi-word phrases first (sorted longest to shortest)
     sorted_keywords = sorted(_KEYWORD_MAP.keys(), key=len, reverse=True)
-    remaining_text = text
+
     for kw in sorted_keywords:
-        if kw in remaining_text:
+        pattern = r"\b" + re.escape(kw) + r"\b"
+        if re.search(pattern, remaining_text):
             symptom = _KEYWORD_MAP[kw]
             if symptom in valid_symptoms:
                 matched.add(symptom)
-            # Remove matched phrase to avoid double-counting
-            remaining_text = remaining_text.replace(kw, " ", 1)
+            remaining_text = re.sub(pattern, " ", remaining_text)
 
-    # Step 5: Tokenise remaining text and try individual words
+    # Step 2: Check remaining text tokens for exact single-word matches
     tokens = remaining_text.split()
-    tokens = [t for t in tokens if t not in _STOP_WORDS and len(t) > 2]
-
     for token in tokens:
-        # Direct column name match
+        if token in _STOP_WORDS or token in _GENERIC_WORDS or len(token) < 3:
+            continue
         if token in valid_symptoms:
             matched.add(token)
-        # Match against column names with underscores removed
-        for sym in valid_symptoms:
-            clean = sym.replace("_", "")
-            if token == clean or token in sym.split("_"):
+        elif token in _KEYWORD_MAP:
+            sym = _KEYWORD_MAP[token]
+            if sym in valid_symptoms:
                 matched.add(sym)
 
     return sorted(matched)

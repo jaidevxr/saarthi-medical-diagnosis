@@ -30,7 +30,6 @@ np.random.seed(42)
 
 # ═══════════════════════════════════════════════════════════════════
 # MASTER SYMPTOM LIST — 385 symptoms
-# Original 132 Kaggle symptoms + 253 new clinically-relevant symptoms
 # ═══════════════════════════════════════════════════════════════════
 
 SYMPTOMS = [
@@ -78,7 +77,7 @@ SYMPTOMS = [
     "small_dents_in_nails", "inflammatory_nails", "blister",
     "red_sore_around_nose", "yellow_crust_ooze",
 
-    # ── NEW — General / Constitutional (20) ─────────────────────
+    # ── NEW — General / Constitutional ─────────────────────────
     "night_sweats", "chronic_fatigue", "general_weakness",
     "pale_skin", "flushing", "excessive_thirst", "dry_mouth",
     "bad_breath", "metallic_taste", "loss_of_taste",
@@ -87,13 +86,13 @@ SYMPTOMS = [
     "slow_wound_healing", "frequent_infections", "low_energy",
     "feeling_unwell",
 
-    # ── NEW — Head / Face (12) ──────────────────────────────────
+    # ── NEW — Head / Face ──────────────────────────────────────
     "facial_pain", "facial_swelling", "facial_drooping",
     "facial_redness", "jaw_pain", "jaw_stiffness",
     "scalp_tenderness", "hair_loss", "thinning_hair",
     "facial_numbness", "lockjaw", "swollen_face",
 
-    # ── NEW — Eye / Ophthalmology (16) ──────────────────────────
+    # ── NEW — Eye / Ophthalmology ──────────────────────────────
     "eye_pain", "eye_discharge", "eye_swelling", "dry_eyes",
     "photophobia", "floaters_in_vision", "eye_itching",
     "double_vision", "eye_burning", "crusty_eyelids",
@@ -101,39 +100,39 @@ SYMPTOMS = [
     "excessive_tearing", "red_eye", "vision_loss",
     "light_flashes_in_vision",
 
-    # ── NEW — Ear (10) ──────────────────────────────────────────
+    # ── NEW — Ear ──────────────────────────────────────────────
     "ear_pain", "ear_discharge", "hearing_loss",
     "tinnitus_ringing", "ear_fullness", "ear_itching",
     "ear_popping", "muffled_hearing", "ear_bleeding",
     "balance_problems",
 
-    # ── NEW — Nose / Sinus (8) ──────────────────────────────────
+    # ── NEW — Nose / Sinus ─────────────────────────────────────
     "nasal_discharge", "post_nasal_drip", "nosebleeds",
     "facial_pressure", "nasal_itching", "snoring",
     "nasal_obstruction", "loss_of_smell_gradual",
 
-    # ── NEW — Throat / Mouth (14) ───────────────────────────────
+    # ── NEW — Throat / Mouth ───────────────────────────────────
     "sore_throat", "difficulty_swallowing", "painful_swallowing",
     "hoarseness", "voice_changes", "dry_throat",
     "throat_swelling", "mouth_sores", "tongue_swelling",
     "bleeding_gums", "tooth_pain", "lump_in_throat",
     "drooling", "white_patches_on_tongue",
 
-    # ── NEW — Respiratory (14) ──────────────────────────────────
+    # ── NEW — Respiratory ──────────────────────────────────────
     "wheezing", "dry_cough", "productive_cough",
     "chest_tightness", "rapid_breathing", "shallow_breathing",
     "coughing_at_night", "barking_cough", "stridor",
     "pleuritic_chest_pain", "coughing_after_eating",
     "air_hunger", "orthopnea", "nocturnal_dyspnea",
 
-    # ── NEW — Cardiovascular (14) ───────────────────────────────
+    # ── NEW — Cardiovascular ───────────────────────────────────
     "irregular_heartbeat", "slow_heartbeat", "chest_pressure",
     "leg_pain", "calf_pain", "ankle_swelling", "edema",
     "exercise_intolerance", "blue_discoloration",
     "cold_feet", "warm_swollen_leg", "fainting",
     "exertional_chest_pain", "jaw_pain_with_exertion",
 
-    # ── NEW — Gastrointestinal (22) ─────────────────────────────
+    # ── NEW — Gastrointestinal ─────────────────────────────────
     "heartburn", "acid_reflux", "excessive_belching",
     "rectal_bleeding", "mucus_in_stool", "abdominal_cramping",
     "abdominal_bloating", "rumbling_stomach", "black_stool",
@@ -144,14 +143,14 @@ SYMPTOMS = [
     "regurgitation", "loss_of_weight_with_appetite",
     "clay_colored_stool",
 
-    # ── NEW — Kidney / Urinary (14) ─────────────────────────────
+    # ── NEW — Kidney / Urinary ─────────────────────────────────
     "blood_in_urine", "foamy_urine", "decreased_urine_output",
     "urinary_urgency", "urinary_incontinence", "flank_pain",
     "groin_pain", "cloudy_urine", "difficulty_starting_urination",
     "weak_urine_stream", "dribbling_urine", "nighttime_urination",
     "kidney_pain", "pelvic_pressure",
 
-    # ── NEW — Musculoskeletal (22) ──────────────────────────────
+    # ── NEW — Musculoskeletal ──────────────────────────────────
     "morning_stiffness", "muscle_cramps", "muscle_twitching",
     "bone_pain", "joint_redness", "joint_warmth",
     "limited_range_of_motion", "gait_abnormality", "foot_pain",
@@ -160,7 +159,7 @@ SYMPTOMS = [
     "lower_back_pain", "upper_back_pain", "heel_pain",
     "finger_swelling", "hand_stiffness", "muscle_spasms",
 
-    # ── NEW — Neurological (18) ─────────────────────────────────
+    # ── NEW — Neurological ─────────────────────────────────────
     "seizures", "tremors", "memory_loss", "numbness",
     "tingling", "coordination_problems", "involuntary_movements",
     "sensitivity_to_light", "sensitivity_to_sound",
@@ -169,7 +168,7 @@ SYMPTOMS = [
     "dropping_objects", "difficulty_writing",
     "electric_shock_sensation", "progressive_weakness",
 
-    # ── NEW — Skin / Dermatology additional (22) ────────────────
+    # ── NEW — Skin / Dermatology ───────────────────────────────
     "dry_skin", "oily_skin", "skin_thickening", "skin_warmth",
     "skin_tenderness", "open_sores", "skin_ulcers", "skin_bumps",
     "skin_lesions", "skin_flaking", "skin_cracking",
@@ -178,32 +177,25 @@ SYMPTOMS = [
     "oozing_from_skin", "skin_fissures", "nail_discoloration",
     "nail_thickening",
 
-    # ── NEW — Mental / Behavioural (12) ─────────────────────────
+    # ── NEW — Mental / Behavioural ─────────────────────────────
     "panic_attacks", "mood_changes", "agitation", "apathy",
     "confusion_episodes", "tearfulness", "hopelessness",
     "social_withdrawal", "poor_concentration",
     "sleep_disturbance", "nightmares", "loss_of_interest",
 
-    # ── NEW — Reproductive / Hormonal (10) ──────────────────────
+    # ── NEW — Reproductive / Hormonal ──────────────────────────
     "pelvic_pain", "menstrual_cramps", "heavy_periods",
     "breast_tenderness", "hot_flashes", "vaginal_discharge",
     "vaginal_itching", "testicular_pain", "low_libido",
     "irregular_periods",
 
-    # ── NEW — Immune / Systemic (5) ─────────────────────────────
+    # ── NEW — Immune / Systemic ────────────────────────────────
     "photosensitivity", "dry_eyes_and_mouth", "raynaud_phenomenon",
     "butterfly_rash", "mouth_ulcers_recurrent",
 ]
 
-# ═══════════════════════════════════════════════════════════════════
-# DISEASE → SYMPTOM MAPPINGS  (131 diseases across 12 categories)
-# ═══════════════════════════════════════════════════════════════════
-
 DISEASE_SYMPTOMS = {
-
-    # ─────────────────────────────────────────────────────────────
-    # CATEGORY 1 — RESPIRATORY DISEASES (15)
-    # ─────────────────────────────────────────────────────────────
+    # ── RESPIRATORY DISEASES ─────────────────────────────────────
     "Common Cold": [
         "continuous_sneezing", "chills", "fatigue", "cough", "high_fever",
         "headache", "swelled_lymph_nodes", "malaise", "phlegm",
@@ -242,7 +234,7 @@ DISEASE_SYMPTOMS = {
     "COPD": [
         "breathlessness", "chronic_fatigue", "cough", "productive_cough",
         "wheezing", "chest_tightness", "weight_loss", "ankle_swelling",
-        "fatigue", "exercise_intolerance", "barrel_shaped_chest",
+        "fatigue", "exercise_intolerance",
     ],
     "Sinusitis": [
         "headache", "facial_pain", "facial_pressure", "congestion",
@@ -253,12 +245,12 @@ DISEASE_SYMPTOMS = {
     "Laryngitis": [
         "hoarseness", "voice_changes", "sore_throat", "dry_throat",
         "dry_cough", "throat_irritation", "difficulty_swallowing",
-        "mild_fever", "swelled_lymph_nodes", "loss_of_voice",
+        "mild_fever", "swelled_lymph_nodes",
     ],
     "Pharyngitis": [
         "sore_throat", "painful_swallowing", "throat_irritation",
         "swelled_lymph_nodes", "high_fever", "headache", "body_aches",
-        "redness_of_eyes", "throat_swelling", "white_patches_on_tongue",
+        "redness_of_eyes", "throat_swelling",
     ],
     "Pleurisy": [
         "pleuritic_chest_pain", "chest_pain", "breathlessness",
@@ -285,9 +277,7 @@ DISEASE_SYMPTOMS = {
         "dizziness", "fainting", "anxiety", "warm_swollen_leg",
     ],
 
-    # ─────────────────────────────────────────────────────────────
-    # CATEGORY 2 — CARDIOVASCULAR DISEASES (10)
-    # ─────────────────────────────────────────────────────────────
+    # ── CARDIOVASCULAR DISEASES ──────────────────────────────────
     "Heart attack": [
         "vomiting", "breathlessness", "sweating", "chest_pain",
         "chest_pressure", "jaw_pain_with_exertion", "nausea",
@@ -301,7 +291,7 @@ DISEASE_SYMPTOMS = {
     "Varicose veins": [
         "fatigue", "cramps", "bruising", "obesity", "swollen_legs",
         "swollen_blood_vessels", "prominent_veins_on_calf",
-        "leg_pain", "ankle_swelling", "skin_discoloration",
+        "leg_pain", "ankle_swelling",
     ],
     "Angina": [
         "exertional_chest_pain", "chest_pressure", "breathlessness",
@@ -338,14 +328,18 @@ DISEASE_SYMPTOMS = {
         "palpitations", "dizziness", "nausea", "fainting",
     ],
 
-    # ─────────────────────────────────────────────────────────────
-    # CATEGORY 3 — NEUROLOGICAL DISORDERS (12)
-    # ─────────────────────────────────────────────────────────────
+    # ── NEUROLOGICAL DISORDERS ───────────────────────────────────
     "Migraine": [
-        "acidity", "indigestion", "headache", "blurred_and_distorted_vision",
-        "excessive_hunger", "stiff_neck", "depression", "irritability",
-        "visual_disturbances", "one_sided_headache", "aura_before_headache",
-        "sensitivity_to_light", "sensitivity_to_sound", "nausea", "vomiting",
+        "one_sided_headache", "sensitivity_to_light",
+        "sensitivity_to_sound", "nausea", "vomiting",
+        "headache", "stiff_neck",
+    ],
+    "Migraine with Aura": [
+        "one_sided_headache", "aura_before_headache",
+        "visual_disturbances", "sensitivity_to_light",
+        "sensitivity_to_sound", "nausea", "vomiting",
+        "temporary_vision_loss", "tingling",
+        "numbness", "slurred_speech",
     ],
     "Cervical spondylosis": [
         "back_pain", "weakness_in_limbs", "neck_pain", "dizziness",
@@ -403,9 +397,7 @@ DISEASE_SYMPTOMS = {
         "restlessness", "sensitivity_to_light",
     ],
 
-    # ─────────────────────────────────────────────────────────────
-    # CATEGORY 4 — SKIN / DERMATOLOGY (15)
-    # ─────────────────────────────────────────────────────────────
+    # ── SKIN / DERMATOLOGY ───────────────────────────────────────
     "Fungal infection": [
         "itching", "skin_rash", "nodal_skin_eruptions",
         "dischromic_patches", "ring_shaped_rash", "skin_scaling",
@@ -426,8 +418,7 @@ DISEASE_SYMPTOMS = {
     ],
     "Eczema": [
         "itching", "skin_rash", "dry_skin", "skin_cracking",
-        "skin_flaking", "skin_thickening", "skin_burning",
-        "oozing_from_skin", "vesicles", "redness_of_eyes",
+        "skin_flaking", "skin_thickening", "oozing_from_skin",
     ],
     "Cellulitis": [
         "skin_rash", "skin_warmth", "skin_tenderness", "swollen_legs",
@@ -451,12 +442,10 @@ DISEASE_SYMPTOMS = {
     "Scabies": [
         "itching", "skin_rash", "skin_bumps", "skin_lesions",
         "vesicles", "skin_fissures", "crust_formation",
-        "night_sweats",
     ],
     "Contact Dermatitis": [
         "itching", "skin_rash", "skin_burning", "hives",
         "skin_flaking", "skin_cracking", "dry_skin", "vesicles",
-        "oozing_from_skin",
     ],
     "Ringworm": [
         "itching", "ring_shaped_rash", "skin_rash", "skin_scaling",
@@ -477,9 +466,7 @@ DISEASE_SYMPTOMS = {
         "crust_formation",
     ],
 
-    # ─────────────────────────────────────────────────────────────
-    # CATEGORY 5 — GASTROINTESTINAL DISEASES (18)
-    # ─────────────────────────────────────────────────────────────
+    # ── GASTROINTESTINAL DISEASES ────────────────────────────────
     "GERD": [
         "stomach_pain", "acidity", "ulcers_on_tongue", "vomiting",
         "cough", "chest_pain", "heartburn", "acid_reflux",
@@ -562,7 +549,7 @@ DISEASE_SYMPTOMS = {
     "Celiac Disease": [
         "diarrhoea", "abdominal_bloating", "weight_loss", "fatigue",
         "abdominal_pain", "greasy_stool", "nausea", "skin_rash",
-        "joint_pain", "bone_pain", "iron_deficiency",
+        "joint_pain", "bone_pain",
     ],
     "Food Poisoning": [
         "vomiting", "nausea", "diarrhoea", "abdominal_cramping",
@@ -574,10 +561,14 @@ DISEASE_SYMPTOMS = {
         "loss_of_appetite", "abdominal_bloating", "heartburn",
         "blood_in_vomit", "feeling_full_quickly", "epigastric_pain",
     ],
+    "Dimorphic hemmorhoids(piles)": [
+        "constipation", "pain_during_bowel_movements",
+        "pain_in_anal_region", "bloody_stool",
+        "irritation_in_anus", "rectal_bleeding",
+        "rectal_pain",
+    ],
 
-    # ─────────────────────────────────────────────────────────────
-    # CATEGORY 6 — KIDNEY / URINARY (7)
-    # ─────────────────────────────────────────────────────────────
+    # ── KIDNEY / URINARY ─────────────────────────────────────────
     "Urinary tract infection": [
         "burning_micturition", "bladder_discomfort",
         "foul_smell_of_urine", "continuous_feel_of_urine",
@@ -619,9 +610,7 @@ DISEASE_SYMPTOMS = {
         "nighttime_urination", "lower_back_pain",
     ],
 
-    # ─────────────────────────────────────────────────────────────
-    # CATEGORY 7 — ENDOCRINE / METABOLIC (9)
-    # ─────────────────────────────────────────────────────────────
+    # ── ENDOCRINE / METABOLIC ────────────────────────────────────
     "Diabetes": [
         "fatigue", "weight_loss", "restlessness", "lethargy",
         "irregular_sugar_level", "blurred_and_distorted_vision",
@@ -652,18 +641,18 @@ DISEASE_SYMPTOMS = {
     ],
     "Cushing Syndrome": [
         "weight_gain", "obesity", "flushing", "fatigue",
-        "muscle_weakness", "easy_bruising", "stretch_marks",
+        "muscle_weakness", "easy_bruising",
         "mood_changes", "high_fever", "irregular_periods",
-        "acne", "slow_wound_healing",
+        "slow_wound_healing",
     ],
     "Addison Disease": [
         "fatigue", "chronic_fatigue", "weight_loss", "muscle_weakness",
         "loss_of_appetite", "nausea", "vomiting",
         "abdominal_pain", "dizziness", "fainting",
-        "depression", "irritability", "dark_patches",
+        "depression", "irritability",
     ],
     "PCOS": [
-        "irregular_periods", "weight_gain", "acne",
+        "irregular_periods", "weight_gain",
         "hair_loss", "thinning_hair", "fatigue",
         "mood_swings", "pelvic_pain", "depression",
         "oily_skin", "skin_bumps",
@@ -672,7 +661,6 @@ DISEASE_SYMPTOMS = {
         "joint_pain", "joint_redness", "joint_warmth",
         "swelling_joints", "foot_pain", "knee_pain",
         "limited_range_of_motion", "high_fever",
-        "skin_peeling",
     ],
     "Vitamin D Deficiency": [
         "bone_pain", "muscle_weakness", "fatigue",
@@ -681,9 +669,7 @@ DISEASE_SYMPTOMS = {
         "frequent_infections",
     ],
 
-    # ─────────────────────────────────────────────────────────────
-    # CATEGORY 8 — INFECTIOUS DISEASES (20)
-    # ─────────────────────────────────────────────────────────────
+    # ── INFECTIOUS DISEASES ──────────────────────────────────────
     "Malaria": [
         "chills", "vomiting", "high_fever", "sweating", "headache",
         "nausea", "diarrhoea", "muscle_pain", "fatigue",
@@ -710,7 +696,7 @@ DISEASE_SYMPTOMS = {
         "itching", "skin_rash", "fatigue", "lethargy", "high_fever",
         "headache", "loss_of_appetite", "mild_fever",
         "swelled_lymph_nodes", "malaise", "red_spots_over_body",
-        "vesicles",
+        "blister", "vesicles",
     ],
     "Allergy": [
         "continuous_sneezing", "shivering", "chills",
@@ -789,9 +775,7 @@ DISEASE_SYMPTOMS = {
         "sore_throat", "runny_nose", "mild_fever",
     ],
 
-    # ─────────────────────────────────────────────────────────────
-    # CATEGORY 9 — ENT (Ear-Nose-Throat) (10)
-    # ─────────────────────────────────────────────────────────────
+    # ── ENT ──────────────────────────────────────────────────────
     "Otitis Media": [
         "ear_pain", "ear_discharge", "hearing_loss", "high_fever",
         "irritability", "headache", "ear_fullness",
@@ -826,7 +810,6 @@ DISEASE_SYMPTOMS = {
     "Vestibular Neuritis": [
         "spinning_movements", "nausea", "vomiting",
         "balance_problems", "unsteadiness", "dizziness",
-        "difficulty_concentrating",
     ],
     "Labyrinthitis": [
         "spinning_movements", "hearing_loss", "tinnitus_ringing",
@@ -844,9 +827,7 @@ DISEASE_SYMPTOMS = {
         "drooling", "hoarseness", "bad_breath", "lockjaw",
     ],
 
-    # ─────────────────────────────────────────────────────────────
-    # CATEGORY 10 — EYE / OPHTHALMOLOGY (8)
-    # ─────────────────────────────────────────────────────────────
+    # ── EYE / OPHTHALMOLOGY ──────────────────────────────────────
     "Conjunctivitis": [
         "red_eye", "eye_discharge", "eye_itching",
         "watering_from_eyes", "redness_of_eyes",
@@ -891,9 +872,7 @@ DISEASE_SYMPTOMS = {
         "headache", "swollen_eyelid", "vision_loss",
     ],
 
-    # ─────────────────────────────────────────────────────────────
-    # CATEGORY 11 — AUTOIMMUNE / RHEUMATOLOGY (8)
-    # ─────────────────────────────────────────────────────────────
+    # ── AUTOIMMUNE / RHEUMATOLOGY ────────────────────────────────
     "Osteoarthristis": [
         "joint_pain", "neck_pain", "knee_pain", "hip_joint_pain",
         "swelling_joints", "painful_walking", "morning_stiffness",
@@ -922,7 +901,6 @@ DISEASE_SYMPTOMS = {
     "Sjogren Syndrome": [
         "dry_eyes", "dry_mouth", "dry_eyes_and_mouth", "fatigue",
         "joint_pain", "skin_rash", "dry_skin",
-        "vaginal_dryness", "cough",
     ],
     "Ankylosing Spondylitis": [
         "lower_back_pain", "back_pain", "morning_stiffness",
@@ -943,9 +921,7 @@ DISEASE_SYMPTOMS = {
         "tingling", "abdominal_pain", "irritability",
     ],
 
-    # ─────────────────────────────────────────────────────────────
-    # CATEGORY 12 — GENERAL / OTHER (7)
-    # ─────────────────────────────────────────────────────────────
+    # ── GENERAL / OTHER ──────────────────────────────────────────
     "Anemia": [
         "fatigue", "pale_skin", "breathlessness", "dizziness",
         "cold_hands_and_feets", "headache", "fast_heart_rate",
@@ -956,10 +932,9 @@ DISEASE_SYMPTOMS = {
         "fatigue", "pale_skin", "brittle_nails", "hair_loss",
         "dizziness", "cold_hands_and_feets", "headache",
         "sore_throat", "dry_skin", "mouth_sores",
-        "restless_legs",
     ],
     "Heat Stroke": [
-        "high_fever", "hot_dry_skin", "nausea", "vomiting",
+        "high_fever", "nausea", "vomiting",
         "headache", "confusion_episodes", "fast_heart_rate",
         "breathlessness", "muscle_cramps", "fainting",
         "seizures",
@@ -983,13 +958,6 @@ DISEASE_SYMPTOMS = {
         "irritation_in_anus", "rectal_bleeding",
         "rectal_pain",
     ],
-    "Migraine with Aura": [
-        "one_sided_headache", "aura_before_headache",
-        "visual_disturbances", "sensitivity_to_light",
-        "sensitivity_to_sound", "nausea", "vomiting",
-        "temporary_vision_loss", "tingling",
-        "numbness", "slurred_speech",
-    ],
 }
 
 SAMPLES_PER_DISEASE = 150
@@ -1001,14 +969,10 @@ def generate_samples(disease_name, symptom_list, n_samples, all_symptoms):
     n_symp = len(symptom_list)
     for _ in range(n_samples):
         vec = {s: 0 for s in all_symptoms}
-        keep = max(2, int(n_symp * random.uniform(0.55, 1.0)))
+        keep = max(2, int(n_symp * random.uniform(0.7, 1.0)))
         active = random.sample(symptom_list, min(keep, n_symp))
         for s in active:
             vec[s] = 1
-        # 0-2 random noise symptoms
-        noise_pool = [s for s in all_symptoms if s not in symptom_list]
-        for ns in random.sample(noise_pool, min(random.randint(0, 2), len(noise_pool))):
-            vec[ns] = 1
         vec["prognosis"] = disease_name
         rows.append(vec)
     return rows
@@ -1017,13 +981,10 @@ def generate_samples(disease_name, symptom_list, n_samples, all_symptoms):
 def main():
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
-    # Validate all symptom references
     symptom_set = set(SYMPTOMS)
     for disease, syms in DISEASE_SYMPTOMS.items():
         bad = [s for s in syms if s not in symptom_set]
         if bad:
-            print(f"  WARNING: {disease} has unknown symptoms: {bad}")
-            # Auto-add missing symptoms so generation doesn't break
             for s in bad:
                 SYMPTOMS.append(s)
                 symptom_set.add(s)
@@ -1031,8 +992,6 @@ def main():
     print(f"Symptom count : {len(SYMPTOMS)}")
     print(f"Disease count : {len(DISEASE_SYMPTOMS)}")
 
-    # Training data
-    print("Generating training data ...")
     train_rows = []
     for disease, symptoms in DISEASE_SYMPTOMS.items():
         train_rows.extend(generate_samples(disease, symptoms, SAMPLES_PER_DISEASE, SYMPTOMS))
@@ -1043,8 +1002,6 @@ def main():
     train_df.to_csv(train_path, index=False)
     print(f"  -> {train_path}  ({len(train_df)} rows x {len(train_df.columns)} cols)")
 
-    # Testing data (one clean sample per disease)
-    print("Generating testing data ...")
     test_rows = []
     for disease, symptoms in DISEASE_SYMPTOMS.items():
         vec = {s: 0 for s in SYMPTOMS}
@@ -1057,12 +1014,6 @@ def main():
     test_path = os.path.join(script_dir, "Testing.csv")
     test_df.to_csv(test_path, index=False)
     print(f"  -> {test_path}  ({len(test_df)} rows x {len(test_df.columns)} cols)")
-
-    print(f"\nDataset generation complete.")
-    print(f"  Diseases : {len(DISEASE_SYMPTOMS)}")
-    print(f"  Symptoms : {len(SYMPTOMS)}")
-    print(f"  Train    : {len(train_df)} records")
-    print(f"  Test     : {len(test_df)} records")
 
 
 if __name__ == "__main__":

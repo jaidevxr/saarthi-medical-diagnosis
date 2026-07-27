@@ -5,7 +5,6 @@ Main Streamlit entry point — Instant Diagnosis Engine.
 Features:
 - Natural Language Description as DEFAULT input method.
 - Automatic real-time symptom detection and direct diagnosis prediction.
-- Custom medical favicon & branding.
 """
 
 import warnings
@@ -68,12 +67,10 @@ except Exception as e:
 
 # ── Sidebar Branding ──
 with st.sidebar:
-    if os.path.exists(_FAVICON):
-        st.image(_FAVICON, width=70)
     st.markdown(
         """
-        <div style="text-align:center;padding:0.2rem 0 0.5rem;">
-            <h2 style="margin:0;color:#2B6CB0 !important;font-weight:800;font-size:1.8rem;">Saarthi</h2>
+        <div style="text-align:center;padding:0.5rem 0;">
+            <h2 style="margin:0;color:#2B6CB0 !important;font-weight:800;font-size:1.8rem;">🩺 Saarthi</h2>
             <p style="margin:0.2rem 0 0;font-size:0.85rem;color:#4A5568 !important;font-weight:600;">
                 Medical Diagnosis Assistant
             </p>

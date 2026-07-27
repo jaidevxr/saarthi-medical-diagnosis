@@ -8,6 +8,9 @@ Features:
 - Custom medical favicon & branding.
 """
 
+import warnings
+warnings.filterwarnings("ignore")
+
 import streamlit as st
 import os, sys
 import pandas as pd
@@ -164,7 +167,6 @@ btn_clicked = st.button("🚀 Analyze Symptoms & Predict Diagnosis", type="prima
 
 # Run prediction directly if natural language description has detected symptoms OR if button clicked
 if (run_directly or btn_clicked) and selected_symptoms:
-    # Feature vector construction
     feature_vector = pd.DataFrame([[0] * len(symptom_columns)], columns=symptom_columns)
     for sym in selected_symptoms:
         if sym in feature_vector.columns:
@@ -183,7 +185,6 @@ if (run_directly or btn_clicked) and selected_symptoms:
     top_diseases = encoder.inverse_transform(top_5_idx)
     top_probs = probs[top_5_idx]
 
-    # Save to history log
     matched_names = [symptom_display_name(s) for s in selected_symptoms]
     pred_records = [
         {"disease": d, "probability": round(float(p * 100), 1)}

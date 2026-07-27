@@ -25,10 +25,13 @@ wheels/
 venv/
 ENV/
 
-# Large Model Binaries (Exclude huge files like SVM/KNN, keep lightweight RF/LR models)
+# Large Model Binaries & Scratch
 saved_models/svm.pkl
 saved_models/knn.pkl
 saved_models/decision_tree.pkl
+saved_models/naive_bayes.pkl
+scratch/
+data.zip
 
 # IDE & OS
 .vscode/

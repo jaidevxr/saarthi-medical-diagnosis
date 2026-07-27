@@ -1,5 +1,458 @@
 [
   {
+    "timestamp": "2026-07-28 01:06:37",
+    "symptoms": [
+      "Acid Reflux",
+      "Acidity",
+      "Passage Of Gases",
+      "Sore Throat"
+    ],
+    "predictions": [
+      {
+        "disease": "GERD",
+        "probability": 52.0
+      },
+      {
+        "disease": "Peptic ulcer diseae",
+        "probability": 13.0
+      },
+      {
+        "disease": "Irritable Bowel Syndrome",
+        "probability": 7.0
+      },
+      {
+        "disease": "Hand Foot Mouth Disease",
+        "probability": 3.0
+      },
+      {
+        "disease": "Dimorphic hemmorhoids(piles)",
+        "probability": 3.0
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-28 01:05:00",
+    "symptoms": [
+      "Headache",
+      "High Fever",
+      "Joint Pain",
+      "Loss Of Appetite",
+      "Nausea",
+      "Pain Behind The Eyes",
+      "Skin Rash"
+    ],
+    "predictions": [
+      {
+        "disease": "Dengue",
+        "probability": 60.0
+      },
+      {
+        "disease": "Chikungunya",
+        "probability": 19.0
+      },
+      {
+        "disease": "Hepatitis E",
+        "probability": 5.0
+      },
+      {
+        "disease": "Meningitis",
+        "probability": 5.0
+      },
+      {
+        "disease": "Mononucleosis",
+        "probability": 2.0
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-28 01:04:41",
+    "symptoms": [
+      "Headache",
+      "High Fever",
+      "Joint Pain",
+      "Loss Of Appetite",
+      "Nausea",
+      "Pain Behind The Eyes",
+      "Skin Rash"
+    ],
+    "predictions": [
+      {
+        "disease": "Dengue",
+        "probability": 60.0
+      },
+      {
+        "disease": "Chikungunya",
+        "probability": 19.0
+      },
+      {
+        "disease": "Hepatitis E",
+        "probability": 5.0
+      },
+      {
+        "disease": "Meningitis",
+        "probability": 5.0
+      },
+      {
+        "disease": "Mononucleosis",
+        "probability": 2.0
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-28 01:01:46",
+    "symptoms": [
+      "Constipation",
+      "Diarrhoea",
+      "Fatigue",
+      "Headache",
+      "High Fever",
+      "Loss Of Appetite",
+      "Stomach Pain"
+    ],
+    "predictions": [
+      {
+        "disease": "Typhoid",
+        "probability": 34.0
+      },
+      {
+        "disease": "Drug Reaction",
+        "probability": 16.0
+      },
+      {
+        "disease": "GERD",
+        "probability": 5.0
+      },
+      {
+        "disease": "Appendicitis",
+        "probability": 5.0
+      },
+      {
+        "disease": "Gastritis",
+        "probability": 4.0
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-28 00:58:04",
+    "symptoms": [
+      "Chills",
+      "Headache",
+      "High Fever",
+      "Muscle Pain",
+      "Shivering",
+      "Sweating"
+    ],
+    "predictions": [
+      {
+        "disease": "Malaria",
+        "probability": 87.0
+      },
+      {
+        "disease": "Viral Fever",
+        "probability": 4.0
+      },
+      {
+        "disease": "Allergy",
+        "probability": 3.0
+      },
+      {
+        "disease": "Lyme Disease",
+        "probability": 2.0
+      },
+      {
+        "disease": "Tension Headache",
+        "probability": 1.0
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-28 00:40:27",
+    "symptoms": [
+      "Difficulty Swallowing Food",
+      "Dry Throat",
+      "Foul Smell Of Urine",
+      "Headache",
+      "Heavy Periods",
+      "Loss Of Smell",
+      "Loss Of Smell Gradual",
+      "Lump In Throat",
+      "Mucus In Stool",
+      "Patches In Throat",
+      "Phlegm",
+      "Red Sore Around Nose",
+      "Runny Nose",
+      "Sore Throat",
+      "Throat Irritation",
+      "Throat Swelling",
+      "Yellow Crust Ooze",
+      "Yellow Urine"
+    ],
+    "predictions": [
+      {
+        "disease": "Diphtheria",
+        "probability": 16.0
+      },
+      {
+        "disease": "Pharyngitis",
+        "probability": 14.0
+      },
+      {
+        "disease": "Common Cold",
+        "probability": 13.0
+      },
+      {
+        "disease": "Laryngitis",
+        "probability": 9.0
+      },
+      {
+        "disease": "Nasal Polyps",
+        "probability": 8.0
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-28 00:40:12",
+    "symptoms": [
+      "Abdominal Pain",
+      "Ankle Pain",
+      "Back Pain",
+      "Belly Pain",
+      "Bone Pain",
+      "Calf Pain",
+      "Chest Pain",
+      "Dry Eyes",
+      "Dry Eyes And Mouth",
+      "Ear Pain",
+      "Elbow Pain",
+      "Epigastric Pain",
+      "Exertional Chest Pain",
+      "Eye Pain",
+      "Facial Pain",
+      "Flank Pain",
+      "Foot Pain",
+      "Groin Pain",
+      "Headache",
+      "Heel Pain",
+      "High Fever",
+      "Hip Joint Pain",
+      "Jaw Pain",
+      "Jaw Pain With Exertion",
+      "Joint Pain",
+      "Joint Redness",
+      "Joint Warmth",
+      "Kidney Pain",
+      "Knee Pain",
+      "Left Lower Abdominal Pain",
+      "Leg Pain",
+      "Loss Of Appetite",
+      "Lower Back Pain",
+      "Muscle Pain",
+      "Nausea",
+      "Neck Pain",
+      "Pain Behind The Eyes",
+      "Pain During Bowel Movements",
+      "Pain In Anal Region",
+      "Pelvic Pain",
+      "Pleuritic Chest Pain",
+      "Puffy Face And Eyes",
+      "Rectal Pain",
+      "Redness Of Eyes",
+      "Right Lower Abdominal Pain",
+      "Right Upper Abdominal Pain",
+      "Shoulder Pain",
+      "Skin Rash",
+      "Stomach Pain",
+      "Sunken Eyes",
+      "Testicular Pain",
+      "Tooth Pain",
+      "Upper Back Pain",
+      "Watering From Eyes",
+      "Wrist Pain",
+      "Yellowing Of Eyes"
+    ],
+    "predictions": [
+      {
+        "disease": "Zika Virus",
+        "probability": 7.0
+      },
+      {
+        "disease": "Chikungunya",
+        "probability": 6.0
+      },
+      {
+        "disease": "Osteoarthristis",
+        "probability": 6.0
+      },
+      {
+        "disease": "Aortic Aneurysm",
+        "probability": 5.0
+      },
+      {
+        "disease": "Appendicitis",
+        "probability": 5.0
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-28 00:40:09",
+    "symptoms": [
+      "Abdominal Pain",
+      "Ankle Pain",
+      "Back Pain",
+      "Belly Pain",
+      "Bone Pain",
+      "Calf Pain",
+      "Chest Pain",
+      "Dry Eyes",
+      "Dry Eyes And Mouth",
+      "Ear Pain",
+      "Elbow Pain",
+      "Epigastric Pain",
+      "Exertional Chest Pain",
+      "Eye Pain",
+      "Facial Pain",
+      "Flank Pain",
+      "Foot Pain",
+      "Groin Pain",
+      "Headache",
+      "Heel Pain",
+      "High Fever",
+      "Hip Joint Pain",
+      "Jaw Pain",
+      "Jaw Pain With Exertion",
+      "Joint Pain",
+      "Joint Redness",
+      "Joint Warmth",
+      "Kidney Pain",
+      "Knee Pain",
+      "Left Lower Abdominal Pain",
+      "Leg Pain",
+      "Loss Of Appetite",
+      "Lower Back Pain",
+      "Muscle Pain",
+      "Nausea",
+      "Neck Pain",
+      "Pain Behind The Eyes",
+      "Pain During Bowel Movements",
+      "Pain In Anal Region",
+      "Pelvic Pain",
+      "Pleuritic Chest Pain",
+      "Puffy Face And Eyes",
+      "Rectal Pain",
+      "Redness Of Eyes",
+      "Right Lower Abdominal Pain",
+      "Right Upper Abdominal Pain",
+      "Shoulder Pain",
+      "Skin Rash",
+      "Stomach Pain",
+      "Sunken Eyes",
+      "Testicular Pain",
+      "Tooth Pain",
+      "Upper Back Pain",
+      "Watering From Eyes",
+      "Wrist Pain",
+      "Yellowing Of Eyes"
+    ],
+    "predictions": [
+      {
+        "disease": "Zika Virus",
+        "probability": 7.0
+      },
+      {
+        "disease": "Chikungunya",
+        "probability": 6.0
+      },
+      {
+        "disease": "Osteoarthristis",
+        "probability": 6.0
+      },
+      {
+        "disease": "Aortic Aneurysm",
+        "probability": 5.0
+      },
+      {
+        "disease": "Appendicitis",
+        "probability": 5.0
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-28 00:40:01",
+    "symptoms": [
+      "Constipation",
+      "Coughing After Eating",
+      "Diarrhoea",
+      "Frequent Infections",
+      "Headache",
+      "High Fever",
+      "Rumbling Stomach",
+      "Stomach Bleeding",
+      "Stomach Pain",
+      "Swelling Of Stomach",
+      "Weak Urine Stream"
+    ],
+    "predictions": [
+      {
+        "disease": "Typhoid",
+        "probability": 19.0
+      },
+      {
+        "disease": "Drug Reaction",
+        "probability": 17.0
+      },
+      {
+        "disease": "AIDS",
+        "probability": 14.0
+      },
+      {
+        "disease": "Appendicitis",
+        "probability": 11.0
+      },
+      {
+        "disease": "Prostatitis",
+        "probability": 5.0
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-28 00:39:58",
+    "symptoms": [
+      "Constipation",
+      "Coughing After Eating",
+      "Diarrhoea",
+      "Frequent Infections",
+      "Headache",
+      "High Fever",
+      "Rumbling Stomach",
+      "Stomach Bleeding",
+      "Stomach Pain",
+      "Swelling Of Stomach",
+      "Weak Urine Stream"
+    ],
+    "predictions": [
+      {
+        "disease": "Typhoid",
+        "probability": 19.0
+      },
+      {
+        "disease": "Drug Reaction",
+        "probability": 17.0
+      },
+      {
+        "disease": "AIDS",
+        "probability": 14.0
+      },
+      {
+        "disease": "Appendicitis",
+        "probability": 11.0
+      },
+      {
+        "disease": "Prostatitis",
+        "probability": 5.0
+      }
+    ]
+  },
+  {
     "timestamp": "2026-07-28 00:04:24",
     "symptoms": [
       "Back Pain",

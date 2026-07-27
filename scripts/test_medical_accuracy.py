@@ -1,5 +1,5 @@
 """
-Clinical Validation & Accuracy Test Suite (30 Real-World Clinical Cases)
+Clinical Validation & Accuracy Test Suite (31 Real-World & Conversational Cases)
 Tests the NLP parser + Random Forest classification pipeline against ground truth medical cases.
 """
 
@@ -52,12 +52,13 @@ CLINICAL_TEST_CASES = [
     ("Intense itching, skin rash, skin bumps, vesicles, skin fissures, crust formation", "Scabies"),
     ("Fatigue, weight gain, cold hands and feet, mood swings, puffy face, dry skin, hair loss", "Hypothyroidism"),
     ("Joint pain, swelling joints, morning stiffness, fatigue, joint warmth, finger swelling", "Rheumatoid Arthritis"),
+    ("I've had a fever that hasn't gone away for nearly a week. I don't feel like eating anything, my stomach hurts, I sometimes feel constipated, and other times I have loose stools. I feel weak all day and have frequent headaches.", "Typhoid"),
 ]
 
 
 def run_tests():
     print("=" * 75)
-    print("CLINICAL TEST SUITE: Evaluating 30 Real-World Medical Cases")
+    print(f"CLINICAL TEST SUITE: Evaluating {len(CLINICAL_TEST_CASES)} Real-World & Conversational Cases")
     print("=" * 75)
 
     passed = 0
@@ -67,7 +68,7 @@ def run_tests():
         detected_symptoms = parse_symptoms_from_text(text, symptom_columns)
 
         if not detected_symptoms:
-            print(f"[{i:02d}/30] FAIL [NO SYMPTOMS] - Ground Truth: '{expected}'")
+            print(f"[{i:02d}/{total}] FAIL [NO SYMPTOMS] - Ground Truth: '{expected}'")
             print(f"       Input: \"{text}\"\n")
             continue
 
@@ -89,10 +90,10 @@ def run_tests():
 
         if is_correct:
             passed += 1
-            print(f"[{i:02d}/30] PASS - Ground Truth: '{expected}' | Top-1: '{top_1}' ({top_1_prob:.1f}%)")
+            print(f"[{i:02d}/{total}] PASS - Ground Truth: '{expected}' | Top-1: '{top_1}' ({top_1_prob:.1f}%)")
         else:
             top_3_str = ", ".join([f"{d} ({p*100:.1f}%)" for d, p in zip(top_diseases[:3], top_probs[:3])])
-            print(f"[{i:02d}/30] FAIL - Ground Truth: '{expected}' | Got Top-1: '{top_1}' ({top_1_prob:.1f}%)")
+            print(f"[{i:02d}/{total}] FAIL - Ground Truth: '{expected}' | Got Top-1: '{top_1}' ({top_1_prob:.1f}%)")
             print(f"       Detected ({len(detected_symptoms)}): {[symptom_display_name(s) for s in detected_symptoms]}")
             print(f"       Top 3 Predictions: {top_3_str}\n")
 

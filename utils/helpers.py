@@ -1,5 +1,5 @@
 """
-Helper utilities: Precise NLP symptom parser, prediction history management,
+Helper utilities: Advanced Conversational NLP symptom parser, prediction history,
 and general-purpose functions.
 """
 
@@ -57,7 +57,7 @@ def clear_prediction_history():
 
 
 # ─────────────────────────────────────────────────
-# Precise NLP Symptom Parser
+# Advanced Conversational NLP Symptom Parser
 # ─────────────────────────────────────────────────
 
 _STOP_WORDS = {
@@ -82,21 +82,89 @@ _STOP_WORDS = {
     "five", "six", "seven", "several", "many", "much", "little", "bit",
     "sometimes", "often", "always", "still", "already", "recently",
     "started", "start", "seem", "seems", "like", "think", "going",
-    "went", "lately", "past", "suffering",
+    "went", "lately", "past", "suffering", "nearly", "all", "day", "ive",
+    "hasnt", "dont",
 }
 
+# Words that should not match as standalone tokens unless matched in phrase or keyword map
 _GENERIC_WORDS = {
     "pain", "skin", "dry", "swollen", "red", "dark", "yellow", "loss",
     "patch", "patches", "discharge", "pressure", "stiff", "stiffness",
     "weakness", "cramps", "fullness", "sore", "dents", "spots", "burning",
-    "cough", "fever", "cramping", "warmth", "redness", "dusting", "peeling",
+    "cough", "cramping", "warmth", "redness", "dusting", "peeling",
     "flaking", "cracking", "scaling", "thickening", "lesions", "fissures",
     "ulcers", "bumps", "water", "watering", "cold", "hot", "mild", "high",
     "severe", "intense", "sharp", "dull", "persistent",
 }
 
+# Conversational Keyword & Phrase Mapping
 _KEYWORD_MAP = {
-    # ── Multi-word Exact Clinical Phrases (High Priority) ──
+    # ── Conversational & Natural Expressions ──
+    "fever that hasn t gone away": "high_fever",
+    "fever for nearly a week": "high_fever",
+    "fever for a week": "high_fever",
+    "fever for days": "high_fever",
+    "high fever": "high_fever",
+    "mild fever": "mild_fever",
+    "slight fever": "mild_fever",
+    "fever": "high_fever",
+    "fevers": "high_fever",
+
+    "don t feel like eating anything": "loss_of_appetite",
+    "don t feel like eating": "loss_of_appetite",
+    "dont feel like eating": "loss_of_appetite",
+    "not feeling like eating": "loss_of_appetite",
+    "no desire to eat": "loss_of_appetite",
+    "can t eat anything": "loss_of_appetite",
+    "not hungry": "loss_of_appetite",
+    "no appetite": "loss_of_appetite",
+    "loss of appetite": "loss_of_appetite",
+
+    "stomach hurts": "stomach_pain",
+    "stomach hurt": "stomach_pain",
+    "belly hurts": "belly_pain",
+    "tummy hurts": "stomach_pain",
+    "stomach ache": "stomach_pain",
+    "stomach pain": "stomach_pain",
+    "abdominal pain": "abdominal_pain",
+    "belly pain": "belly_pain",
+
+    "feel constipated": "constipation",
+    "feeling constipated": "constipation",
+    "sometimes constipated": "constipation",
+    "constipated": "constipation",
+    "constipation": "constipation",
+
+    "loose stools": "diarrhoea",
+    "loose stool": "diarrhoea",
+    "watery stools": "diarrhoea",
+    "loose motions": "diarrhoea",
+    "loose motion": "diarrhoea",
+    "diarrhea": "diarrhoea",
+    "diarrhoea": "diarrhoea",
+
+    "feel weak all day": "fatigue",
+    "feel weak": "fatigue",
+    "feeling weak": "fatigue",
+    "weak all day": "fatigue",
+    "feeling tired": "fatigue",
+    "very tired": "fatigue",
+    "general weakness": "general_weakness",
+    "weakness": "fatigue",
+    "fatigue": "fatigue",
+
+    "frequent headaches": "headache",
+    "frequent headache": "headache",
+    "severe headache": "headache",
+    "headaches": "headache",
+    "headache": "headache",
+    "head ache": "headache",
+    "head pain": "headache",
+
+    # ── Risk factors & Clinical terms ──
+    "toxic look": "toxic_look_(typhos)",
+    "toxic look typhos": "toxic_look_(typhos)",
+    "typhoid": "toxic_look_(typhos)",
     "receiving unsterile injections": "receiving_unsterile_injections",
     "receiving unsterile injection": "receiving_unsterile_injections",
     "unsterile injections": "receiving_unsterile_injections",
@@ -164,14 +232,9 @@ _KEYWORD_MAP = {
     "watering from eyes": "watering_from_eyes",
     "crusty eyelids": "crusty_eyelids",
     "photophobia": "photophobia",
-    "loss of appetite": "loss_of_appetite",
-    "no appetite": "loss_of_appetite",
     "cold hands and feet": "cold_hands_and_feets",
     "cold hands and feets": "cold_hands_and_feets",
     "cold feet": "cold_hands_and_feets",
-    "abdominal pain": "abdominal_pain",
-    "stomach pain": "stomach_pain",
-    "belly pain": "belly_pain",
     "abdominal cramping": "abdominal_cramping",
     "abdominal bloating": "abdominal_bloating",
     "facial pain": "facial_pain",
@@ -228,8 +291,6 @@ _KEYWORD_MAP = {
     "blurred vision": "blurred_and_distorted_vision",
     "visual disturbances": "visual_disturbances",
     "visual disturbance": "visual_disturbances",
-    "toxic look": "toxic_look_(typhos)",
-    "toxic look typhos": "toxic_look_(typhos)",
 
     # ── Single-word Direct Clinical Symptoms ──
     "itching": "itching",
@@ -243,23 +304,18 @@ _KEYWORD_MAP = {
     "heartburn": "acidity",
     "vomiting": "vomiting",
     "vomit": "vomiting",
-    "fatigue": "fatigue",
     "anxiety": "anxiety",
     "restlessness": "restlessness",
     "lethargy": "lethargy",
     "cough": "cough",
     "coughing": "cough",
-    "high fever": "high_fever",
-    "mild fever": "mild_fever",
     "sweating": "sweating",
     "sweat": "sweating",
     "dehydration": "dehydration",
     "indigestion": "indigestion",
-    "headache": "headache",
     "migraine": "headache",
     "nausea": "nausea",
     "nauseous": "nausea",
-    "constipation": "constipation",
     "diarrhoea": "diarrhoea",
     "diarrhea": "diarrhoea",
     "malaise": "malaise",
@@ -299,39 +355,52 @@ _KEYWORD_MAP = {
 def parse_symptoms_from_text(text, valid_symptoms):
     """
     Parse free-text user input and map to dataset symptom columns using
-    strict phrase and non-generic keyword matching.
+    phrase matching, conversational mappings, and lemmatized token lookup.
     """
     if not text or not text.strip():
         return []
 
-    text_lower = text.lower()
-    text_clean = re.sub(r"[^\w\s]", " ", text_lower)
+    # Standardize apostrophes and lowercase
+    text_clean = text.lower().replace("'", "").replace("’", "")
+    text_clean = re.sub(r"[^\w\s]", " ", text_clean)
     text_clean = re.sub(r"\s+", " ", text_clean).strip()
 
     matched = set()
     remaining_text = text_clean
 
-    # Step 1: Match multi-word phrases first (sorted longest to shortest)
+    # Step 1: Match multi-word phrases & conversational mappings (longest first)
     sorted_keywords = sorted(_KEYWORD_MAP.keys(), key=len, reverse=True)
 
     for kw in sorted_keywords:
-        pattern = r"\b" + re.escape(kw) + r"\b"
+        kw_clean = kw.replace("'", "")
+        pattern = r"\b" + re.escape(kw_clean) + r"\b"
         if re.search(pattern, remaining_text):
             symptom = _KEYWORD_MAP[kw]
             if symptom in valid_symptoms:
                 matched.add(symptom)
             remaining_text = re.sub(pattern, " ", remaining_text)
 
-    # Step 2: Check remaining text tokens for exact single-word matches
+    # Step 2: Lemmatize / de-pluralize remaining tokens and check against keyword map & valid symptoms
     tokens = remaining_text.split()
     for token in tokens:
         if token in _STOP_WORDS or token in _GENERIC_WORDS or len(token) < 3:
             continue
-        if token in valid_symptoms:
-            matched.add(token)
-        elif token in _KEYWORD_MAP:
-            sym = _KEYWORD_MAP[token]
-            if sym in valid_symptoms:
-                matched.add(sym)
+
+        # Simple de-pluralization fallback
+        lemmas = [token]
+        if token.endswith("s") and len(token) > 3:
+            lemmas.append(token[:-1])
+        if token.endswith("es") and len(token) > 4:
+            lemmas.append(token[:-2])
+        if token.endswith("ies") and len(token) > 4:
+            lemmas.append(token[:-3] + "y")
+
+        for lem in lemmas:
+            if lem in valid_symptoms:
+                matched.add(lem)
+            elif lem in _KEYWORD_MAP:
+                sym = _KEYWORD_MAP[lem]
+                if sym in valid_symptoms:
+                    matched.add(sym)
 
     return sorted(matched)

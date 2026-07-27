@@ -97,6 +97,21 @@ with st.sidebar:
     )
     st.divider()
     st.markdown(
+        """
+        <div style="background:#F7FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:0.75rem;margin-bottom:1rem;">
+            <p style="margin:0;font-size:0.82rem;color:#2D3748 !important;font-weight:700;">
+                👥 Lead Contributors:
+            </p>
+            <p style="margin:0.3rem 0 0;font-size:0.82rem;">
+                • <a href="https://github.com/KhushiSharma006" target="_blank" style="color:#3182CE !important;font-weight:600;text-decoration:none;">Khushi Sharma (@KhushiSharma006)</a><br>
+                • <a href="https://github.com/jaidevxr" target="_blank" style="color:#3182CE !important;font-weight:600;text-decoration:none;">Jai (@jaidevxr)</a>
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    st.divider()
+    st.markdown(
         styled_warning_box(
             "<strong>Medical Disclaimer:</strong> Educational decision support tool. "
             "Always consult a licensed medical professional for clinical diagnosis."

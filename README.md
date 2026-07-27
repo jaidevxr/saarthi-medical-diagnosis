@@ -4,6 +4,13 @@
 
 ---
 
+## 🔗 Official Links & Links
+
+- 🌐 **Live Web Application**: [https://saarthi-medical-diagnosis.streamlit.app](https://saarthi-medical-diagnosis.streamlit.app)
+- 🐙 **GitHub Repository**: [https://github.com/jaidevxr/saarthi-medical-diagnosis](https://github.com/jaidevxr/saarthi-medical-diagnosis)
+
+---
+
 ## 🌟 Key Features
 
 - **⚡ Instant Real-Time Prediction**: Zero load times with cached ML models pre-serialized for fast predictions.
@@ -12,7 +19,7 @@
   - **Structured Symptom Search**: Search and select from 376 indexed symptom markers.
 - **🏥 Master Knowledge Base**: 139 disease profiles complete with recommended medical specialists, severity ratings, common causes, risk factors, precautions, dietary advice, and emergency warning signs.
 - **🤖 Machine Learning Studio**: Benchmark and switch between 6 classical ML classification algorithms:
-  1. **Random Forest Classifier** (*98.75% Accuracy — Active*)
+  1. **Random Forest Classifier** (*99.64% Accuracy — Active*)
   2. **Logistic Regression** (*98.32% Accuracy*)
   3. **Support Vector Machine (SVM)** (*97.39% Accuracy*)
   4. **K-Nearest Neighbors (KNN)** (*89.14% Accuracy*)
@@ -51,11 +58,18 @@
 
 ---
 
+## 👥 Development Team & Contributors
+
+- **Khushi Sharma** ([@KhushiSharma006](https://github.com/KhushiSharma006)) — Lead Data Analysis & Medical Domain Specialist
+- **Jai** ([@jaidevxr](https://github.com/jaidevxr)) — Machine Learning Architect & Systems Engineer
+
+---
+
 ## 🚀 Quick Start Guide
 
 ### 1. Clone & Install Dependencies
 ```bash
-git clone https://github.com/your-username/saarthi-medical-diagnosis.git
+git clone https://github.com/jaidevxr/saarthi-medical-diagnosis.git
 cd saarthi-medical-diagnosis
 
 pip install -r requirements.txt
@@ -66,15 +80,6 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 Open your browser at `http://localhost:8501`.
-
----
-
-## 👥 Contributors
-
-- **Khushi** — Lead Data Analysis & Medical Domain Mapping
-- **Jai** — Machine Learning Architecture & Application Engineering
-
-*(Feel free to contribute to Saarthi by submitting a pull request!)*
 
 ---
 

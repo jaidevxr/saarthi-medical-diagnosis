@@ -13,6 +13,7 @@ if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
 from utils.theme import styled_metric_card
+from utils.data_loader import load_training_data
 from visualizations.charts import plot_model_comparison
 
 _CSS = os.path.join(PROJECT_ROOT, "assets", "style.css")
@@ -20,8 +21,9 @@ if os.path.exists(_CSS):
     with open(_CSS, "r", encoding="utf-8") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
+df_train = load_training_data()
 st.title("🤖 ML Model Studio & Benchmarks")
-st.markdown("Benchmark performance across **6 classical ML classification algorithms** trained on 20,850 records.")
+st.markdown(f"Benchmark performance across **6 classical ML classification algorithms** trained on **{len(df_train):,} medical records** across **{df_train['prognosis'].nunique()} disease classes**.")
 
 MODELS_DIR = os.path.join(PROJECT_ROOT, "models")
 results_path = os.path.join(MODELS_DIR, "model_results.csv")

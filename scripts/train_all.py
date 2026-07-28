@@ -1,5 +1,5 @@
 """
-Pre-train all 6 Machine Learning models on the Master Medical Dataset (20,850 rows x 376 symptoms).
+Pre-train all 6 Machine Learning models on the Master Medical Dataset (10,615 rows x 132 symptom indicators).
 """
 
 import os, sys, time

@@ -21,10 +21,10 @@ if os.path.exists(_CSS):
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 st.title("📊 Dataset Analytics & EDA")
-st.markdown("Exploratory Data Analysis for 20,850 medical records and 376 symptom features.")
 
 df_train = load_training_data()
 symptom_cols = [c for c in df_train.columns if c != "prognosis"]
+st.markdown(f"Exploratory Data Analysis for **{len(df_train):,} medical records**, **{len(symptom_cols)} symptom indicators**, and **{df_train['prognosis'].nunique()} disease classes**.")
 
 c1, c2, c3, c4 = st.columns(4)
 with c1:

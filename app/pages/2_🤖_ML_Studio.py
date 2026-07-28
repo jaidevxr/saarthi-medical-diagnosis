@@ -28,6 +28,11 @@ results_path = os.path.join(MODELS_DIR, "model_results.csv")
 
 if os.path.exists(results_path):
     results_df = pd.read_csv(results_path)
+    if "Algorithm" not in results_df.columns and "Model" in results_df.columns:
+        results_df["Algorithm"] = results_df["Model"]
+    if "Model" not in results_df.columns and "Algorithm" in results_df.columns:
+        results_df["Model"] = results_df["Algorithm"]
+        
     algo_col = "Algorithm" if "Algorithm" in results_df.columns else ("Model" if "Model" in results_df.columns else results_df.columns[0])
 
     st.subheader("Algorithm Evaluation Summary")

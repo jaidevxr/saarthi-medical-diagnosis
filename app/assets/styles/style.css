@@ -1,0 +1,77 @@
+/* Universal High-Contrast Healthcare Theme */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+html, body, [class*="css"], .stApp {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    background-color: #F8FAFC !important;
+    color: #1A202C !important;
+}
+
+.block-container {
+    padding-top: 1.5rem !important;
+    padding-bottom: 2.5rem !important;
+    max-width: 1150px !important;
+}
+
+/* Force All Titles & Headers to High Contrast Dark Blue/Black */
+h1, h2, h3, h4, h5, h6, .stMarkdown h1, .stMarkdown h2, .stMarkdown h3 {
+    color: #1A202C !important;
+    font-weight: 700 !important;
+}
+
+/* Sidebar styling */
+[data-testid="stSidebar"] {
+    background-color: #FFFFFF !important;
+    border-right: 1px solid #E2E8F0 !important;
+}
+
+[data-testid="stSidebar"] * {
+    color: #2D3748 !important;
+}
+
+[data-testid="stSidebarNav"] a span {
+    color: #2D3748 !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+}
+
+[data-testid="stSidebarNav"] a[aria-current="page"] {
+    background-color: #EBF8FF !important;
+    border-radius: 8px !important;
+}
+
+[data-testid="stSidebarNav"] a[aria-current="page"] span {
+    color: #2B6CB0 !important;
+    font-weight: 700 !important;
+}
+
+/* Input Fields & Labels */
+.stSelectbox label, .stMultiSelect label, .stTextInput label, .stTextArea label, .stRadio label {
+    color: #1A202C !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+}
+
+/* Primary Action Buttons */
+.stButton > button[kind="primary"] {
+    background-color: #2B6CB0 !important;
+    border-color: #2B6CB0 !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    padding: 0.6rem 1.2rem !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(43, 108, 176, 0.25) !important;
+}
+
+.stButton > button[kind="primary"]:hover {
+    background-color: #2C5282 !important;
+    border-color: #2C5282 !important;
+}
+
+/* Metric Boxes */
+div[data-testid="stMetricValue"] {
+    color: #2B6CB0 !important;
+    font-weight: 700 !important;
+}

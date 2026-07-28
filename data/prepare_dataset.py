@@ -187,6 +187,22 @@ SYMPTOMS = [
     # ── Immune / Systemic ────────────────────────────────
     "photosensitivity", "dry_eyes_and_mouth", "raynaud_phenomenon",
     "butterfly_rash", "mouth_ulcers_recurrent",
+
+    # ── Expanded Symptom Features (v2) ───────────────────
+    "anosmia", "ageusia", "brain_fog_severe",
+    "resting_tremor", "shuffling_gait", "muscle_rigidity",
+    "nocturnal_cough", "blood_pressure_high", "blood_pressure_low",
+    "rapid_weight_change", "night_leg_cramps", "restless_legs",
+    "excessive_daytime_sleepiness", "snoring_loud", "gasping_during_sleep",
+    "skin_mole_change", "asymmetric_mole",
+    "bloody_diarrhea", "abdominal_mass", "perianal_fistula",
+    "urgency_to_defecate", "incomplete_evacuation",
+    "lactose_triggered_symptoms",
+    "shortness_of_breath_at_rest", "orthopnea_severe",
+    "leg_swelling_bilateral",
+    "cognitive_decline", "personality_changes",
+    "word_finding_difficulty", "repetitive_behaviors",
+    "post_exertional_malaise", "phantom_smell",
 ]
 
 DISEASE_SYMPTOMS = {
@@ -952,6 +968,199 @@ DISEASE_SYMPTOMS = {
         "pain_in_anal_region", "bloody_stool",
         "irritation_in_anus", "rectal_bleeding",
         "rectal_pain",
+    ],
+
+    # ══════════════════════════════════════════════════════════
+    # EXPANDED DISEASE TAXONOMY (v2) — 28 New Diseases
+    # ══════════════════════════════════════════════════════════
+
+    # ── RESPIRATORY (new) ────────────────────────────────────
+    "COVID-19": [
+        "high_fever", "dry_cough", "fatigue", "anosmia", "ageusia",
+        "body_aches", "sore_throat", "headache", "breathlessness",
+        "congestion", "diarrhoea", "nausea", "chest_tightness",
+        "brain_fog_severe", "chills", "muscle_pain",
+    ],
+    "Bronchiectasis": [
+        "chronic_fatigue", "productive_cough", "blood_in_sputum",
+        "breathlessness", "wheezing", "chest_pain", "night_sweats",
+        "weight_loss", "recurrent_fever", "frequent_infections",
+        "phlegm", "nocturnal_cough",
+    ],
+    "Lung Abscess": [
+        "high_fever", "productive_cough", "night_sweats", "weight_loss",
+        "chest_pain", "breathlessness", "blood_in_sputum", "bad_breath",
+        "fatigue", "chills", "phlegm",
+    ],
+    "Obstructive Sleep Apnea": [
+        "snoring_loud", "gasping_during_sleep", "excessive_daytime_sleepiness",
+        "headache", "fatigue", "irritability", "dry_mouth",
+        "poor_concentration", "mood_changes", "obesity",
+        "night_sweats", "nighttime_urination",
+    ],
+
+    # ── CARDIOVASCULAR (new) ─────────────────────────────────
+    "Congestive Heart Failure": [
+        "breathlessness", "shortness_of_breath_at_rest", "orthopnea_severe",
+        "leg_swelling_bilateral", "fatigue", "fast_heart_rate",
+        "chest_pain", "palpitations", "weight_gain",
+        "nocturnal_dyspnea", "cough", "edema",
+        "exercise_intolerance", "ankle_swelling",
+    ],
+    "Myocarditis": [
+        "chest_pain", "breathlessness", "fast_heart_rate",
+        "palpitations", "fatigue", "high_fever", "body_aches",
+        "joint_pain", "swollen_legs", "edema",
+        "fainting", "irregular_heartbeat",
+    ],
+    "Raynaud Disease": [
+        "cold_hands_and_feets", "cold_feet", "raynaud_phenomenon",
+        "numbness", "tingling", "blue_discoloration",
+        "skin_warmth", "pain_behind_the_eyes", "finger_numbness",
+        "pins_and_needles",
+    ],
+
+    # ── NEUROLOGICAL (new) ───────────────────────────────────
+    "Parkinson Disease": [
+        "resting_tremor", "shuffling_gait", "muscle_rigidity",
+        "tremors", "loss_of_balance", "slurred_speech",
+        "depression", "sleep_disturbance", "constipation",
+        "cognitive_decline", "fatigue", "muscle_weakness",
+        "difficulty_writing",
+    ],
+    "Alzheimer Disease": [
+        "memory_loss", "cognitive_decline", "personality_changes",
+        "word_finding_difficulty", "confusion_episodes",
+        "repetitive_behaviors", "depression", "anxiety",
+        "sleep_disturbance", "apathy", "social_withdrawal",
+        "loss_of_balance", "difficulty_writing",
+    ],
+    "Peripheral Neuropathy": [
+        "numbness", "tingling", "pins_and_needles", "burning_micturition",
+        "muscle_weakness", "hand_numbness", "finger_numbness",
+        "toe_numbness", "foot_pain", "loss_of_balance",
+        "muscle_cramps", "cold_hands_and_feets",
+    ],
+    "Concussion": [
+        "headache", "dizziness", "nausea", "vomiting",
+        "confusion_episodes", "blurred_and_distorted_vision",
+        "sensitivity_to_light", "sensitivity_to_sound",
+        "memory_loss", "fatigue", "sleep_disturbance",
+        "brain_fog_severe", "irritability",
+    ],
+
+    # ── SKIN / DERMATOLOGY (new) ─────────────────────────────
+    "Melanoma": [
+        "skin_mole_change", "asymmetric_mole", "skin_lesions",
+        "skin_bumps", "itching", "skin_burning",
+        "nodules_under_skin", "skin_ulcers", "swelled_lymph_nodes",
+        "weight_loss", "fatigue",
+    ],
+    "Basal Cell Carcinoma": [
+        "skin_bumps", "skin_lesions", "open_sores",
+        "skin_scaling", "skin_ulcers", "skin_tenderness",
+        "slow_wound_healing", "nodules_under_skin",
+    ],
+    "Folliculitis": [
+        "pus_filled_pimples", "itching", "skin_rash",
+        "skin_tenderness", "skin_burning", "skin_bumps",
+        "crust_formation", "hair_loss",
+    ],
+    "Tinea Versicolor": [
+        "dischromic_patches", "skin_scaling", "skin_flaking",
+        "itching", "dry_skin", "skin_rash",
+    ],
+
+    # ── GASTROINTESTINAL (new) ───────────────────────────────
+    "Crohn Disease": [
+        "abdominal_pain", "bloody_diarrhea", "diarrhoea", "weight_loss",
+        "fatigue", "high_fever", "perianal_fistula", "nausea",
+        "loss_of_appetite", "joint_pain", "mouth_sores",
+        "abdominal_mass", "night_sweats",
+    ],
+    "Ulcerative Colitis": [
+        "bloody_diarrhea", "abdominal_pain", "urgency_to_defecate",
+        "diarrhoea", "rectal_bleeding", "weight_loss", "fatigue",
+        "high_fever", "nausea", "loss_of_appetite",
+        "joint_pain", "rectal_pain",
+    ],
+    "Diverticulitis": [
+        "left_lower_abdominal_pain", "abdominal_pain", "high_fever",
+        "nausea", "vomiting", "constipation", "abdominal_bloating",
+        "bloody_stool", "abdominal_cramping", "loss_of_appetite",
+    ],
+    "Lactose Intolerance": [
+        "abdominal_bloating", "abdominal_cramping", "diarrhoea",
+        "nausea", "excessive_gas", "passage_of_gases",
+        "stomach_pain", "lactose_triggered_symptoms",
+        "rumbling_stomach", "abdominal_pain",
+    ],
+    "Hemorrhagic Gastritis": [
+        "blood_in_vomit", "stomach_pain", "nausea", "vomiting",
+        "black_stool", "epigastric_pain", "fatigue",
+        "dizziness", "loss_of_appetite", "abdominal_pain",
+        "pale_skin", "fast_heart_rate",
+    ],
+
+    # ── KIDNEY / URINARY (new) ───────────────────────────────
+    "Interstitial Cystitis": [
+        "bladder_discomfort", "pelvic_pain", "urinary_urgency",
+        "continuous_feel_of_urine", "burning_micturition",
+        "pelvic_pressure", "abdominal_pain", "nighttime_urination",
+        "incomplete_evacuation",
+    ],
+    "Benign Prostatic Hyperplasia": [
+        "difficulty_starting_urination", "weak_urine_stream",
+        "nighttime_urination", "dribbling_urine", "urinary_urgency",
+        "continuous_feel_of_urine", "incomplete_evacuation",
+        "blood_in_urine", "urinary_incontinence",
+    ],
+
+    # ── ENDOCRINE (new) ──────────────────────────────────────
+    "Type 1 Diabetes": [
+        "excessive_thirst", "polyuria", "weight_loss", "fatigue",
+        "excessive_hunger", "blurred_and_distorted_vision",
+        "nausea", "vomiting", "abdominal_pain",
+        "rapid_weight_change", "dehydration", "irritability",
+    ],
+    "Hyperparathyroidism": [
+        "bone_pain", "fatigue", "kidney_pain", "muscle_weakness",
+        "nausea", "loss_of_appetite", "constipation",
+        "excessive_thirst", "polyuria", "depression",
+        "confusion_episodes", "abdominal_pain",
+    ],
+
+    # ── INFECTIOUS (new) ─────────────────────────────────────
+    "Norovirus": [
+        "vomiting", "nausea", "diarrhoea", "abdominal_cramping",
+        "mild_fever", "body_aches", "headache", "fatigue",
+        "dehydration", "loss_of_appetite",
+    ],
+    "Herpes Simplex": [
+        "blister", "skin_burning", "itching", "vesicles",
+        "skin_tenderness", "mild_fever", "swelled_lymph_nodes",
+        "body_aches", "headache", "sore_throat",
+        "tingling", "skin_rash",
+    ],
+
+    # ── GENERAL / OTHER (new) ────────────────────────────────
+    "Chronic Pain Syndrome": [
+        "muscle_pain", "joint_pain", "back_pain", "fatigue",
+        "chronic_fatigue", "sleep_disturbance", "depression",
+        "anxiety", "headache", "mood_changes",
+        "poor_concentration", "irritability",
+    ],
+    "Restless Leg Syndrome": [
+        "restless_legs", "night_leg_cramps", "sleep_disturbance",
+        "fatigue", "excessive_daytime_sleepiness", "irritability",
+        "tingling", "pins_and_needles", "muscle_cramps",
+        "restlessness",
+    ],
+    "Insomnia": [
+        "sleep_disturbance", "fatigue", "excessive_daytime_sleepiness",
+        "irritability", "anxiety", "depression",
+        "poor_concentration", "headache", "mood_changes",
+        "brain_fog_severe",
     ],
 }
 

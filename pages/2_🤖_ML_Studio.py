@@ -21,8 +21,7 @@ if os.path.exists(_CSS):
 st.title("🤖 ML Model Studio & Benchmarks")
 st.markdown("Benchmark performance across **6 classical ML classification algorithms** trained on 20,850 records.")
 
-PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MODELS_DIR = os.path.join(PROJECT_ROOT, "saved_models")
+MODELS_DIR = os.path.join(PROJECT_ROOT, "models") if os.path.exists(os.path.join(PROJECT_ROOT, "models", "model_results.csv")) else os.path.join(PROJECT_ROOT, "saved_models")
 results_path = os.path.join(MODELS_DIR, "model_results.csv")
 
 if os.path.exists(results_path):

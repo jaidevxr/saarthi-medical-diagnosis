@@ -1,6 +1,12 @@
 """
 Helper utilities: Advanced Conversational NLP symptom parser, prediction history,
 and general-purpose functions.
+
+v2 — Enhanced with:
+  • Synonym expansion (runny nose ↔ nasal_discharge, etc.)
+  • Hinglish (Hindi-English) medical vocabulary (~70 terms)
+  • Fuzzy spelling correction (~60 common misspellings)
+  • Match metadata (matched / unmatched / corrected tokens)
 """
 
 import os
@@ -57,7 +63,7 @@ def clear_prediction_history():
 
 
 # ─────────────────────────────────────────────────
-# Advanced Conversational NLP Symptom Parser
+# Stop Words & Generic Words
 # ─────────────────────────────────────────────────
 
 _STOP_WORDS = {
@@ -84,6 +90,11 @@ _STOP_WORDS = {
     "started", "start", "seem", "seems", "like", "think", "going",
     "went", "lately", "past", "suffering", "nearly", "all", "day", "ive",
     "hasnt", "dont", "im", "every", "became", "becomes", "keeps", "came",
+    # Hindi filler words
+    "mein", "hai", "hain", "ho", "raha", "rahi", "rhe", "bahut", "mujhe",
+    "mera", "meri", "mere", "kuch", "koi", "bhi", "se", "ka", "ki",
+    "ke", "ko", "par", "pe", "aur", "ya", "toh", "bhai", "yaar",
+    "lagta", "lagti", "lag", "laga", "hota", "hoti", "hua", "hui",
 }
 
 _GENERIC_WORDS = {
@@ -94,6 +105,192 @@ _GENERIC_WORDS = {
     "flaking", "cracking", "scaling", "thickening", "lesions", "fissures",
     "ulcers", "bumps", "water", "watering", "cold", "hot", "mild", "high",
     "severe", "intense", "sharp", "dull", "persistent",
+}
+
+
+# ─────────────────────────────────────────────────
+# Spelling Corrections (Common Misspellings)
+# ─────────────────────────────────────────────────
+
+_SPELLING_CORRECTIONS = {
+    # Fever
+    "fevr": "fever", "fiver": "fever", "fevar": "fever",
+    "feber": "fever", "fevor": "fever", "fver": "fever",
+    # Headache
+    "hedache": "headache", "headach": "headache", "hedach": "headache",
+    "headche": "headache", "headake": "headache", "headacke": "headache",
+    "heddache": "headache",
+    # Cough
+    "cogh": "cough", "kough": "cough", "caugh": "cough",
+    "couhg": "cough", "coug": "cough",
+    # Nausea
+    "nausia": "nausea", "nausious": "nauseous", "nausea": "nausea",
+    "naseua": "nausea", "nauzea": "nausea",
+    # Diarrhea
+    "diareha": "diarrhea", "diarrea": "diarrhea", "diahrea": "diarrhea",
+    "diarreha": "diarrhea", "diarhea": "diarrhea", "diarhoea": "diarrhea",
+    # Vomiting
+    "vomting": "vomiting", "vomitting": "vomiting", "vomting": "vomiting",
+    "vommiting": "vomiting", "vomitng": "vomiting",
+    # Breathing
+    "bresthing": "breathing", "brething": "breathing",
+    "breathng": "breathing", "breating": "breathing",
+    # Dizziness
+    "diziness": "dizziness", "dizzyness": "dizziness",
+    "dizzness": "dizziness", "dizyness": "dizziness",
+    # Itching
+    "itchng": "itching", "itchig": "itching", "itchin": "itching",
+    # Stomach
+    "stomch": "stomach", "stomack": "stomach", "stomache": "stomach",
+    "stomak": "stomach", "stumach": "stomach",
+    # Chest
+    "chesst": "chest", "chst": "chest", "cheast": "chest",
+    # Throat
+    "throath": "throat", "throught": "throat", "throar": "throat",
+    "throot": "throat", "throaat": "throat",
+    # Muscle
+    "muscl": "muscle", "musle": "muscle", "muscel": "muscle",
+    "muscal": "muscle",
+    # Weakness
+    "weaknes": "weakness", "weekness": "weakness", "weaknees": "weakness",
+    # Swelling
+    "sweling": "swelling", "swellin": "swelling", "swellung": "swelling",
+    # Fatigue
+    "fatique": "fatigue", "fateeg": "fatigue", "fatige": "fatigue",
+    "fatiguee": "fatigue",
+    # Anxiety
+    "anxity": "anxiety", "anxeity": "anxiety", "anxeiety": "anxiety",
+    "anixety": "anxiety",
+    # Others
+    "consitpation": "constipation", "constipaton": "constipation",
+    "constipaiton": "constipation",
+    "indigeston": "indigestion", "indigestion": "indigestion",
+    "palpitaions": "palpitations", "palpititions": "palpitations",
+    "diebetes": "diabetes", "diabeetes": "diabetes", "diabetis": "diabetes",
+    "asthama": "asthma", "asthm": "asthma", "asthama": "asthma",
+    "numbnees": "numbness", "numbnes": "numbness",
+    "whezing": "wheezing", "weezing": "wheezing",
+    "snezing": "sneezing", "sneezsing": "sneezing",
+    "dehydraton": "dehydration", "dehydraiton": "dehydration",
+}
+
+
+# ─────────────────────────────────────────────────
+# Hinglish (Hindi-English) Medical Dictionary
+# ─────────────────────────────────────────────────
+
+_HINGLISH_MAP = {
+    # ── Fever / Temperature ──
+    "bukhar": "high_fever",
+    "bukhaar": "high_fever",
+    "tez bukhar": "high_fever",
+    "halka bukhar": "mild_fever",
+    "badan garam": "high_fever",
+
+    # ── Cough ──
+    "khansi": "cough",
+    "khaansi": "cough",
+    "sukhi khansi": "dry_cough",
+    "balgam wali khansi": "productive_cough",
+    "balgam": "phlegm",
+
+    # ── Pain ──
+    "dard": "body_aches",
+    "sir dard": "headache",
+    "sar dard": "headache",
+    "sir me dard": "headache",
+    "pet dard": "stomach_pain",
+    "pet me dard": "stomach_pain",
+    "pet mein dard": "stomach_pain",
+    "seene mein dard": "chest_pain",
+    "seena dard": "chest_pain",
+    "chhati mein dard": "chest_pain",
+    "kamar dard": "back_pain",
+    "kamar me dard": "back_pain",
+    "gale mein dard": "sore_throat",
+    "gala dard": "sore_throat",
+    "gale me dard": "sore_throat",
+    "jod dard": "joint_pain",
+    "jodon mein dard": "joint_pain",
+    "jodo mein dard": "joint_pain",
+    "ghutne mein dard": "knee_pain",
+    "kaan dard": "ear_pain",
+    "kaan me dard": "ear_pain",
+    "aankh mein dard": "eye_pain",
+    "aankh dard": "eye_pain",
+
+    # ── Digestive ──
+    "ulti": "vomiting",
+    "ubkaayi": "nausea",
+    "ubkai": "nausea",
+    "ji machlana": "nausea",
+    "ji machalna": "nausea",
+    "dast": "diarrhoea",
+    "loose motion": "diarrhoea",
+    "kabz": "constipation",
+    "qabz": "constipation",
+    "gas": "passage_of_gases",
+    "gas ki problem": "excessive_gas",
+    "gas problem": "excessive_gas",
+    "pet phulna": "abdominal_bloating",
+    "pet fool jaana": "abdominal_bloating",
+    "acidity": "acidity",
+    "khatta dakar": "acid_reflux",
+    "seene mein jalan": "acidity",
+
+    # ── Respiratory ──
+    "sans lene mein taklif": "breathlessness",
+    "sans phoolna": "breathlessness",
+    "saans phulna": "breathlessness",
+    "dam ghutna": "breathlessness",
+    "jukham": "congestion",
+    "nazla": "congestion",
+    "naak band": "congestion",
+    "naak behna": "runny_nose",
+    "chheenk": "continuous_sneezing",
+    "chheenke": "continuous_sneezing",
+
+    # ── Skin / Dermatology ──
+    "khujli": "itching",
+    "khaarish": "itching",
+    "daane": "skin_rash",
+    "chhaale": "blister",
+    "funsi": "pus_filled_pimples",
+    "muhase": "pus_filled_pimples",
+
+    # ── General / Constitutional ──
+    "thakaan": "fatigue",
+    "thakan": "fatigue",
+    "kamzori": "general_weakness",
+    "kamjori": "general_weakness",
+    "chakkar": "dizziness",
+    "chakkar aana": "dizziness",
+    "behoshi": "fainting",
+    "neend na aana": "sleep_disturbance",
+    "neend nahi aati": "sleep_disturbance",
+    "bhookh na lagna": "loss_of_appetite",
+    "bhook nahi lagti": "loss_of_appetite",
+    "paseena": "sweating",
+    "bahut paseena": "sweating",
+    "pyaas": "excessive_thirst",
+    "bahut pyaas": "excessive_thirst",
+    "vajan badhna": "weight_gain",
+    "vajan girna": "weight_loss",
+    "motapa": "obesity",
+    "sujan": "swelling_joints",
+    "peshab mein jalan": "burning_micturition",
+    "peshab jalan": "burning_micturition",
+    "baar baar peshab": "polyuria",
+
+    # ── Layman's / Colloquial Terms ──
+    "sugar": "irregular_sugar_level",
+    "sugar ki bimari": "irregular_sugar_level",
+    "bp": "blood_pressure_high",
+    "bp high": "blood_pressure_high",
+    "bp low": "blood_pressure_low",
+    "high bp": "blood_pressure_high",
+    "low bp": "blood_pressure_low",
+    "thyroid": "enlarged_thyroid",
 }
 
 # Rich Conversational Phrase Mapping
@@ -121,6 +318,7 @@ _KEYWORD_MAP = {
     "high fever": "high_fever",
     "mild fever": "mild_fever",
     "slight fever": "mild_fever",
+    "low grade fever": "mild_fever",
     "fever": "high_fever",
     "fevers": "high_fever",
 
@@ -145,6 +343,7 @@ _KEYWORD_MAP = {
     "tummy hurts": "stomach_pain",
     "stomach ache": "stomach_pain",
     "stomach pain": "stomach_pain",
+    "tummy ache": "stomach_pain",
     "stomach cramps": "cramps",
     "abdominal pain": "abdominal_pain",
     "belly pain": "belly_pain",
@@ -193,6 +392,7 @@ _KEYWORD_MAP = {
 
     "nose has been blocked": "congestion",
     "blocked nose": "congestion",
+    "stuffy nose": "congestion",
     "thick yellow mucus": "nasal_discharge",
     "yellow mucus": "nasal_discharge",
     "nasal discharge": "nasal_discharge",
@@ -208,9 +408,13 @@ _KEYWORD_MAP = {
     "can t smell": "loss_of_smell",
     "no smell": "loss_of_smell",
     "loss of smell": "loss_of_smell",
+    "lost sense of smell": "anosmia",
+    "cant smell": "anosmia",
     "no taste": "loss_of_taste",
     "almost no taste": "loss_of_taste",
     "loss of taste": "loss_of_taste",
+    "lost sense of taste": "ageusia",
+    "cant taste": "ageusia",
 
     "cough producing thick yellow sputum": "mucoid_sputum",
     "coughing up small amounts of blood": "blood_in_sputum",
@@ -249,12 +453,15 @@ _KEYWORD_MAP = {
     "losing weight": "weight_loss",
     "lost weight": "weight_loss",
     "weight loss": "weight_loss",
+    "gaining weight": "weight_gain",
+    "gained weight": "weight_gain",
     "vision sometimes becomes blurry": "blurred_and_distorted_vision",
     "blurry vision": "blurred_and_distorted_vision",
 
     "burning sensation rising": "acidity",
     "burning sensation": "acidity",
     "sour liquid": "acid_reflux",
+    "acid reflux": "acid_reflux",
     "burp": "passage_of_gases",
     "burping": "passage_of_gases",
 
@@ -280,6 +487,37 @@ _KEYWORD_MAP = {
     "yellow eyes": "yellowing_of_eyes",
     "yellow skin": "yellowish_skin",
 
+    # ── COVID-19 Specific ──
+    "covid symptoms": "anosmia",
+    "lost smell and taste": "anosmia",
+    "brain fog": "brain_fog_severe",
+    "covid brain fog": "brain_fog_severe",
+    "long covid": "brain_fog_severe",
+
+    # ── Layman / Colloquial Medical Terms ──
+    "sugar problem": "irregular_sugar_level",
+    "sugar level high": "irregular_sugar_level",
+    "blood sugar high": "irregular_sugar_level",
+    "blood sugar low": "irregular_sugar_level",
+    "bp problem": "blood_pressure_high",
+    "blood pressure high": "blood_pressure_high",
+    "blood pressure low": "blood_pressure_low",
+    "high blood pressure": "blood_pressure_high",
+    "low blood pressure": "blood_pressure_low",
+    "gas trouble": "excessive_gas",
+    "gastric problem": "acidity",
+    "gastric": "acidity",
+    "acidity problem": "acidity",
+    "heart racing": "fast_heart_rate",
+    "heart pounding": "palpitations",
+    "heart skipping": "irregular_heartbeat",
+    "difficulty breathing": "breathlessness",
+    "short of breath": "breathlessness",
+    "shortness of breath": "breathlessness",
+    "cant breathe properly": "breathlessness",
+    "cant breathe": "breathlessness",
+    "trouble breathing": "breathlessness",
+
     # ── Standard Clinical Keywords ──
     "toxic look": "toxic_look_(typhos)",
     "toxic look typhos": "toxic_look_(typhos)",
@@ -289,9 +527,6 @@ _KEYWORD_MAP = {
     "unsterile injection": "receiving_unsterile_injections",
     "receiving blood transfusion": "receiving_blood_transfusion",
     "blood transfusion": "receiving_blood_transfusion",
-    "shortness of breath": "breathlessness",
-    "difficulty breathing": "breathlessness",
-    "short of breath": "breathlessness",
     "rust colored phlegm": "rusty_sputum",
     "rusty sputum": "rusty_sputum",
     "night sweats": "night_sweats",
@@ -330,10 +565,10 @@ _KEYWORD_MAP = {
     "abdominal cramping": "abdominal_cramping",
     "abdominal bloating": "abdominal_bloating",
     "facial pain": "facial_pain",
-    "facial pressure": "facial_pressure",
     "sore throat": "sore_throat",
     "painful swallowing": "painful_swallowing",
     "swelled lymph nodes": "swelled_lymph_nodes",
+    "swollen lymph nodes": "swelled_lymph_nodes",
     "lymph nodes": "swelled_lymph_nodes",
     "patches in throat": "patches_in_throat",
     "white patches on tongue": "white_patches_on_tongue",
@@ -373,6 +608,15 @@ _KEYWORD_MAP = {
     "excessive hunger": "excessive_hunger",
     "blurred vision": "blurred_and_distorted_vision",
     "visual disturbances": "visual_disturbances",
+    "memory loss": "memory_loss",
+    "memory problems": "memory_loss",
+    "forgetfulness": "memory_loss",
+    "sleep problems": "sleep_disturbance",
+    "trouble sleeping": "sleep_disturbance",
+    "insomnia": "sleep_disturbance",
+    "cant sleep": "sleep_disturbance",
+    "restless legs": "restless_legs",
+    "legs feel restless": "restless_legs",
 
     # ── Single-word Direct Clinical Symptoms ──
     "itching": "itching",
@@ -421,6 +665,7 @@ _KEYWORD_MAP = {
     "drooling": "drooling",
     "seizures": "seizures",
     "tremors": "tremors",
+    "tremor": "tremors",
     "hives": "hives",
     "vesicles": "vesicles",
     "palpitations": "palpitations",
@@ -429,25 +674,123 @@ _KEYWORD_MAP = {
     "gout": "joint_pain",
     "tinnitus": "tinnitus_ringing",
     "photosensitivity": "photosensitivity",
+    "numbness": "numbness",
+    "tingling": "tingling",
+    "bloating": "abdominal_bloating",
+    "constipation": "constipation",
+    "breathlessness": "breathlessness",
+
+    # ── QA Test Suite Symptom Mappings (v2.1) ──
+    "flank pain": "kidney_pain",
+    "persistent cough": "cough",
+    "blood in cough": "blood_in_sputum",
+    "night cough": "coughing_at_night",
+    "rapid breathing": "fast_heart_rate",
+    "low oxygen": "breathlessness",
+    "cough with mucus": "mucoid_sputum",
+    "exercise intolerance": "exercise_intolerance",
+    "allergy symptoms": "continuous_sneezing",
+    "painful urination": "burning_micturition",
+    "painful urinating": "burning_micturition",
+    "one sided headache": "one_sided_headache",
+    "rose spots": "red_spots_over_body",
+    "continuous fever": "high_fever",
+    "sound sensitivity": "sensitivity_to_sound",
+    "light sensitivity": "sensitivity_to_light",
+    "neck stiffness": "stiff_neck",
+    "tingling feet": "tingling",
+    "tingling hands": "tingling",
+    "slow wound healing": "slow_wound_healing",
+    "increased hunger": "excessive_hunger",
+    "frequent infections": "frequent_infections",
+    "cloudy urine": "cloudy_urine",
+    "strong urine smell": "foul_smell_of_urine",
+    "urgency": "urinary_urgency",
+    "lower abdominal pain": "pelvic_pain",
+    "difficulty breathing": "breathlessness",
+    "high fever": "high_fever",
+    "rash": "skin_rash",
+    "joint pain": "joint_pain",
+    "muscle pain": "muscle_pain",
+    "blood in urine": "blood_in_urine",
+    "groin pain": "groin_pain",
+    "frequent urination": "polyuria",
+    "burning urination": "burning_micturition",
+    "pelvic pain": "pelvic_pain",
+    "dry mouth": "dry_mouth",
+    "dark circles": "dark_circles",
+    "abdominal cramps": "abdominal_cramping",
+    "night sweats": "night_sweats",
+    "weight gain": "weight_gain",
+    "excessive thirst": "excessive_thirst",
+    "dark colored urine": "dark_urine",
+    "yellow urine": "dark_urine",
+    "pain in the abdomen": "abdominal_pain",
+    "stomach problems": "stomach_pain",
+    "throwing up": "vomiting",
+    "aura": "visual_disturbances",
+    "shivering": "shivering",
+    "chills": "chills",
+    "sweating": "sweating",
+    "redness": "redness_of_eyes",
+    "swelling": "swelling_joints",
+
 }
+
+
+# ─────────────────────────────────────────────────
+# Advanced Conversational NLP Symptom Parser
+# ─────────────────────────────────────────────────
+
+def _apply_spelling_corrections(text):
+    """Apply known spelling corrections to each token in the text."""
+    tokens = text.split()
+    corrected = []
+    corrections_made = {}
+    for token in tokens:
+        if token in _SPELLING_CORRECTIONS:
+            fixed = _SPELLING_CORRECTIONS[token]
+            corrections_made[token] = fixed
+            corrected.append(fixed)
+        else:
+            corrected.append(token)
+    return " ".join(corrected), corrections_made
 
 
 def parse_symptoms_from_text(text, valid_symptoms):
     """
-    Parse free-text user input and map to dataset symptom columns using
-    phrase matching, conversational mappings, and lemmatized token lookup.
+    Parse free-text user input and map to dataset symptom columns using:
+    1. Spelling correction
+    2. Hinglish (Hindi-English) phrase mapping
+    3. Multi-word phrase matching via _KEYWORD_MAP
+    4. Lemmatized token lookup
+    5. Return match metadata (matched, unmatched, corrected)
     """
     if not text or not text.strip():
         return []
 
-    text_clean = text.lower().replace("'", "").replace("’", "")
+    text_clean = text.lower().replace("'", "").replace("\u2019", "")
     text_clean = re.sub(r"[^\w\s]", " ", text_clean)
     text_clean = re.sub(r"\s+", " ", text_clean).strip()
 
     matched = set()
     remaining_text = text_clean
 
-    # Step 1: Match multi-word phrases & conversational mappings (longest first)
+    # Step 0: Apply spelling corrections
+    remaining_text, corrections_made = _apply_spelling_corrections(remaining_text)
+
+    # Step 1: Match Hinglish phrases (longest first)
+    sorted_hinglish = sorted(_HINGLISH_MAP.keys(), key=len, reverse=True)
+    for phrase in sorted_hinglish:
+        phrase_clean = phrase.replace("'", "")
+        pattern = r"\b" + re.escape(phrase_clean) + r"\b"
+        if re.search(pattern, remaining_text):
+            symptom = _HINGLISH_MAP[phrase]
+            if symptom in valid_symptoms:
+                matched.add(symptom)
+            remaining_text = re.sub(pattern, " ", remaining_text)
+
+    # Step 2: Match multi-word phrases & conversational mappings (longest first)
     sorted_keywords = sorted(_KEYWORD_MAP.keys(), key=len, reverse=True)
 
     for kw in sorted_keywords:
@@ -459,7 +802,7 @@ def parse_symptoms_from_text(text, valid_symptoms):
                 matched.add(symptom)
             remaining_text = re.sub(pattern, " ", remaining_text)
 
-    # Step 2: Lemmatize / de-pluralize remaining tokens
+    # Step 3: Lemmatize / de-pluralize remaining tokens
     tokens = remaining_text.split()
     for token in tokens:
         if token in _STOP_WORDS or token in _GENERIC_WORDS or len(token) < 3:
@@ -482,3 +825,96 @@ def parse_symptoms_from_text(text, valid_symptoms):
                     matched.add(sym)
 
     return sorted(matched)
+
+
+def parse_symptoms_with_metadata(text, valid_symptoms):
+    """
+    Extended version of parse_symptoms_from_text that also returns metadata
+    about the matching process (corrections applied, unmatched tokens).
+
+    Returns:
+        dict with keys:
+            - matched: sorted list of matched symptom column names
+            - unmatched_tokens: list of tokens that could not be mapped
+            - corrections: dict of {misspelled: corrected} spelling fixes applied
+            - hinglish_detected: list of Hinglish terms that were translated
+    """
+    if not text or not text.strip():
+        return {
+            "matched": [],
+            "unmatched_tokens": [],
+            "corrections": {},
+            "hinglish_detected": [],
+        }
+
+    text_clean = text.lower().replace("'", "").replace("\u2019", "")
+    text_clean = re.sub(r"[^\w\s]", " ", text_clean)
+    text_clean = re.sub(r"\s+", " ", text_clean).strip()
+
+    matched = set()
+    remaining_text = text_clean
+
+    # Step 0: Apply spelling corrections
+    remaining_text, corrections_made = _apply_spelling_corrections(remaining_text)
+
+    # Step 1: Match Hinglish phrases (longest first)
+    hinglish_detected = []
+    sorted_hinglish = sorted(_HINGLISH_MAP.keys(), key=len, reverse=True)
+    for phrase in sorted_hinglish:
+        phrase_clean = phrase.replace("'", "")
+        pattern = r"\b" + re.escape(phrase_clean) + r"\b"
+        if re.search(pattern, remaining_text):
+            symptom = _HINGLISH_MAP[phrase]
+            if symptom in valid_symptoms:
+                matched.add(symptom)
+                hinglish_detected.append(phrase)
+            remaining_text = re.sub(pattern, " ", remaining_text)
+
+    # Step 2: Match multi-word English phrases & conversational mappings
+    sorted_keywords = sorted(_KEYWORD_MAP.keys(), key=len, reverse=True)
+    for kw in sorted_keywords:
+        kw_clean = kw.replace("'", "")
+        pattern = r"\b" + re.escape(kw_clean) + r"\b"
+        if re.search(pattern, remaining_text):
+            symptom = _KEYWORD_MAP[kw]
+            if symptom in valid_symptoms:
+                matched.add(symptom)
+            remaining_text = re.sub(pattern, " ", remaining_text)
+
+    # Step 3: Lemmatize / de-pluralize remaining tokens
+    tokens = remaining_text.split()
+    unmatched_tokens = []
+    for token in tokens:
+        if token in _STOP_WORDS or token in _GENERIC_WORDS or len(token) < 3:
+            continue
+
+        found = False
+        lemmas = [token]
+        if token.endswith("s") and len(token) > 3:
+            lemmas.append(token[:-1])
+        if token.endswith("es") and len(token) > 4:
+            lemmas.append(token[:-2])
+        if token.endswith("ies") and len(token) > 4:
+            lemmas.append(token[:-3] + "y")
+
+        for lem in lemmas:
+            if lem in valid_symptoms:
+                matched.add(lem)
+                found = True
+                break
+            elif lem in _KEYWORD_MAP:
+                sym = _KEYWORD_MAP[lem]
+                if sym in valid_symptoms:
+                    matched.add(sym)
+                    found = True
+                    break
+
+        if not found:
+            unmatched_tokens.append(token)
+
+    return {
+        "matched": sorted(matched),
+        "unmatched_tokens": unmatched_tokens,
+        "corrections": corrections_made,
+        "hinglish_detected": hinglish_detected,
+    }

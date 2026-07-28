@@ -1,10 +1,9 @@
-# Python & Cache
+# Python & Bytecode Cache
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
-env/
 build/
 develop-eggs/
 dist/
@@ -21,24 +20,41 @@ wheels/
 .installed.cfg
 *.egg
 
-# Virtual Environment
+# Virtual Environments
+.venv/
 venv/
 ENV/
+env/
 
-# Large Model Binaries & Scratch
-saved_models/svm.pkl
-saved_models/knn.pkl
-saved_models/decision_tree.pkl
-saved_models/naive_bayes.pkl
-scratch/
-data.zip
+# Logs & Temporary Execution Files
+*.log
+*.tmp
+*.out
+*.txt_log
+cg_out.txt
+grid_out.txt
+rem_out.txt
+res_out.txt
+final_fail_log.txt
+benchmark_168_output.txt
 
-# IDE & OS
+# Generated Reports & Test Outputs (Ignored for Clean Git Track)
+reports/
+docs/top2_final_results.json
+docs/qa_1000_results.json
+
+# Testing & Coverage Caches
+.cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE & OS Files
 .vscode/
 .idea/
 .DS_Store
 Thumbs.db
 
-# Large Cache / System logs
-*.log
+# System Generated Logs
 .system_generated/
+scratch/

@@ -1,7 +1,0 @@
-Algorithm,Accuracy,Precision,Recall,F1 Score,Training Time (s),Prediction Time (s)
-Random Forest,0.9875,0.9882,0.9875,0.9875,1.82,0.2102
-Logistic Regression,0.9832,0.9839,0.9832,0.9832,8.481,0.0171
-Decision Tree,0.8544,0.8638,0.8544,0.8554,2.065,0.011
-KNN,0.8914,0.9154,0.8914,0.8982,0.036,2.7342
-Naive Bayes,0.5736,0.5822,0.5736,0.5695,0.206,3.1541
-SVM,0.9739,0.9767,0.9739,0.974,186.529,24.7383

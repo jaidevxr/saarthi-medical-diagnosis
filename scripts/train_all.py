@@ -24,7 +24,7 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 
 def train_all():
     PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    MODELS_DIR = os.path.join(PROJECT_ROOT, "saved_models")
+    MODELS_DIR = os.path.join(PROJECT_ROOT, "models")
     os.makedirs(MODELS_DIR, exist_ok=True)
 
     print("Loading training dataset...")

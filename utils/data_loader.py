@@ -1,5 +1,6 @@
 """
-Data loading and caching utility functions.
+Data loading and caching utility functions (v2).
+Includes disease-symptom mapping loader for symptom overlap analysis.
 """
 
 import os
@@ -51,6 +52,13 @@ def load_disease_info():
     return pd.read_csv(path)
 
 
+@st.cache_data
+def load_disease_symptoms_map():
+    """Load disease-to-symptom mapping from prepare_dataset.py for symptom overlap analysis."""
+    from data.prepare_dataset import DISEASE_SYMPTOMS
+    return dict(DISEASE_SYMPTOMS)
+
+
 def get_symptom_list(df=None):
     """Return list of symptom column names (excluding target)."""
     if df is None:
@@ -68,3 +76,12 @@ def get_disease_list(df=None):
 def symptom_display_name(raw_name):
     """Format a symptom column name for UI display."""
     return raw_name.replace("_", " ").title()
+
+
+def get_dataset_stats():
+    """Return dict with current dataset statistics (disease count, symptom count)."""
+    from data.prepare_dataset import DISEASE_SYMPTOMS, SYMPTOMS
+    return {
+        "disease_count": len(DISEASE_SYMPTOMS),
+        "symptom_count": len(SYMPTOMS),
+    }

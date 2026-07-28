@@ -44,21 +44,22 @@ from utils.data_loader import load_disease_info, symptom_display_name, load_dise
 from utils.theme import styled_warning_box
 from utils.helpers import parse_symptoms_from_text, parse_symptoms_with_metadata, save_prediction
 
-# ── Load Pretrained Model Artifacts (Instant Load) ──
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-MODELS_DIR = os.path.join(PROJECT_ROOT, "models") if os.path.exists(os.path.join(PROJECT_ROOT, "models", "encoder.pkl")) else os.path.join(PROJECT_ROOT, "saved_models")
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
+
+MODELS_DIR = os.path.join(PROJECT_ROOT, "models")
 
 @st.cache_resource
 def load_artifacts():
-    encoder = joblib.load(os.path.join(MODELS_DIR, "encoder.pkl"))
-    scaler = joblib.load(os.path.join(MODELS_DIR, "scaler.pkl"))
+    encoder = joblib.load(os.path.join(MODELS_DIR, "encoder.pkl")) if os.path.exists(os.path.join(MODELS_DIR, "encoder.pkl")) else joblib.load(os.path.join(MODELS_DIR, "label_encoder.pkl"))
+    scaler = joblib.load(os.path.join(MODELS_DIR, "scaler.pkl")) if os.path.exists(os.path.join(MODELS_DIR, "scaler.pkl")) else joblib.load(os.path.join(MODELS_DIR, "symptom_encoder.pkl"))
     symptom_columns = joblib.load(os.path.join(MODELS_DIR, "symptom_columns.pkl"))
-    best_name = joblib.load(os.path.join(MODELS_DIR, "best_model_name.pkl")) if os.path.exists(os.path.join(MODELS_DIR, "best_model_name.pkl")) else "Random Forest"
+    best_name = joblib.load(os.path.join(MODELS_DIR, "best_model_name.pkl")) if os.path.exists(os.path.join(MODELS_DIR, "best_model_name.pkl")) else "Calibrated Naive Bayes"
     
-    model_filename = f"{best_name.lower().replace(' ', '_')}.pkl"
-    model_path = os.path.join(MODELS_DIR, model_filename)
+    model_path = os.path.join(MODELS_DIR, "calibrated_nb.pkl")
     if not os.path.exists(model_path):
-        model_path = os.path.join(MODELS_DIR, "random_forest.pkl")
+        model_path = os.path.join(MODELS_DIR, "best_model.pkl")
     
     model = joblib.load(model_path)
     return encoder, scaler, symptom_columns, best_name, model

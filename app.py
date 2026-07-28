@@ -320,42 +320,6 @@ if (run_directly or btn_clicked) and selected_symptoms:
         with col_val:
             st.markdown(f"<span style='color:#2B6CB0 !important;font-weight:700;'>{p_pct:.1f}%</span>", unsafe_allow_html=True)
 
-        # ── Symptom Overlap Explanation ──
-        if dis in disease_symptom_map:
-            known_symptoms = set(disease_symptom_map[dis])
-            user_symptoms_set = set(selected_symptoms)
-            overlap = user_symptoms_set & known_symptoms
-            missing = known_symptoms - user_symptoms_set
-
-            overlap_count = len(overlap)
-            total_known = len(known_symptoms)
-            overlap_pct = (overlap_count / total_known * 100) if total_known > 0 else 0
-
-            # Build overlap explanation
-            overlap_names = [symptom_display_name(s) for s in sorted(overlap)]
-            missing_names = [symptom_display_name(s) for s in sorted(missing)][:5]  # Show top 5 missing
-
-            with st.expander(f"📊 Why {dis}? — Matched {overlap_count}/{total_known} symptoms ({overlap_pct:.0f}%)"):
-                if overlap_names:
-                    overlap_chips = " ".join([
-                        f'<span style="background:#C6F6D5;color:#22543D !important;padding:0.25rem 0.6rem;'
-                        f'border-radius:12px;font-size:0.8rem;margin:0.1rem;display:inline-block;font-weight:600;">'
-                        f'✓ {name}</span>'
-                        for name in overlap_names
-                    ])
-                    st.markdown(f"**Matched symptoms:** {overlap_chips}", unsafe_allow_html=True)
-
-                if missing_names:
-                    missing_chips = " ".join([
-                        f'<span style="background:#FED7D7;color:#742A2A !important;padding:0.25rem 0.6rem;'
-                        f'border-radius:12px;font-size:0.8rem;margin:0.1rem;display:inline-block;font-weight:600;">'
-                        f'✗ {name}</span>'
-                        for name in missing_names
-                    ])
-                    remaining = len(known_symptoms - user_symptoms_set) - len(missing_names)
-                    more_text = f" <em>+{remaining} more</em>" if remaining > 0 else ""
-                    st.markdown(f"**You didn't mention:** {missing_chips}{more_text}", unsafe_allow_html=True)
-
     st.divider()
 
     # ── Disease Details ──

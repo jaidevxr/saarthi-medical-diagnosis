@@ -1,5 +1,337 @@
 [
   {
+    "timestamp": "2026-07-28 22:53:30",
+    "symptoms": [
+      "Chest Pain",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 100.0
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 0.0
+      },
+      {
+        "disease": "Whooping Cough",
+        "probability": 0.0
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.0
+      },
+      {
+        "disease": "Vitamin D Deficiency",
+        "probability": 0.0
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-28 22:51:06",
+    "symptoms": [
+      "Chest Pain",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "GERD",
+        "probability": 14.0
+      },
+      {
+        "disease": "Lung Abscess",
+        "probability": 8.0
+      },
+      {
+        "disease": "Pulmonary Embolism",
+        "probability": 4.0
+      },
+      {
+        "disease": "Pleurisy",
+        "probability": 4.0
+      },
+      {
+        "disease": "Pharyngitis",
+        "probability": 4.0
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-28 22:50:51",
+    "symptoms": [
+      "Chest Pain",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "GERD",
+        "probability": 14.0
+      },
+      {
+        "disease": "Lung Abscess",
+        "probability": 8.0
+      },
+      {
+        "disease": "Pulmonary Embolism",
+        "probability": 4.0
+      },
+      {
+        "disease": "Pleurisy",
+        "probability": 4.0
+      },
+      {
+        "disease": "Pharyngitis",
+        "probability": 4.0
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-28 22:41:40",
+    "symptoms": [
+      "Breathlessness",
+      "Chest Pain",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 100.0
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 0.0
+      },
+      {
+        "disease": "Whooping Cough",
+        "probability": 0.0
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.0
+      },
+      {
+        "disease": "Vitamin D Deficiency",
+        "probability": 0.0
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-28 22:41:32",
+    "symptoms": [
+      "Breathlessness",
+      "Chest Pain",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 100.0
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 0.0
+      },
+      {
+        "disease": "Whooping Cough",
+        "probability": 0.0
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.0
+      },
+      {
+        "disease": "Vitamin D Deficiency",
+        "probability": 0.0
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-28 12:19:19",
+    "symptoms": [
+      "Cough",
+      "High Fever",
+      "Nasal Discharge"
+    ],
+    "predictions": [
+      {
+        "disease": "Sinusitis",
+        "probability": 96.4
+      },
+      {
+        "disease": "Labyrinthitis",
+        "probability": 0.1
+      },
+      {
+        "disease": "Fungal infection",
+        "probability": 0.0
+      },
+      {
+        "disease": "Tinea Versicolor",
+        "probability": 0.0
+      },
+      {
+        "disease": "Ringworm",
+        "probability": 0.0
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-28 12:17:55",
+    "symptoms": [
+      "Cough",
+      "High Fever",
+      "Nasal Discharge"
+    ],
+    "predictions": [
+      {
+        "disease": "Sinusitis",
+        "probability": 96.4
+      },
+      {
+        "disease": "Labyrinthitis",
+        "probability": 0.1
+      },
+      {
+        "disease": "Fungal infection",
+        "probability": 0.0
+      },
+      {
+        "disease": "Tinea Versicolor",
+        "probability": 0.0
+      },
+      {
+        "disease": "Ringworm",
+        "probability": 0.0
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-28 12:14:48",
+    "symptoms": [
+      "Headache",
+      "High Fever",
+      "Sore Throat"
+    ],
+    "predictions": [
+      {
+        "disease": "Common Cold",
+        "probability": 96.3
+      },
+      {
+        "disease": "Labyrinthitis",
+        "probability": 0.1
+      },
+      {
+        "disease": "Fungal infection",
+        "probability": 0.0
+      },
+      {
+        "disease": "Tinea Versicolor",
+        "probability": 0.0
+      },
+      {
+        "disease": "Ringworm",
+        "probability": 0.0
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-28 12:14:29",
+    "symptoms": [
+      "Headache",
+      "High Fever",
+      "Sore Throat"
+    ],
+    "predictions": [
+      {
+        "disease": "Common Cold",
+        "probability": 96.3
+      },
+      {
+        "disease": "Labyrinthitis",
+        "probability": 0.1
+      },
+      {
+        "disease": "Fungal infection",
+        "probability": 0.0
+      },
+      {
+        "disease": "Tinea Versicolor",
+        "probability": 0.0
+      },
+      {
+        "disease": "Ringworm",
+        "probability": 0.0
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-28 12:10:42",
+    "symptoms": [
+      "Headache",
+      "High Fever",
+      "Sore Throat"
+    ],
+    "predictions": [
+      {
+        "disease": "Common Cold",
+        "probability": 96.3
+      },
+      {
+        "disease": "Labyrinthitis",
+        "probability": 0.1
+      },
+      {
+        "disease": "Fungal infection",
+        "probability": 0.0
+      },
+      {
+        "disease": "Tinea Versicolor",
+        "probability": 0.0
+      },
+      {
+        "disease": "Ringworm",
+        "probability": 0.0
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-28 12:10:30",
+    "symptoms": [
+      "Headache",
+      "High Fever",
+      "Sore Throat"
+    ],
+    "predictions": [
+      {
+        "disease": "Common Cold",
+        "probability": 96.3
+      },
+      {
+        "disease": "Labyrinthitis",
+        "probability": 0.1
+      },
+      {
+        "disease": "Fungal infection",
+        "probability": 0.0
+      },
+      {
+        "disease": "Tinea Versicolor",
+        "probability": 0.0
+      },
+      {
+        "disease": "Ringworm",
+        "probability": 0.0
+      }
+    ]
+  },
+  {
     "timestamp": "2026-07-28 01:06:37",
     "symptoms": [
       "Acid Reflux",

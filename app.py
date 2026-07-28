@@ -40,6 +40,21 @@ if os.path.exists(_CSS_PATH):
     with open(_CSS_PATH, "r", encoding="utf-8") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
+# ── Text Area Border ──
+st.markdown("""
+<style>
+    .stTextArea textarea {
+        border: 2px solid #CBD5E0 !important;
+        border-radius: 10px !important;
+        padding: 0.8rem !important;
+    }
+    .stTextArea textarea:focus {
+        border-color: #2B6CB0 !important;
+        box-shadow: 0 0 0 2px rgba(43, 108, 176, 0.2) !important;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 from utils.data_loader import load_disease_info, symptom_display_name, load_disease_symptoms_map, get_dataset_stats
 from utils.theme import styled_warning_box
 from utils.helpers import parse_symptoms_from_text, parse_symptoms_with_metadata, save_prediction
@@ -111,23 +126,6 @@ with st.sidebar:
     st.divider()
     st.markdown(
         """
-        <div style="background:#F0FFF4;border:1px solid #C6F6D5;border-radius:8px;padding:0.75rem;margin-bottom:1rem;">
-            <p style="margin:0;font-size:0.82rem;color:#22543D !important;font-weight:700;">
-                🌐 NLP Features:
-            </p>
-            <p style="margin:0.3rem 0 0;font-size:0.78rem;color:#2D3748 !important;">
-                • Spelling auto-correction<br>
-                • Hindi-English (Hinglish) input<br>
-                • Layman's terms (sugar, BP, gas)<br>
-                • Conversational natural language
-            </p>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-    st.divider()
-    st.markdown(
-        """
         <div style="background:#F7FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:0.75rem;margin-bottom:1rem;">
             <p style="margin:0;font-size:0.82rem;color:#2D3748 !important;font-weight:700;">
                 👥 Lead Contributors:
@@ -168,11 +166,10 @@ run_directly = False
 match_metadata = None  # Will store corrections/unmatched info
 
 if "Natural Language" in input_mode:
-    st.markdown("#### Describe Your Symptoms in Plain Text")
-    st.caption("🌐 Supports: English • Hindi-English (bukhar, khansi, gale mein dard) • Layman terms (sugar, BP, gas) • Auto-corrects typos")
+    st.markdown("#### Describe Your Symptoms")
     user_text = st.text_area(
         "Enter your symptoms below:",
-        placeholder="e.g., I have high fever, chills, severe headache, joint pain, and nausea for 2 days...\nor: bukhar, khansi, pet dard, chakkar aa raha hai...",
+        placeholder="e.g., I have high fever, chills, severe headache, joint pain, and nausea for 2 days...",
         height=130,
         key="nld_text_input",
     )
@@ -184,24 +181,6 @@ if "Natural Language" in input_mode:
         if selected_symptoms:
             run_directly = True
 
-            # Show corrections applied (if any)
-            if match_metadata["corrections"]:
-                corrections_str = ", ".join([f"'{k}' → '{v}'" for k, v in match_metadata["corrections"].items()])
-                st.markdown(
-                    f'<div style="background:#FFFBEB;border:1px solid #F6E05E;border-radius:8px;padding:0.6rem 1rem;margin-bottom:0.8rem;">'
-                    f'<span style="font-size:0.85rem;color:#744210 !important;">✏️ <strong>Auto-corrected:</strong> {corrections_str}</span></div>',
-                    unsafe_allow_html=True,
-                )
-
-            # Show Hinglish translations (if any)
-            if match_metadata["hinglish_detected"]:
-                hindi_str = ", ".join([f"'{h}'" for h in match_metadata["hinglish_detected"]])
-                st.markdown(
-                    f'<div style="background:#F0FFF4;border:1px solid #C6F6D5;border-radius:8px;padding:0.6rem 1rem;margin-bottom:0.8rem;">'
-                    f'<span style="font-size:0.85rem;color:#22543D !important;">🌐 <strong>Hinglish detected:</strong> {hindi_str}</span></div>',
-                    unsafe_allow_html=True,
-                )
-
             st.markdown("**✅ Recognized Symptoms:**")
             chips = " ".join([
                 f'<span style="background:#2B6CB0;color:#FFFFFF !important;padding:0.35rem 0.8rem;'
@@ -210,16 +189,6 @@ if "Natural Language" in input_mode:
                 for s in selected_symptoms
             ])
             st.markdown(chips, unsafe_allow_html=True)
-
-            # Show unmatched tokens (if any)
-            if match_metadata["unmatched_tokens"]:
-                unmatched_str = ", ".join([f"'{t}'" for t in match_metadata["unmatched_tokens"]])
-                st.markdown(
-                    f'<div style="background:#FFF5F5;border:1px solid #FEB2B2;border-radius:8px;padding:0.6rem 1rem;margin-top:0.8rem;">'
-                    f'<span style="font-size:0.85rem;color:#742A2A !important;">❓ <strong>Unrecognized terms:</strong> {unmatched_str} '
-                    f'<em>(these words didn\'t match any known symptoms)</em></span></div>',
-                    unsafe_allow_html=True,
-                )
         else:
             st.info("💡 Type your symptoms in the box above (e.g. 'fever, headache, cough, itching, stomach pain').")
 else:

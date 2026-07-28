@@ -14,7 +14,7 @@ def test_disease_predictor_initialization():
     predictor = DiseasePredictor(models_dir=MODELS_DIR)
     assert predictor.primary_model is not None
     assert len(predictor.symptom_columns) == 397
-    assert len(predictor.encoder.classes) == 168
+    assert len(predictor.encoder.classes_) == 168
 
 def test_prediction_from_text():
     predictor = DiseasePredictor(models_dir=MODELS_DIR)

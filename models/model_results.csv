@@ -1,7 +1,7 @@
-Algorithm,Accuracy,Precision,Recall,F1 Score,Training Time (s),Prediction Time (s)
-Random Forest,0.9938,0.9942,0.9938,0.9938,1.672,0.2683
-Logistic Regression,0.994,0.9946,0.994,0.994,12.206,0.0107
-Decision Tree,0.974,0.9753,0.974,0.974,1.799,0.0082
-KNN,0.9903,0.9909,0.9903,0.9903,0.041,2.2396
-Naive Bayes,0.995,0.9957,0.995,0.9949,0.155,2.6696
-SVM,0.9919,0.9929,0.9919,0.9918,59.542,11.1499
+Model,Accuracy,Precision,Recall,F1 Score,ROC-AUC,Training Time (s)
+Logistic Regression,99.85,99.86,99.85,99.85,100.0,120.3
+Decision Tree,11.91,14.03,11.91,12.2,60.28,2.1
+Random Forest,62.06,63.86,62.06,61.71,95.49,4.6
+KNN,98.76,98.89,98.76,98.74,99.87,0.1
+SVM,98.27,98.2,98.27,98.11,100.0,64.6
+Naive Bayes,99.85,99.86,99.85,99.85,100.0,0.7

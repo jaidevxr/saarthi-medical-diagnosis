@@ -1,0 +1,39 @@
+{
+  "respiratory": [
+    "cough", "high_fever", "mild_fever", "breathlessness", "phlegm", "throat_irritation",
+    "continuous_sneezing", "runny_nose", "congestion", "sinus_pressure", "chest_pain",
+    "rusty_sputum", "mucoid_sputum", "blood_in_sputum", "dry_cough", "wheezing"
+  ],
+  "cardiovascular": [
+    "chest_pain", "fast_heart_rate", "palpitations", "cold_hands_and_feets",
+    "swollen_blood_vessels", "blood_pressure_high", "blood_pressure_low"
+  ],
+  "gastrointestinal": [
+    "stomach_pain", "acidity", "ulcers_on_tongue", "vomiting", "indigestion", "nausea",
+    "loss_of_appetite", "constipation", "abdominal_pain", "diarrhoea", "passage_of_gases",
+    "belly_pain", "right_lower_abdominal_pain", "clay_colored_stool", "bloody_stool"
+  ],
+  "dermatological": [
+    "itching", "skin_rash", "nodal_skin_eruptions", "dischromic_patches", "red_spots_over_body",
+    "blister", "pus_filled_pimples", "blackheads", "scurring", "skin_peeling", "silver_like_dusting",
+    "small_dents_in_nails", "inflammatory_nails", "yellowish_skin"
+  ],
+  "renal_urinary": [
+    "burning_micturition", "spotting_urination", "dark_urine", "yellow_urine",
+    "foul_smell_of_urine", "continuous_feel_of_urine", "bladder_discomfort",
+    "polyuria", "cloudy_urine", "blood_in_urine"
+  ],
+  "musculoskeletal": [
+    "joint_pain", "muscle_wasting", "back_pain", "neck_pain", "knee_pain", "hip_joint_pain",
+    "muscle_weakness", "stiff_neck", "swelling_joints", "movement_stiffness", "muscle_pain"
+  ],
+  "neurological": [
+    "headache", "dizziness", "spinning_movements", "loss_of_balance", "unsteadiness",
+    "weakness_of_one_body_side", "slurred_speech", "altered_sensorium", "lack_of_concentration"
+  ],
+  "endocrine_systemic": [
+    "fatigue", "weight_gain", "weight_loss", "anxiety", "mood_swings", "restlessness",
+    "lethargy", "irregular_sugar_level", "excessive_hunger", "excessive_thirst", "sweating",
+    "dehydration", "chills", "shivering", "malaise"
+  ]
+}

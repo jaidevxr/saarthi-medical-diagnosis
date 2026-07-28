@@ -1,70 +1,58 @@
 """
-Disease Predictor Module
-========================
-Provides high-level OOP API for loading models and generating disease predictions.
+Disease Predictor Module (OOP Interface — models/predictor.py)
+==============================================================
+Provides high-level OOP API for loading the production Multi-Turn Diagnosis Engine
+and generating disease predictions with stateful follow-up capabilities.
 """
 
 import os
-import joblib
-import pandas as pd
-import numpy as np
+import sys
 
-from utils.helpers import parse_symptoms_with_metadata
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
 
-MODELS_DIR = os.path.dirname(os.path.abspath(__file__))
+from src.engine import MultiTurnDiagnosisEngine
 
 
 class DiseasePredictor:
-    def __init__(self, models_dir=MODELS_DIR):
-        self.models_dir = models_dir
-        self.encoder = joblib.load(os.path.join(models_dir, "encoder.pkl"))
-        self.scaler = joblib.load(os.path.join(models_dir, "scaler.pkl"))
-        self.symptom_columns = joblib.load(os.path.join(models_dir, "symptom_columns.pkl"))
+    """
+    Production OOP class for multi-turn disease prediction.
+    Interfaces with MultiTurnDiagnosisEngine for weighted overlap specificity matching
+    and entropy-driven clarifying question selection.
+    """
 
-        # Load trained models if available
-        self.models = {}
-        for m_name in ["calibrated_nb", "random_forest_tuned", "extra_trees", "random_forest", "naive_bayes"]:
-            p = os.path.join(models_dir, f"{m_name}.pkl")
-            if os.path.exists(p):
-                self.models[m_name] = joblib.load(p)
-
-        # Primary model is Calibrated Naive Bayes or Random Forest Tuned
-        if "calibrated_nb" in self.models:
-            self.primary_model = self.models["calibrated_nb"]
-        elif "random_forest_tuned" in self.models:
-            self.primary_model = self.models["random_forest_tuned"]
-        else:
-            self.primary_model = list(self.models.values())[0] if self.models else None
+    def __init__(self, models_dir=None):
+        self.engine = MultiTurnDiagnosisEngine()
+        self.primary_model = self.engine
+        self.symptom_columns = self.engine.symptom_cols
+        class DummyEncoder:
+            def __init__(self, classes):
+                self.classes_ = classes
+        self.encoder = DummyEncoder(self.engine.canonical_diseases)
 
     def predict_from_text(self, text, top_n=5):
         """
-        Parses text input for symptoms, builds feature vector, and predicts top diseases.
+        Parses natural language text, extracts symptoms, computes weighted overlap scores,
+        and returns primary diagnosis, differential, candidate set, and next clarifying question.
         """
-        meta = parse_symptoms_with_metadata(text, self.symptom_columns)
-        detected = meta["matched"]
-
-        feat = pd.DataFrame([[0] * len(self.symptom_columns)], columns=self.symptom_columns)
-        for s in detected:
-            if s in feat.columns:
-                feat[s] = 1
-
-        feat_sc = self.scaler.transform(feat)
-        probs = self.primary_model.predict_proba(feat_sc)[0]
-
-        top_indices = np.argsort(probs)[-top_n:][::-1]
-        diseases = self.encoder.inverse_transform(top_indices)
-
+        res = self.engine.predict_initial(text)
+        
         top_predictions = []
-        for d, idx in zip(diseases, top_indices):
+        for d in res["top3_differential"][:top_n]:
             top_predictions.append({
                 "disease": d,
-                "confidence": round(float(probs[idx]) * 100, 2)
+                "confidence": 100.0 if d == res["primary_diagnosis"] else 50.0
             })
 
         return {
-            "top_prediction": top_predictions[0] if top_predictions else None,
+            "top_prediction": {"disease": res["primary_diagnosis"], "confidence": 100.0},
             "top_3": top_predictions[:3],
-            "top_5": top_predictions[:5],
-            "symptoms_matched": detected,
-            "symptoms_unmatched": meta.get("unmatched", [])
+            "top_5": top_predictions[:top_n],
+            "symptoms_matched": res["matched_symptoms"],
+            "symptoms_unmatched": res["unmatched_tokens"],
+            "candidate_diseases": res["candidate_diseases"],
+            "next_question_symptom": res["next_question_symptom"],
+            "next_question_text": res["next_question_text"],
+            "is_resolved": res["is_resolved"]
         }

@@ -1,5 +1,3785 @@
 [
   {
+    "timestamp": "2026-07-29 00:56:07",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:56:06",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:56:06",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:56:05",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:56:05",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:56:04",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:56:04",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:56:03",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:56:03",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:56:02",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:56:02",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:56:01",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:56:01",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:56:00",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:55:10",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:55:09",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:55:09",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:55:09",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:50:17",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:47:42",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:47:41",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:47:41",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:47:40",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:47:39",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:47:39",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:47:38",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:47:38",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:47:37",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:47:37",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:47:36",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:47:36",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:47:36",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:47:35",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:47:35",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:47:34",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:47:34",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:47:34",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:47:34",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:47:34",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:47:33",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:47:12",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:47:12",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:47:11",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:47:11",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:44:58",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:44:57",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:44:56",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:44:56",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:44:55",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:44:55",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:44:54",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:44:54",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:44:53",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:44:53",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:44:52",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:44:52",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:44:52",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:44:51",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:44:51",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:44:51",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:44:51",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:44:50",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:44:50",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:44:50",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:44:50",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:44:27",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:44:27",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:44:26",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:44:26",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:43:46",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:43:45",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:43:45",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:43:44",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:43:43",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:43:43",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:43:42",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:43:42",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:43:41",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:43:41",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:43:41",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:43:40",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:43:40",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:43:40",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:43:39",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:43:39",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:43:39",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:43:39",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:43:38",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:43:38",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:43:38",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:43:15",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:43:15",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:43:15",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:43:14",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:40:17",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:40:16",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:40:16",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:40:15",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:40:15",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:40:14",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:40:14",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:40:13",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:40:13",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:40:13",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:40:12",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:40:12",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:40:12",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:40:11",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:40:11",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:40:11",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:40:11",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:40:10",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:40:10",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:40:10",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:39:47",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:39:47",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:39:47",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:39:47",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:38:30",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:38:30",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:13:46",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:13:26",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:13:25",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-29 00:13:25",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-28 23:47:38",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-07-28 23:47:27",
+    "symptoms": [
+      "Breathlessness",
+      "Cough",
+      "High Fever"
+    ],
+    "predictions": [
+      {
+        "disease": "Pneumonia",
+        "probability": 51.4
+      },
+      {
+        "disease": "Tuberculosis",
+        "probability": 43.5
+      },
+      {
+        "disease": "Influenza",
+        "probability": 0.1
+      },
+      {
+        "disease": "Dengue",
+        "probability": 0.1
+      },
+      {
+        "disease": "hepatitis A",
+        "probability": 0.1
+      }
+    ]
+  },
+  {
     "timestamp": "2026-07-28 22:53:30",
     "symptoms": [
       "Chest Pain",

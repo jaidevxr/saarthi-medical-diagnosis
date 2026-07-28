@@ -94,23 +94,6 @@ with st.sidebar:
     )
     st.divider()
     st.markdown(
-        f"""
-        <div style="background:#EBF8FF;border:1px solid #BEE3F8;border-radius:8px;padding:0.75rem;margin-bottom:1rem;">
-            <p style="margin:0;font-size:0.82rem;color:#2C5282 !important;font-weight:700;">
-                🤖 Active Classifier:
-            </p>
-            <p style="margin:0.2rem 0 0;font-size:0.95rem;color:#1A202C !important;font-weight:700;">
-                {active_model_name}
-            </p>
-            <p style="margin:0.2rem 0 0;font-size:0.78rem;color:#4A5568 !important;">
-                {disease_count} Diseases | {symptom_count} Symptoms
-            </p>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-    st.divider()
-    st.markdown(
         """
         <div style="background:#F0FFF4;border:1px solid #C6F6D5;border-radius:8px;padding:0.75rem;margin-bottom:1rem;">
             <p style="margin:0;font-size:0.82rem;color:#22543D !important;font-weight:700;">
@@ -121,21 +104,6 @@ with st.sidebar:
                 • Hindi-English (Hinglish) input<br>
                 • Layman's terms (sugar, BP, gas)<br>
                 • Conversational natural language
-            </p>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-    st.divider()
-    st.markdown(
-        """
-        <div style="background:#F7FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:0.75rem;margin-bottom:1rem;">
-            <p style="margin:0;font-size:0.82rem;color:#2D3748 !important;font-weight:700;">
-                👥 Lead Contributors:
-            </p>
-            <p style="margin:0.3rem 0 0;font-size:0.82rem;">
-                • <a href="https://github.com/KhushiSharma006" target="_blank" style="color:#3182CE !important;font-weight:600;text-decoration:none;">Khushi Sharma (@KhushiSharma006)</a><br>
-                • <a href="https://github.com/jaidevxr" target="_blank" style="color:#3182CE !important;font-weight:600;text-decoration:none;">Jai (@jaidevxr)</a>
             </p>
         </div>
         """,

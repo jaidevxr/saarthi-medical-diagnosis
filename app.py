@@ -1,14 +1,7 @@
 """
-Saarthi — Master Medical Diagnosis Prediction System (v2)
+Saarthi — Master Medical Diagnosis Prediction System (v7)
 =====================================================
-Main Streamlit entry point — Instant Diagnosis Engine.
-Features:
-- Natural Language Description as DEFAULT input method.
-- Automatic real-time symptom detection and direct diagnosis prediction.
-- Spelling correction & Hinglish support.
-- Matched/unmatched symptom analysis.
-- Symptom overlap explanation per disease.
-- Enhanced disease info cards with recovery time, emergency signs, prevention.
+Streamlit Entry Point implementing Live Interactive Multi-Turn Dialogue Engine.
 """
 
 import warnings
@@ -18,17 +11,18 @@ import streamlit as st
 import os, sys
 import pandas as pd
 import numpy as np
-import joblib
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-# ── Favicon Path ──
+from src.engine import MultiTurnDiagnosisEngine
+from utils.data_loader import load_disease_info, symptom_display_name
+
+# ── Favicon & Page Config ──
 _FAVICON = os.path.join(os.path.dirname(__file__), "assets", "favicon.png")
 page_icon = _FAVICON if os.path.exists(_FAVICON) else "🩺"
 
-# ── Page Config ──
 st.set_page_config(
-    page_title="Saarthi — Medical Diagnosis System",
+    page_title="Saarthi — Multi-Turn Medical Diagnosis System",
     page_icon=page_icon,
     layout="wide",
     initial_sidebar_state="expanded",
@@ -40,7 +34,7 @@ if os.path.exists(_CSS_PATH):
     with open(_CSS_PATH, "r", encoding="utf-8") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-# ── Text Area Border ──
+# ── Styling Overrides ──
 st.markdown("""
 <style>
     .stTextArea textarea {
@@ -52,46 +46,21 @@ st.markdown("""
         border-color: #2B6CB0 !important;
         box-shadow: 0 0 0 2px rgba(43, 108, 176, 0.2) !important;
     }
+    .question-card {
+        background: #FEFCBF !important;
+        border: 2px solid #D69E2E !important;
+        border-radius: 14px !important;
+        padding: 1.5rem 2rem !important;
+        margin: 1rem 0 !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
-from utils.data_loader import load_disease_info, symptom_display_name, load_disease_symptoms_map, get_dataset_stats
-from utils.theme import styled_warning_box
-from utils.helpers import parse_symptoms_from_text, parse_symptoms_with_metadata, save_prediction
-
-# ── Load Pretrained Model Artifacts (Instant Load) ──
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-MODELS_DIR = os.path.join(PROJECT_ROOT, "models") if os.path.exists(os.path.join(PROJECT_ROOT, "models", "encoder.pkl")) else os.path.join(PROJECT_ROOT, "saved_models")
-
 @st.cache_resource
-def load_artifacts():
-    encoder = joblib.load(os.path.join(MODELS_DIR, "encoder.pkl"))
-    scaler = joblib.load(os.path.join(MODELS_DIR, "scaler.pkl"))
-    symptom_columns = joblib.load(os.path.join(MODELS_DIR, "symptom_columns.pkl"))
-    best_name = joblib.load(os.path.join(MODELS_DIR, "best_model_name.pkl")) if os.path.exists(os.path.join(MODELS_DIR, "best_model_name.pkl")) else "Random Forest"
-    
-    model_filename = f"{best_name.lower().replace(' ', '_')}.pkl"
-    model_path = os.path.join(MODELS_DIR, model_filename)
-    if not os.path.exists(model_path):
-        model_path = os.path.join(MODELS_DIR, "random_forest.pkl")
-    
-    model = joblib.load(model_path)
-    return encoder, scaler, symptom_columns, best_name, model
+def get_engine():
+    return MultiTurnDiagnosisEngine()
 
-try:
-    encoder, scaler, symptom_columns, active_model_name, model = load_artifacts()
-except Exception as e:
-    st.error(f"Error loading ML model artifacts: {e}")
-    st.stop()
-
-# ── Dynamic Stats ──
-try:
-    stats = get_dataset_stats()
-    disease_count = stats["disease_count"]
-    symptom_count = stats["symptom_count"]
-except Exception:
-    disease_count = len(encoder.classes) if hasattr(encoder, 'classes') else 139
-    symptom_count = len(symptom_columns)
+engine = get_engine()
 
 # ── Sidebar Branding ──
 with st.sidebar:
@@ -100,24 +69,7 @@ with st.sidebar:
         <div style="text-align:center;padding:0.5rem 0;">
             <h2 style="margin:0;color:#2B6CB0 !important;font-weight:800;font-size:1.8rem;">🩺 Saarthi</h2>
             <p style="margin:0.2rem 0 0;font-size:0.85rem;color:#4A5568 !important;font-weight:600;">
-                Medical Diagnosis Assistant
-            </p>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-    st.divider()
-    st.markdown(
-        f"""
-        <div style="background:#EBF8FF;border:1px solid #BEE3F8;border-radius:8px;padding:0.75rem;margin-bottom:1rem;">
-            <p style="margin:0;font-size:0.82rem;color:#2C5282 !important;font-weight:700;">
-                🤖 Active Classifier:
-            </p>
-            <p style="margin:0.2rem 0 0;font-size:0.95rem;color:#1A202C !important;font-weight:700;">
-                {active_model_name}
-            </p>
-            <p style="margin:0.2rem 0 0;font-size:0.78rem;color:#4A5568 !important;">
-                {disease_count} Diseases | {symptom_count} Symptoms
+                Multi-Turn Medical Diagnosis Assistant
             </p>
         </div>
         """,
@@ -126,226 +78,150 @@ with st.sidebar:
     st.divider()
     st.markdown(
         """
-        <div style="background:#F7FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:0.75rem;margin-bottom:1rem;">
-            <p style="margin:0;font-size:0.82rem;color:#2D3748 !important;font-weight:700;">
-                👥 Lead Contributors:
-            </p>
-            <p style="margin:0.3rem 0 0;font-size:0.82rem;">
-                • <a href="https://github.com/KhushiSharma006" target="_blank" style="color:#3182CE !important;font-weight:600;text-decoration:none;">Khushi Sharma (@KhushiSharma006)</a><br>
-                • <a href="https://github.com/jaidevxr" target="_blank" style="color:#3182CE !important;font-weight:600;text-decoration:none;">Jai (@jaidevxr)</a>
+        <div style="background:#FFF5F5;border:1px solid #FEB2B2;border-radius:8px;padding:0.75rem;">
+            <p style="margin:0;font-size:0.8rem;color:#9B2C2C !important;">
+                <strong>Medical Disclaimer:</strong> Educational decision support tool. Always consult a licensed medical professional for clinical diagnosis.
             </p>
         </div>
         """,
         unsafe_allow_html=True,
     )
-    st.divider()
-    st.markdown(
-        styled_warning_box(
-            "<strong>Medical Disclaimer:</strong> Educational decision support tool. "
-            "Always consult a licensed medical professional for clinical diagnosis."
-        ),
-        unsafe_allow_html=True,
-    )
 
-# ── Header ──
-st.title("🩺 Saarthi — Medical Diagnosis Prediction")
-st.markdown("Describe how you feel or select symptoms below to generate an instant differential diagnosis prediction.")
+# ── Title Header ──
+st.title("🩺 Saarthi — Multi-Turn Medical Diagnosis Assistant")
+st.markdown("Describe how you feel below. If initial symptoms are ambiguous, Saarthi will ask up to 2 targeted clarifying questions to refine your diagnosis.")
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-# ── Input Mode Selector (DEFAULT = Natural Language Description) ──
-input_mode = st.radio(
-    "Choose Input Method:",
-    ["💬 Natural Language Description", "📋 Structured Symptom Search"],
-    index=0,
-    horizontal=True,
+# ── Initialize Session State ──
+if "dialogue_state" not in st.session_state:
+    st.session_state["dialogue_state"] = None
+
+# Input Area
+user_text = st.text_area(
+    "Describe your symptoms in natural language:",
+    placeholder="e.g., I have high fever with cough and difficulty breathing for 2 days...",
+    height=110,
+    key="initial_symptoms_input"
 )
 
-selected_symptoms = []
-run_directly = False
-match_metadata = None  # Will store corrections/unmatched info
+col_btn1, col_btn2 = st.columns([2, 5])
+with col_btn1:
+    start_clicked = st.button("🚀 Analyze Symptoms & Start Diagnosis", type="primary", use_container_width=True)
 
-if "Natural Language" in input_mode:
-    st.markdown("#### Describe Your Symptoms")
-    user_text = st.text_area(
-        "Enter your symptoms below:",
-        placeholder="e.g., I have high fever, chills, severe headache, joint pain, and nausea for 2 days...",
-        height=130,
-        key="nld_text_input",
-    )
-    if user_text:
-        # Use enhanced parser with metadata
-        match_metadata = parse_symptoms_with_metadata(user_text, symptom_columns)
-        selected_symptoms = match_metadata["matched"]
+if start_clicked and user_text.strip():
+    initial_res = engine.predict_initial(user_text)
+    st.session_state["dialogue_state"] = initial_res
 
-        if selected_symptoms:
-            run_directly = True
+current_state = st.session_state.get("dialogue_state", None)
 
-            st.markdown("**✅ Recognized Symptoms:**")
-            chips = " ".join([
-                f'<span style="background:#2B6CB0;color:#FFFFFF !important;padding:0.35rem 0.8rem;'
-                f'border-radius:16px;font-size:0.88rem;margin:0.15rem;display:inline-block;font-weight:600;">'
-                f'{symptom_display_name(s)}</span>'
-                for s in selected_symptoms
-            ])
-            st.markdown(chips, unsafe_allow_html=True)
-        else:
-            st.info("💡 Type your symptoms in the box above (e.g. 'fever, headache, cough, itching, stomach pain').")
-else:
-    st.markdown("#### Select Symptoms from Database")
-    display_names = sorted([symptom_display_name(s) for s in symptom_columns])
-    chosen = st.multiselect(
-        "Search and choose symptoms:",
-        display_names,
-        placeholder="Type symptom keywords (e.g. fever, headache, cough, chest pain, itching)...",
-    )
-    for name in chosen:
-        for col in symptom_columns:
-            if symptom_display_name(col).lower() == name.lower():
-                selected_symptoms.append(col)
-                break
-
-st.markdown("<br>", unsafe_allow_html=True)
-
-predict_disabled = len(selected_symptoms) == 0
-btn_clicked = st.button("🚀 Analyze Symptoms & Predict Diagnosis", type="primary", disabled=predict_disabled, use_container_width=True)
-
-# Run prediction directly if natural language description has detected symptoms OR if button clicked
-if (run_directly or btn_clicked) and selected_symptoms:
-    feature_vector = pd.DataFrame([[0] * len(symptom_columns)], columns=symptom_columns)
-    for sym in selected_symptoms:
-        if sym in feature_vector.columns:
-            feature_vector[sym] = 1
-
-    feature_scaled = scaler.transform(feature_vector)
-
-    if hasattr(model, "predict_proba"):
-        probs = model.predict_proba(feature_scaled)[0]
-    else:
-        pred = model.predict(feature_scaled)[0]
-        probs = np.zeros(len(encoder.classes))
-        probs[pred] = 1.0
-
-    top_5_idx = np.argsort(probs)[-5:][::-1]
-    top_diseases = encoder.inverse_transform(top_5_idx)
-    top_probs = probs[top_5_idx]
-
-    matched_names = [symptom_display_name(s) for s in selected_symptoms]
-    pred_records = [
-        {"disease": d, "probability": round(float(p * 100), 1)}
-        for d, p in zip(top_diseases, top_probs)
-    ]
-    save_prediction(matched_names, pred_records)
-
-    top_d = top_diseases[0]
-    top_p = top_probs[0] * 100
-
-    # ── Load disease symptom map for overlap analysis ──
-    try:
-        disease_symptom_map = load_disease_symptoms_map()
-    except Exception:
-        disease_symptom_map = {}
-
-    # ── High Contrast White Result Card ──
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.subheader("Prediction Results")
-
-    st.markdown(
-        f"""
-        <div style="
-            background: #FFFFFF !important;
-            border: 2px solid #2B6CB0 !important;
-            border-radius: 14px !important;
-            padding: 1.6rem 2rem !important;
-            box-shadow: 0 4px 14px rgba(43, 108, 176, 0.12) !important;
-            margin-bottom: 1.5rem !important;
-            text-align: center !important;
-        ">
-            <p style="margin:0;font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;color:#718096 !important;font-weight:700;">
-                PRIMARY DIFFERENTIAL DIAGNOSIS
-            </p>
-            <h2 style="margin:0.4rem 0;font-size:2.4rem;font-weight:800;color:#1A365D !important;letter-spacing:-0.02em;">
-                {top_d}
-            </h2>
-            <p style="margin:0;font-size:1.25rem;font-weight:700;color:#276749 !important;">
-                Confidence Score: {top_p:.1f}%
-            </p>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    # ── Top 5 Differential Diagnoses with Symptom Overlap ──
-    st.subheader("Top 5 Differential Diagnoses")
-
-    for i, (dis, pr) in enumerate(zip(top_diseases, top_probs)):
-        p_pct = pr * 100
-        col_name, col_bar, col_val = st.columns([3, 5, 1.2])
-
-        with col_name:
-            st.markdown(f"<span style='color:#1A202C !important;font-weight:700;'>#{i+1} {dis}</span>", unsafe_allow_html=True)
-        with col_bar:
-            st.progress(float(pr))
-        with col_val:
-            st.markdown(f"<span style='color:#2B6CB0 !important;font-weight:700;'>{p_pct:.1f}%</span>", unsafe_allow_html=True)
-
+if current_state:
     st.divider()
 
-    # ── Disease Details ──
-    df_info = load_disease_info()
-    info_matches = df_info[df_info["disease"] == top_d]
+    # Display Matched Symptoms
+    matched = current_state.get("matched_symptoms", [])
+    if matched:
+        st.markdown("##### 🔬 Recognized Symptoms:")
+        chips = " ".join([
+            f'<span style="background:#2B6CB0;color:#FFFFFF !important;padding:0.35rem 0.8rem;'
+            f'border-radius:16px;font-size:0.88rem;margin:0.15rem;display:inline-block;font-weight:600;">'
+            f'{symptom_display_name(s)}</span>'
+            for s in matched
+        ])
+        st.markdown(chips, unsafe_allow_html=True)
 
-    if not info_matches.empty:
-        info = info_matches.iloc[0]
-        st.subheader(f"🏥 Clinical Reference: {top_d}")
+    # Check if a clarifying question is pending
+    is_resolved = current_state.get("is_resolved", True)
+    next_q_text = current_state.get("next_question_text", None)
+    next_q_sym = current_state.get("next_question_symptom", None)
+    rounds_asked = current_state.get("rounds_asked", 0)
 
-        # ── Quick Stats Row ──
-        c_spec, c_sev, c_cat, c_rec = st.columns(4)
-        with c_spec:
-            st.markdown(f"**👨‍⚕️ Specialist:**\n`{info.get('specialist', 'General Physician')}`")
-        with c_sev:
-            sev = info.get('severity', 'Moderate')
-            sev_color = "#E53E3E" if "High" in str(sev) or "Critical" in str(sev) else "#DD6B20" if "Moderate" in str(sev) else "#38A169"
-            st.markdown(f"**⚡ Severity:**\n<span style='color:{sev_color} !important;font-weight:700;'>{sev}</span>", unsafe_allow_html=True)
-        with c_cat:
-            st.markdown(f"**🏷️ Category:**\n`{info.get('category', 'General')}`")
-        with c_rec:
-            recovery = info.get('recovery_time', 'Consult specialist')
-            if pd.notna(recovery) and recovery != "nan":
-                st.markdown(f"**⏱️ Recovery:**\n`{recovery}`")
+    if not is_resolved and next_q_text and rounds_asked < 2:
+        st.markdown(
+            f"""
+            <div class="question-card">
+                <p style="margin:0;font-size:0.85rem;color:#744210 !important;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;">
+                    ❓ CLARIFYING QUESTION #{rounds_asked + 1} OF 2
+                </p>
+                <h3 style="margin:0.4rem 0 0.8rem;font-size:1.4rem;color:#1A202C !important;font-weight:700;">
+                    {next_q_text}
+                </h3>
+                <p style="margin:0;font-size:0.85rem;color:#744210 !important;">
+                    Answering this helps Saarthi distinguish between {len(current_state.get('candidate_diseases', []))} potential diseases.
+                </p>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
 
-        st.markdown(f"**📋 Description:** {info.get('description', 'N/A')}")
-        st.markdown(f"**🔬 Common Causes:** {info.get('causes', 'N/A')}")
+        col_yes, col_no, _ = st.columns([1.5, 1.5, 5])
+        with col_yes:
+            yes_clicked = st.button("👍 YES, I have this symptom", key=f"q_yes_{rounds_asked}", use_container_width=True)
+        with col_no:
+            no_clicked = st.button("👎 NO, I do not have this", key=f"q_no_{rounds_asked}", use_container_width=True)
 
-        # ── Prevention ──
-        prevention = info.get('prevention', 'N/A')
-        if pd.notna(prevention) and prevention != "nan":
-            st.markdown(f"**🛡️ Prevention:** {prevention}")
-
-        # ── Contagious status ──
-        contagious = info.get('contagious', '')
-        if pd.notna(contagious) and contagious not in ["nan", "", "Consult your doctor"]:
-            contagious_color = "#E53E3E" if "Yes" in str(contagious) else "#38A169"
-            st.markdown(f"**🦠 Contagious:** <span style='color:{contagious_color} !important;font-weight:700;'>{contagious}</span>", unsafe_allow_html=True)
-
-        # ── Self-care ──
-        self_care = info.get('self_care', '')
-        if pd.notna(self_care) and self_care not in ["nan", "", "Consult your doctor", "Consult your doctor for personalized guidance."]:
-            st.markdown(f"**🏠 Self-care:** {self_care}")
-
-        # ── Emergency Warning Signs ──
-        emergency = info.get('emergency_signs', '')
-        if pd.notna(emergency) and emergency != "nan":
-            st.markdown(
-                f"""
-                <div style="background:#FFF5F5;border:2px solid #FC8181;border-radius:10px;padding:1rem;margin-top:1rem;">
-                    <p style="margin:0;font-size:0.9rem;color:#742A2A !important;font-weight:700;">
-                        ⚠️ EMERGENCY WARNING SIGNS — Seek immediate medical attention if:
-                    </p>
-                    <p style="margin:0.4rem 0 0;font-size:0.88rem;color:#9B2C2C !important;">
-                        {emergency}
-                    </p>
-                </div>
-                """,
-                unsafe_allow_html=True,
+        if yes_clicked or no_clicked:
+            ans = "YES" if yes_clicked else "NO"
+            updated_res = engine.process_followup(
+                present_symptoms=current_state["present_symptoms"],
+                absent_symptoms=current_state["absent_symptoms"],
+                asked_symptoms=current_state["asked_symptoms"],
+                user_answer_yes_no=ans,
+                current_question_symptom=next_q_sym,
+                rounds_asked=rounds_asked
             )
+            st.session_state["dialogue_state"] = updated_res
+            st.rerun()
+
+    else:
+        # Final Diagnosis Output
+        st.subheader("🎯 Diagnosis Results")
+        top_d = current_state.get("primary_diagnosis", "Uncertain")
+        candidates = current_state.get("candidate_diseases", [])
+        top3 = current_state.get("top3_differential", [])
+
+        st.markdown(
+            f"""
+            <div style="
+                background: #FFFFFF !important;
+                border: 2px solid #2B6CB0 !important;
+                border-radius: 14px !important;
+                padding: 1.6rem 2rem !important;
+                box-shadow: 0 4px 14px rgba(43, 108, 176, 0.12) !important;
+                margin-bottom: 1.5rem !important;
+                text-align: center !important;
+            ">
+                <p style="margin:0;font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;color:#718096 !important;font-weight:700;">
+                    PRIMARY DIFFERENTIAL DIAGNOSIS
+                </p>
+                <h2 style="margin:0.4rem 0;font-size:2.4rem;font-weight:800;color:#1A365D !important;letter-spacing:-0.02em;">
+                    {top_d}
+                </h2>
+                <p style="margin:0;font-size:1.0rem;font-weight:600;color:#2B6CB0 !important;">
+                    Resolved in {rounds_asked} clarifying follow-up question(s) | Candidates Remaining: {len(candidates)}
+                </p>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+        # Surface Tied Candidates if Ambiguity Remains
+        if len(candidates) > 1:
+            st.warning(f"⚠️ **Clinical Differential Notice:** Multiple diseases share high overlap with your symptoms: **{', '.join(candidates[:4])}**. Consult a specialist to differentiate.")
+
+        # Render Top 3 Differential
+        if top3:
+            st.subheader("Top Differential Diagnoses")
+            for rank, dis in enumerate(top3[:3]):
+                st.markdown(f"**#{rank+1} {dis}**")
+
+        # Render Clinical Info
+        df_info = load_disease_info()
+        info_matches = df_info[df_info["disease"] == top_d]
+        if not info_matches.empty:
+            info = info_matches.iloc[0]
+            st.divider()
+            st.subheader(f"🏥 Clinical Reference: {top_d}")
+            st.markdown(f"**👨‍⚕️ Specialist:** `{info.get('specialist', 'General Physician')}`")
+            st.markdown(f"**📋 Description:** {info.get('description', 'N/A')}")
+            st.markdown(f"**🛡️ Prevention:** {info.get('prevention', 'N/A')}")

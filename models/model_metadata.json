@@ -1,10 +1,9 @@
 {
-  "active_model": "Calibrated Naive Bayes",
-  "top1_accuracy": "88.70%",
-  "top2_accuracy": "95.50%",
-  "top3_accuracy": "96.50%",
-  "macro_f1": "0.8890",
-  "total_diseases": 168,
-  "total_symptoms": 397,
-  "avg_latency_ms": 12.4
+  "best_model_name": "Logistic Regression",
+  "accuracy": 99.85,
+  "precision": 99.86,
+  "recall": 99.85,
+  "f1_score": 99.85,
+  "roc_auc": 100.0,
+  "timestamp": "2026-07-29 00:15:45"
 }

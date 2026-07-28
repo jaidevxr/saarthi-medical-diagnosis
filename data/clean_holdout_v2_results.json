@@ -1,0 +1,1270 @@
+{
+  "hashes": {
+    "config/synonyms.json": "69e20c1dbe3a7265f945d954b0265a6ee8817cff6a99dbb1f87dae4bbf45de70",
+    "src/normalization.py": "3200f26fceab05422bede0fec079acf4110e9893549e18f5e2113cc618f1dbba",
+    "src/engine.py": "6bce29615284b8cc148ff75c48e9208b62479e4ffe384de7915263408b026466"
+  },
+  "old_280_metrics": {
+    "top1_acc": {
+      "0": 12.5,
+      "1": 24.285714285714285,
+      "2": 41.42857142857143
+    },
+    "top3_acc": {
+      "0": 35.714285714285715,
+      "1": 50.357142857142854,
+      "2": 64.64285714285715
+    },
+    "mean_candidates": {
+      "0": 15.117857142857142,
+      "1": 8.228571428571428,
+      "2": 4.603571428571429
+    },
+    "ceiling": {
+      "0": 12.5,
+      "1": 24.285714285714285,
+      "2": 41.42857142857143
+    }
+  },
+  "clean_150_metrics": {
+    "top1_acc": {
+      "0": 14.666666666666666,
+      "1": 24.0,
+      "2": 35.333333333333336
+    },
+    "top3_acc": {
+      "0": 34.66666666666667,
+      "1": 44.666666666666664,
+      "2": 50.0
+    },
+    "mean_candidates": {
+      "0": 7.226666666666667,
+      "1": 4.233333333333333,
+      "2": 2.52
+    },
+    "ceiling": {
+      "0": 14.666666666666666,
+      "1": 24.0,
+      "2": 35.333333333333336
+    }
+  },
+  "miss_categorization": {
+    "Clinical Ambiguity (Unresolvable candidate tie)": 24,
+    "Normalization / Partial Feature Gap": 48,
+    "Normalization / Vocabulary Gap": 17,
+    "Clinical Ambiguity (Near-duplicate disease pair)": 8
+  },
+  "miss_details": [
+    {
+      "id": 3,
+      "text": "saans lene me dikkat aur khansi chest me bohot dard hai",
+      "expected": "Pneumonia",
+      "predicted_r0": "GERD",
+      "predicted_r2": "GERD",
+      "matched_symptoms": [
+        "chest_pain",
+        "cough"
+      ],
+      "candidates_r2_count": 2,
+      "miss_type": "Clinical Ambiguity (Unresolvable candidate tie)"
+    },
+    {
+      "id": 8,
+      "text": "smoker coughing daily with gray phlegm and breathlessness",
+      "expected": "COPD",
+      "predicted_r0": "Acute Bronchitis",
+      "predicted_r2": "Acute Bronchitis",
+      "matched_symptoms": [
+        "breathlessness",
+        "cough",
+        "phlegm"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 9,
+      "text": "nagging dry cough following a cold, chest discomfort and mild fever",
+      "expected": "Acute Bronchitis",
+      "predicted_r0": "Common Cold",
+      "predicted_r2": "Common Cold",
+      "matched_symptoms": [
+        "chest_pain",
+        "continuous_sneezing",
+        "cough",
+        "high_fever"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 13,
+      "text": "chink aana, naak behna aur halka gala kharab",
+      "expected": "Common Cold",
+      "predicted_r0": "Uncertain / Additional Info Required",
+      "predicted_r2": "Uncertain / Additional Info Required",
+      "matched_symptoms": [],
+      "candidates_r2_count": 0,
+      "miss_type": "Normalization / Vocabulary Gap"
+    },
+    {
+      "id": 14,
+      "text": "sudden high fever, severe body pain, muscle ache, exhaustion, and dry cough",
+      "expected": "Influenza",
+      "predicted_r0": "Pneumonia",
+      "predicted_r2": "Tuberculosis",
+      "matched_symptoms": [
+        "chest_pain",
+        "cough",
+        "high_fever"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 16,
+      "text": "sharp stabbing pain in side of chest that gets worse when breathing deeply or coughing",
+      "expected": "Pleurisy",
+      "predicted_r0": "GERD",
+      "predicted_r2": "GERD",
+      "matched_symptoms": [
+        "chest_pain",
+        "cough"
+      ],
+      "candidates_r2_count": 2,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 17,
+      "text": "child having loud barking cough and raspy breathing at night",
+      "expected": "Croup",
+      "predicted_r0": "Whooping Cough",
+      "predicted_r2": "Whooping Cough",
+      "matched_symptoms": [
+        "cough"
+      ],
+      "candidates_r2_count": 7,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 18,
+      "text": "head pressure around eyes and forehead, thick yellow nasal discharge, facial pain",
+      "expected": "Sinusitis",
+      "predicted_r0": "Hypertension",
+      "predicted_r2": "Hypertension",
+      "matched_symptoms": [
+        "chest_pain",
+        "headache"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 19,
+      "text": "severe throat pain when swallowing, swollen red tonsils with white pus spots",
+      "expected": "Tonsillitis",
+      "predicted_r0": "Diphtheria",
+      "predicted_r2": "Diphtheria",
+      "matched_symptoms": [
+        "patches_in_throat"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 20,
+      "text": "hoarseness of voice, loss of voice, tickle in throat",
+      "expected": "Laryngitis",
+      "predicted_r0": "Diphtheria",
+      "predicted_r2": "Diphtheria",
+      "matched_symptoms": [
+        "hoarseness",
+        "patches_in_throat"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 21,
+      "text": "scratchy raw throat pain, discomfort swallowing",
+      "expected": "Pharyngitis",
+      "predicted_r0": "Diphtheria",
+      "predicted_r2": "Diphtheria",
+      "matched_symptoms": [
+        "patches_in_throat"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 22,
+      "text": "severe one sided throat pain, trouble opening mouth, muffled voice",
+      "expected": "Peritonsillar Abscess",
+      "predicted_r0": "Diphtheria",
+      "predicted_r2": "Diphtheria",
+      "matched_symptoms": [
+        "patches_in_throat"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 24,
+      "text": "seene me tez dard left haath me ja raha hai pasina aane ke saath",
+      "expected": "Heart attack",
+      "predicted_r0": "Viral Fever",
+      "predicted_r2": "Angina",
+      "matched_symptoms": [
+        "sweating"
+      ],
+      "candidates_r2_count": 2,
+      "miss_type": "Clinical Ambiguity (Unresolvable candidate tie)"
+    },
+    {
+      "id": 26,
+      "text": "chest tightness and pain on climbing stairs that eases after resting a few minutes",
+      "expected": "Angina",
+      "predicted_r0": "Pneumonia",
+      "predicted_r2": "Pneumonia",
+      "matched_symptoms": [
+        "chest_pain",
+        "chest_tightness"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 27,
+      "text": "seene me heavy feel hota hai jab chalte hain",
+      "expected": "Angina",
+      "predicted_r0": "Uncertain / Additional Info Required",
+      "predicted_r2": "Uncertain / Additional Info Required",
+      "matched_symptoms": [],
+      "candidates_r2_count": 0,
+      "miss_type": "Normalization / Vocabulary Gap"
+    },
+    {
+      "id": 29,
+      "text": "sir me dard, chakkar aana aur high BP feel hona",
+      "expected": "Hypertension",
+      "predicted_r0": "Vestibular Neuritis",
+      "predicted_r2": "Vestibular Neuritis",
+      "matched_symptoms": [
+        "dizziness"
+      ],
+      "candidates_r2_count": 8,
+      "miss_type": "Clinical Ambiguity (Unresolvable candidate tie)"
+    },
+    {
+      "id": 31,
+      "text": "swelling and tenderness in left calf muscle, skin warm to touch and reddish",
+      "expected": "Deep Vein Thrombosis",
+      "predicted_r0": "Uncertain / Additional Info Required",
+      "predicted_r2": "Uncertain / Additional Info Required",
+      "matched_symptoms": [],
+      "candidates_r2_count": 0,
+      "miss_type": "Normalization / Vocabulary Gap"
+    },
+    {
+      "id": 33,
+      "text": "sharp chest pain that worsens when lying flat on back and improves sitting forward",
+      "expected": "Pericarditis",
+      "predicted_r0": "Aortic Aneurysm",
+      "predicted_r2": "Aortic Aneurysm",
+      "matched_symptoms": [
+        "chest_pain"
+      ],
+      "candidates_r2_count": 5,
+      "miss_type": "Clinical Ambiguity (Unresolvable candidate tie)"
+    },
+    {
+      "id": 34,
+      "text": "swollen ankles and feet, shortness of breath when lying flat in bed at night",
+      "expected": "Congestive Heart Failure",
+      "predicted_r0": "Aortic Aneurysm",
+      "predicted_r2": "Aortic Aneurysm",
+      "matched_symptoms": [
+        "breathlessness"
+      ],
+      "candidates_r2_count": 7,
+      "miss_type": "Clinical Ambiguity (Unresolvable candidate tie)"
+    },
+    {
+      "id": 35,
+      "text": "pairon me sujan aur raat me saans phulna flat letne par",
+      "expected": "Congestive Heart Failure",
+      "predicted_r0": "Lupus",
+      "predicted_r2": "Lupus",
+      "matched_symptoms": [
+        "breathlessness",
+        "swelling_joints"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 36,
+      "text": "cramping pain in calf muscles while walking that goes away when resting",
+      "expected": "Peripheral Artery Disease",
+      "predicted_r0": "Aortic Aneurysm",
+      "predicted_r2": "Pleurisy",
+      "matched_symptoms": [
+        "chest_pain"
+      ],
+      "candidates_r2_count": 5,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 37,
+      "text": "shortness of breath on walking, leg swelling, pounding heart",
+      "expected": "Congestive Heart Failure",
+      "predicted_r0": "Aortic Aneurysm",
+      "predicted_r2": "Aortic Aneurysm",
+      "matched_symptoms": [
+        "breathlessness"
+      ],
+      "candidates_r2_count": 7,
+      "miss_type": "Clinical Ambiguity (Unresolvable candidate tie)"
+    },
+    {
+      "id": 38,
+      "text": "high blood pressure with severe headache and blurred vision",
+      "expected": "Hypertension",
+      "predicted_r0": "Zika Virus",
+      "predicted_r2": "Corneal Abrasion",
+      "matched_symptoms": [
+        "headache"
+      ],
+      "candidates_r2_count": 7,
+      "miss_type": "Clinical Ambiguity (Unresolvable candidate tie)"
+    },
+    {
+      "id": 39,
+      "text": "watery diarrhea 6 times today, nausea, abdominal cramps and mild fever",
+      "expected": "Gastroenteritis",
+      "predicted_r0": "Appendicitis",
+      "predicted_r2": "Appendicitis",
+      "matched_symptoms": [
+        "cramps",
+        "diarrhoea",
+        "high_fever",
+        "nausea"
+      ],
+      "candidates_r2_count": 4,
+      "miss_type": "Clinical Ambiguity (Near-duplicate disease pair)"
+    },
+    {
+      "id": 41,
+      "text": "loose motion and vomiting with stomach cramps",
+      "expected": "Gastroenteritis",
+      "predicted_r0": "Lactose Intolerance",
+      "predicted_r2": "GERD",
+      "matched_symptoms": [
+        "cramps",
+        "diarrhoea",
+        "stomach_pain",
+        "vomiting"
+      ],
+      "candidates_r2_count": 7,
+      "miss_type": "Clinical Ambiguity (Unresolvable candidate tie)"
+    },
+    {
+      "id": 42,
+      "text": "burning chest pain behind sternum after heavy spicy meals, sour acid reflux in throat",
+      "expected": "GERD",
+      "predicted_r0": "Diphtheria",
+      "predicted_r2": "Diphtheria",
+      "matched_symptoms": [
+        "chest_pain",
+        "patches_in_throat"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Clinical Ambiguity (Near-duplicate disease pair)"
+    },
+    {
+      "id": 43,
+      "text": "khana khane ke baad seene me jalan aur khatti dakar",
+      "expected": "GERD",
+      "predicted_r0": "Uncertain / Additional Info Required",
+      "predicted_r2": "Uncertain / Additional Info Required",
+      "matched_symptoms": [],
+      "candidates_r2_count": 0,
+      "miss_type": "Normalization / Vocabulary Gap"
+    },
+    {
+      "id": 44,
+      "text": "epigastric burning pain, upper abdominal fullness after eating a few bites, nausea",
+      "expected": "Gastritis",
+      "predicted_r0": "Heart attack",
+      "predicted_r2": "Heart attack",
+      "matched_symptoms": [
+        "chest_pain",
+        "nausea",
+        "sweating"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 45,
+      "text": "gnawing stomach pain 2 hours after meals, relieved by eating food or taking antacids",
+      "expected": "Peptic ulcer diseae",
+      "predicted_r0": "Drug Reaction",
+      "predicted_r2": "Gastritis",
+      "matched_symptoms": [
+        "stomach_pain",
+        "sweating"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Clinical Ambiguity (Near-duplicate disease pair)"
+    },
+    {
+      "id": 46,
+      "text": "bright red blood drops in toilet bowl, painful anal swelling, itching during bowel movement",
+      "expected": "Dimorphic hemmorhoids(piles)",
+      "predicted_r0": "Tinea Versicolor",
+      "predicted_r2": "Drug Reaction",
+      "matched_symptoms": [
+        "itching"
+      ],
+      "candidates_r2_count": 11,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 47,
+      "text": "potty me khoon aana aur painful swelling near anus",
+      "expected": "Dimorphic hemmorhoids(piles)",
+      "predicted_r0": "Uncertain / Additional Info Required",
+      "predicted_r2": "Uncertain / Additional Info Required",
+      "matched_symptoms": [],
+      "candidates_r2_count": 0,
+      "miss_type": "Normalization / Vocabulary Gap"
+    },
+    {
+      "id": 48,
+      "text": "yellowish skin, yellow whites of eyes, dark brown tea-colored urine, pale stools",
+      "expected": "Jaundice",
+      "predicted_r0": "Uncertain / Additional Info Required",
+      "predicted_r2": "Uncertain / Additional Info Required",
+      "matched_symptoms": [],
+      "candidates_r2_count": 0,
+      "miss_type": "Normalization / Vocabulary Gap"
+    },
+    {
+      "id": 49,
+      "text": "aankhein peeli ho gayi hain aur urine dark yellow brown hai",
+      "expected": "Jaundice",
+      "predicted_r0": "Uncertain / Additional Info Required",
+      "predicted_r2": "Uncertain / Additional Info Required",
+      "matched_symptoms": [],
+      "candidates_r2_count": 0,
+      "miss_type": "Normalization / Vocabulary Gap"
+    },
+    {
+      "id": 50,
+      "text": "fever, loss of appetite, nausea, jaundice after eating street food",
+      "expected": "hepatitis A",
+      "predicted_r0": "Malaria",
+      "predicted_r2": "Influenza",
+      "matched_symptoms": [
+        "high_fever",
+        "nausea",
+        "sweating"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 51,
+      "text": "chronic fatigue, yellow eyes, right upper stomach pain, joint ache",
+      "expected": "Hepatitis B",
+      "predicted_r0": "Hepatitis C",
+      "predicted_r2": "Hepatitis D",
+      "matched_symptoms": [
+        "fatigue",
+        "joint_pain",
+        "stomach_pain",
+        "yellowing_of_eyes"
+      ],
+      "candidates_r2_count": 2,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 52,
+      "text": "longstanding fatigue, mild jaundice, dark urine",
+      "expected": "Hepatitis C",
+      "predicted_r0": "Hepatitis D",
+      "predicted_r2": "Hepatitis D",
+      "matched_symptoms": [
+        "dark_urine",
+        "fatigue"
+      ],
+      "candidates_r2_count": 4,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 53,
+      "text": "heavy drinker with swollen abdomen, yellow eyes, upper right quadrant stomach pain",
+      "expected": "Alcoholic hepatitis",
+      "predicted_r0": "Drug Reaction",
+      "predicted_r2": "Drug Reaction",
+      "matched_symptoms": [
+        "stomach_pain",
+        "yellowing_of_eyes"
+      ],
+      "candidates_r2_count": 4,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 54,
+      "text": "sudden severe pain in upper right stomach after fatty dinner, shooting to right shoulder",
+      "expected": "Gallstones",
+      "predicted_r0": "GERD",
+      "predicted_r2": "GERD",
+      "matched_symptoms": [
+        "chest_pain",
+        "stomach_pain"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 55,
+      "text": "severe upper abdominal pain radiating straight through to the back, vomiting, abdominal tenderness",
+      "expected": "Pancreatitis",
+      "predicted_r0": "Hepatitis D",
+      "predicted_r2": "Peptic ulcer diseae",
+      "matched_symptoms": [
+        "abdominal_pain",
+        "vomiting"
+      ],
+      "candidates_r2_count": 3,
+      "miss_type": "Clinical Ambiguity (Unresolvable candidate tie)"
+    },
+    {
+      "id": 56,
+      "text": "sudden vomiting and watery loose stools 4 hours after eating outside food",
+      "expected": "Food Poisoning",
+      "predicted_r0": "Malaria",
+      "predicted_r2": "Malaria",
+      "matched_symptoms": [
+        "diarrhoea",
+        "sweating",
+        "vomiting"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 57,
+      "text": "chronic diarrhea, severe bloating, stomach cramps whenever eating wheat bread",
+      "expected": "Celiac Disease",
+      "predicted_r0": "Lactose Intolerance",
+      "predicted_r2": "Malaria",
+      "matched_symptoms": [
+        "cramps",
+        "diarrhoea",
+        "stomach_pain",
+        "sweating"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 59,
+      "text": "bloody diarrhea multiple times a day, urgent need to pass stool, abdominal cramps",
+      "expected": "Ulcerative Colitis",
+      "predicted_r0": "Peripheral Artery Disease",
+      "predicted_r2": "Peripheral Artery Disease",
+      "matched_symptoms": [
+        "cramps",
+        "diarrhoea"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 61,
+      "text": "yellow skin and yellowing of eyes with dark urine and fatigue",
+      "expected": "Jaundice",
+      "predicted_r0": "Hepatitis D",
+      "predicted_r2": "Hepatitis D",
+      "matched_symptoms": [
+        "dark_urine",
+        "fatigue",
+        "yellowish_skin"
+      ],
+      "candidates_r2_count": 3,
+      "miss_type": "Clinical Ambiguity (Unresolvable candidate tie)"
+    },
+    {
+      "id": 63,
+      "text": "stomach ache, vomiting, loose stool after eating outside",
+      "expected": "Food Poisoning",
+      "predicted_r0": "Gastritis",
+      "predicted_r2": "Malaria",
+      "matched_symptoms": [
+        "stomach_pain",
+        "sweating",
+        "vomiting"
+      ],
+      "candidates_r2_count": 5,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 64,
+      "text": "burning sensation while passing urine, frequent urge to urinate, lower pelvic discomfort",
+      "expected": "Urinary tract infection",
+      "predicted_r0": "Uncertain / Additional Info Required",
+      "predicted_r2": "Uncertain / Additional Info Required",
+      "matched_symptoms": [],
+      "candidates_r2_count": 0,
+      "miss_type": "Normalization / Vocabulary Gap"
+    },
+    {
+      "id": 65,
+      "text": "peshab me jalan, baar baar urine aana aur stomach me neeche dard",
+      "expected": "Urinary tract infection",
+      "predicted_r0": "Drug Reaction",
+      "predicted_r2": "Drug Reaction",
+      "matched_symptoms": [
+        "stomach_pain"
+      ],
+      "candidates_r2_count": 2,
+      "miss_type": "Clinical Ambiguity (Near-duplicate disease pair)"
+    },
+    {
+      "id": 66,
+      "text": "burnin micturition and frequent urination",
+      "expected": "Urinary tract infection",
+      "predicted_r0": "Hyperparathyroidism",
+      "predicted_r2": "Hyperparathyroidism",
+      "matched_symptoms": [
+        "polyuria"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Clinical Ambiguity (Near-duplicate disease pair)"
+    },
+    {
+      "id": 67,
+      "text": "constant urge to urinate, painful urination, cloudy urine with strong bad odor",
+      "expected": "Bladder Infection",
+      "predicted_r0": "Uncertain / Additional Info Required",
+      "predicted_r2": "Uncertain / Additional Info Required",
+      "matched_symptoms": [],
+      "candidates_r2_count": 0,
+      "miss_type": "Normalization / Vocabulary Gap"
+    },
+    {
+      "id": 68,
+      "text": "peshab me severe dard aur cloudy urine bad smell ke saath",
+      "expected": "Bladder Infection",
+      "predicted_r0": "Uncertain / Additional Info Required",
+      "predicted_r2": "Uncertain / Additional Info Required",
+      "matched_symptoms": [],
+      "candidates_r2_count": 0,
+      "miss_type": "Normalization / Vocabulary Gap"
+    },
+    {
+      "id": 69,
+      "text": "excruciating flank back pain shooting down to groin, blood in urine, restlessness",
+      "expected": "Kidney Stones",
+      "predicted_r0": "Cluster Headache",
+      "predicted_r2": "Cluster Headache",
+      "matched_symptoms": [
+        "chest_pain",
+        "restlessness"
+      ],
+      "candidates_r2_count": 2,
+      "miss_type": "Clinical Ambiguity (Unresolvable candidate tie)"
+    },
+    {
+      "id": 70,
+      "text": "kamar ke side me severe unbearable pain, urine me blood",
+      "expected": "Kidney Stones",
+      "predicted_r0": "Aortic Aneurysm",
+      "predicted_r2": "Pleurisy",
+      "matched_symptoms": [
+        "chest_pain"
+      ],
+      "candidates_r2_count": 5,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 71,
+      "text": "severe flank pain radiating to groin with pink urine",
+      "expected": "Kidney Stones",
+      "predicted_r0": "Aortic Aneurysm",
+      "predicted_r2": "Pleurisy",
+      "matched_symptoms": [
+        "chest_pain"
+      ],
+      "candidates_r2_count": 5,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 73,
+      "text": "chronic pelvic pain, bladder pressure, frequent urination day and night",
+      "expected": "Interstitial Cystitis",
+      "predicted_r0": "Hyperparathyroidism",
+      "predicted_r2": "Hyperparathyroidism",
+      "matched_symptoms": [
+        "chest_pain",
+        "polyuria"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 75,
+      "text": "aankhon ke paas sujan aur foamy urine",
+      "expected": "Nephrotic Syndrome",
+      "predicted_r0": "Chikungunya",
+      "predicted_r2": "Chikungunya",
+      "matched_symptoms": [
+        "swelling_joints"
+      ],
+      "candidates_r2_count": 2,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 76,
+      "text": "pain between scrotum and anus, painful urination, weak urine stream, fever",
+      "expected": "Prostatitis",
+      "predicted_r0": "Lung Abscess",
+      "predicted_r2": "Myocarditis",
+      "matched_symptoms": [
+        "chest_pain",
+        "high_fever"
+      ],
+      "candidates_r2_count": 2,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 77,
+      "text": "burning urination with cloudy smelly urine and lower belly pressure",
+      "expected": "Bladder Infection",
+      "predicted_r0": "Interstitial Cystitis",
+      "predicted_r2": "Interstitial Cystitis",
+      "matched_symptoms": [
+        "abdominal_pain",
+        "burning_micturition"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Clinical Ambiguity (Near-duplicate disease pair)"
+    },
+    {
+      "id": 78,
+      "text": "urgent frequent burning urination with pelvic pain",
+      "expected": "Urinary tract infection",
+      "predicted_r0": "Drug Reaction",
+      "predicted_r2": "Bladder Infection",
+      "matched_symptoms": [
+        "burning_micturition",
+        "chest_pain"
+      ],
+      "candidates_r2_count": 2,
+      "miss_type": "Clinical Ambiguity (Unresolvable candidate tie)"
+    },
+    {
+      "id": 83,
+      "text": "one sided severe headache preceded by seeing flashing zig-zag lights and visual blind spots",
+      "expected": "Migraine with Aura",
+      "predicted_r0": "Scarlet Fever",
+      "predicted_r2": "Scarlet Fever",
+      "matched_symptoms": [
+        "flushing",
+        "headache"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Clinical Ambiguity (Near-duplicate disease pair)"
+    },
+    {
+      "id": 84,
+      "text": "headache with visual aura zig zag lights and nausea",
+      "expected": "Migraine with Aura",
+      "predicted_r0": "Migraine",
+      "predicted_r2": "Migraine",
+      "matched_symptoms": [
+        "headache",
+        "nausea"
+      ],
+      "candidates_r2_count": 5,
+      "miss_type": "Clinical Ambiguity (Near-duplicate disease pair)"
+    },
+    {
+      "id": 85,
+      "text": "room spins violently around me for 30 seconds whenever turning head in bed",
+      "expected": "(vertigo) Paroxymal Positional Vertigo",
+      "predicted_r0": "Zika Virus",
+      "predicted_r2": "Migraine",
+      "matched_symptoms": [
+        "headache"
+      ],
+      "candidates_r2_count": 27,
+      "miss_type": "Clinical Ambiguity (Unresolvable candidate tie)"
+    },
+    {
+      "id": 86,
+      "text": "chakkar aana jaise kamra ghum raha ho sar hilane par",
+      "expected": "(vertigo) Paroxymal Positional Vertigo",
+      "predicted_r0": "Vestibular Neuritis",
+      "predicted_r2": "Vestibular Neuritis",
+      "matched_symptoms": [
+        "dizziness"
+      ],
+      "candidates_r2_count": 8,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 87,
+      "text": "tight band-like pressure wrapping around both sides of forehead and back of neck",
+      "expected": "Tension Headache",
+      "predicted_r0": "Uncertain / Additional Info Required",
+      "predicted_r2": "Uncertain / Additional Info Required",
+      "matched_symptoms": [],
+      "candidates_r2_count": 0,
+      "miss_type": "Normalization / Vocabulary Gap"
+    },
+    {
+      "id": 88,
+      "text": "dono taraf sir me tight pressure feel hona stress ke saath",
+      "expected": "Tension Headache",
+      "predicted_r0": "Uncertain / Additional Info Required",
+      "predicted_r2": "Uncertain / Additional Info Required",
+      "matched_symptoms": [],
+      "candidates_r2_count": 0,
+      "miss_type": "Normalization / Vocabulary Gap"
+    },
+    {
+      "id": 89,
+      "text": "piercing excruciating pain behind left eye, eye watering and runny nose on same side",
+      "expected": "Cluster Headache",
+      "predicted_r0": "Rubella",
+      "predicted_r2": "Rubella",
+      "matched_symptoms": [
+        "chest_pain",
+        "runny_nose"
+      ],
+      "candidates_r2_count": 5,
+      "miss_type": "Clinical Ambiguity (Unresolvable candidate tie)"
+    },
+    {
+      "id": 90,
+      "text": "sudden electric shock-like stabbing pain in right cheek while brushing teeth or eating",
+      "expected": "Trigeminal Neuralgia",
+      "predicted_r0": "Heart attack",
+      "predicted_r2": "Heart attack",
+      "matched_symptoms": [
+        "bruising",
+        "chest_pain",
+        "sweating"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 91,
+      "text": "uncontrolled jerky movements of arms and legs, loss of consciousness, tongue biting",
+      "expected": "Epilepsy",
+      "predicted_r0": "Uncertain / Additional Info Required",
+      "predicted_r2": "Uncertain / Additional Info Required",
+      "matched_symptoms": [],
+      "candidates_r2_count": 0,
+      "miss_type": "Normalization / Vocabulary Gap"
+    },
+    {
+      "id": 94,
+      "text": "dizziness, confusion, mild headache, memory gap after hitting head on cabinet",
+      "expected": "Concussion",
+      "predicted_r0": "Tinnitus",
+      "predicted_r2": "Tinnitus",
+      "matched_symptoms": [
+        "dizziness",
+        "headache"
+      ],
+      "candidates_r2_count": 3,
+      "miss_type": "Clinical Ambiguity (Unresolvable candidate tie)"
+    },
+    {
+      "id": 95,
+      "text": "shooting sharp pain starting from lower back down the back of right leg to ankle",
+      "expected": "Sciatica",
+      "predicted_r0": "Aortic Aneurysm",
+      "predicted_r2": "Pleurisy",
+      "matched_symptoms": [
+        "chest_pain"
+      ],
+      "candidates_r2_count": 5,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 96,
+      "text": "numbness and tingling in thumb, index, and middle finger, waking up at night",
+      "expected": "Carpal Tunnel Syndrome",
+      "predicted_r0": "Sciatica",
+      "predicted_r2": "Raynaud Disease",
+      "matched_symptoms": [
+        "numbness",
+        "tingling"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 97,
+      "text": "hath me tingling, numbness thumb aur fingers me",
+      "expected": "Carpal Tunnel Syndrome",
+      "predicted_r0": "Sciatica",
+      "predicted_r2": "Raynaud Disease",
+      "matched_symptoms": [
+        "numbness",
+        "tingling"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 100,
+      "text": "thick silvery scales covering red raised patches over elbows and knees, itching",
+      "expected": "Psoriasis",
+      "predicted_r0": "Tinea Versicolor",
+      "predicted_r2": "Drug Reaction",
+      "matched_symptoms": [
+        "itching"
+      ],
+      "candidates_r2_count": 11,
+      "miss_type": "Clinical Ambiguity (Unresolvable candidate tie)"
+    },
+    {
+      "id": 102,
+      "text": "intensely itchy dry red inflamed skin patches in elbow creases and behind knees",
+      "expected": "Eczema",
+      "predicted_r0": "Tinea Versicolor",
+      "predicted_r2": "Tinea Versicolor",
+      "matched_symptoms": [
+        "itching"
+      ],
+      "candidates_r2_count": 4,
+      "miss_type": "Clinical Ambiguity (Unresolvable candidate tie)"
+    },
+    {
+      "id": 103,
+      "text": "red sores around nose and mouth that break open and form honey-colored crusts",
+      "expected": "Impetigo",
+      "predicted_r0": "Rubella",
+      "predicted_r2": "Rubella",
+      "matched_symptoms": [
+        "runny_nose"
+      ],
+      "candidates_r2_count": 4,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 105,
+      "text": "puri body par paani waale dane, khujli aur bukhar",
+      "expected": "Chicken pox",
+      "predicted_r0": "Folliculitis",
+      "predicted_r2": "Folliculitis",
+      "matched_symptoms": [
+        "high_fever",
+        "itching",
+        "pus_filled_pimples"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 107,
+      "text": "intense nighttime itching between fingers and wrists, tiny red bumps and burrows",
+      "expected": "Scabies",
+      "predicted_r0": "Tinea Versicolor",
+      "predicted_r2": "Drug Reaction",
+      "matched_symptoms": [
+        "itching"
+      ],
+      "candidates_r2_count": 11,
+      "miss_type": "Clinical Ambiguity (Unresolvable candidate tie)"
+    },
+    {
+      "id": 109,
+      "text": "discolored light patches on upper chest and back, mild scaling when scratched",
+      "expected": "Tinea Versicolor",
+      "predicted_r0": "Aortic Aneurysm",
+      "predicted_r2": "Pleurisy",
+      "matched_symptoms": [
+        "chest_pain"
+      ],
+      "candidates_r2_count": 5,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 111,
+      "text": "sudden raised red itchy welts appearing on skin after allergic reaction",
+      "expected": "Urticaria",
+      "predicted_r0": "Tinea Versicolor",
+      "predicted_r2": "Drug Reaction",
+      "matched_symptoms": [
+        "itching",
+        "skin_rash"
+      ],
+      "candidates_r2_count": 7,
+      "miss_type": "Clinical Ambiguity (Unresolvable candidate tie)"
+    },
+    {
+      "id": 113,
+      "text": "irregularly shaped dark brown mole on back with changing color and bleeding border",
+      "expected": "Melanoma",
+      "predicted_r0": "Uncertain / Additional Info Required",
+      "predicted_r2": "Uncertain / Additional Info Required",
+      "matched_symptoms": [],
+      "candidates_r2_count": 0,
+      "miss_type": "Normalization / Vocabulary Gap"
+    },
+    {
+      "id": 114,
+      "text": "skin rash with itching and red bumps",
+      "expected": "Eczema",
+      "predicted_r0": "Tinea Versicolor",
+      "predicted_r2": "Tinea Versicolor",
+      "matched_symptoms": [
+        "itching",
+        "skin_rash"
+      ],
+      "candidates_r2_count": 4,
+      "miss_type": "Clinical Ambiguity (Unresolvable candidate tie)"
+    },
+    {
+      "id": 115,
+      "text": "red skin patches with silvery white scales",
+      "expected": "Psoriasis",
+      "predicted_r0": "Uncertain / Additional Info Required",
+      "predicted_r2": "Uncertain / Additional Info Required",
+      "matched_symptoms": [],
+      "candidates_r2_count": 0,
+      "miss_type": "Normalization / Vocabulary Gap"
+    },
+    {
+      "id": 120,
+      "text": "dengu fever severe joint pain body pain rash",
+      "expected": "Dengue",
+      "predicted_r0": "Lupus",
+      "predicted_r2": "Lupus",
+      "matched_symptoms": [
+        "chest_pain",
+        "high_fever",
+        "joint_pain",
+        "skin_rash"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 121,
+      "text": "aankhon ke piche dard, high fever aur severe joint pain",
+      "expected": "Dengue",
+      "predicted_r0": "Chikungunya",
+      "predicted_r2": "Endocarditis",
+      "matched_symptoms": [
+        "high_fever",
+        "joint_pain"
+      ],
+      "candidates_r2_count": 5,
+      "miss_type": "Clinical Ambiguity (Unresolvable candidate tie)"
+    },
+    {
+      "id": 124,
+      "text": "step-ladder fever rising over days, stomach pain, rose colored spots on chest, constipation",
+      "expected": "Typhoid",
+      "predicted_r0": "GERD",
+      "predicted_r2": "Drug Reaction",
+      "matched_symptoms": [
+        "bruising",
+        "chest_pain",
+        "constipation",
+        "high_fever",
+        "stomach_pain"
+      ],
+      "candidates_r2_count": 3,
+      "miss_type": "Clinical Ambiguity (Unresolvable candidate tie)"
+    },
+    {
+      "id": 125,
+      "text": "typhoid fever with stomach pain and weakness",
+      "expected": "Typhoid",
+      "predicted_r0": "Food Poisoning",
+      "predicted_r2": "Influenza",
+      "matched_symptoms": [
+        "high_fever",
+        "stomach_pain",
+        "weakness_in_limbs"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 127,
+      "text": "painful swelling of salivary parotid glands under jaw and ear, pain chewing, fever",
+      "expected": "Mumps",
+      "predicted_r0": "Lung Abscess",
+      "predicted_r2": "Myocarditis",
+      "matched_symptoms": [
+        "chest_pain",
+        "high_fever"
+      ],
+      "candidates_r2_count": 2,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 128,
+      "text": "gale aur gaal me swelling, khane me dard aur bukhar",
+      "expected": "Mumps",
+      "predicted_r0": "Chikungunya",
+      "predicted_r2": "Pharyngitis",
+      "matched_symptoms": [
+        "high_fever"
+      ],
+      "candidates_r2_count": 6,
+      "miss_type": "Clinical Ambiguity (Unresolvable candidate tie)"
+    },
+    {
+      "id": 129,
+      "text": "mild fever, fine pink rash starting on face, swollen lymph nodes behind ears",
+      "expected": "Rubella",
+      "predicted_r0": "Chikungunya",
+      "predicted_r2": "Chikungunya",
+      "matched_symptoms": [
+        "high_fever",
+        "skin_rash"
+      ],
+      "candidates_r2_count": 6,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 130,
+      "text": "mild fever, joint pain, red eyes conjunctivitis, red rash all over body",
+      "expected": "Zika Virus",
+      "predicted_r0": "Chikungunya",
+      "predicted_r2": "Chikungunya",
+      "matched_symptoms": [
+        "high_fever",
+        "joint_pain",
+        "skin_rash"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 131,
+      "text": "expanding red bullseye target rash around tick bite, severe fatigue, joint stiffness",
+      "expected": "Lyme Disease",
+      "predicted_r0": "Zika Virus",
+      "predicted_r2": "Zika Virus",
+      "matched_symptoms": [
+        "fatigue",
+        "joint_pain",
+        "skin_rash"
+      ],
+      "candidates_r2_count": 4,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 134,
+      "text": "extreme exhaustion for weeks, swollen neck lymph nodes, severe sore throat, high fever",
+      "expected": "Mononucleosis",
+      "predicted_r0": "Diphtheria",
+      "predicted_r2": "Diphtheria",
+      "matched_symptoms": [
+        "high_fever",
+        "patches_in_throat"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 138,
+      "text": "baar baar urinary urge, zyada pyas lagna aur weight loss hona",
+      "expected": "Diabetes",
+      "predicted_r0": "Uncertain / Additional Info Required",
+      "predicted_r2": "Uncertain / Additional Info Required",
+      "matched_symptoms": [],
+      "candidates_r2_count": 0,
+      "miss_type": "Normalization / Vocabulary Gap"
+    },
+    {
+      "id": 142,
+      "text": "sudden shakiness, cold sweat, rapid heartbeat, confusion, feeling faint and hungry",
+      "expected": "Hypoglycemia",
+      "predicted_r0": "Allergy",
+      "predicted_r2": "Common Cold",
+      "matched_symptoms": [
+        "continuous_sneezing",
+        "sweating"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 143,
+      "text": "sugar low feel hona, chakkar pasina aur sweating shakiness",
+      "expected": "Hypoglycemia",
+      "predicted_r0": "Angina",
+      "predicted_r2": "Pulmonary Embolism",
+      "matched_symptoms": [
+        "dizziness",
+        "irregular_sugar_level",
+        "sweating"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 145,
+      "text": "unexplained weight gain, constant feeling of cold, dry skin, constipation, sluggishness",
+      "expected": "Hypothyroidism",
+      "predicted_r0": "Allergy",
+      "predicted_r2": "Common Cold",
+      "matched_symptoms": [
+        "constipation",
+        "continuous_sneezing"
+      ],
+      "candidates_r2_count": 2,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 146,
+      "text": "wazan badhna, thand lagna, dry skin aur kabz",
+      "expected": "Hypothyroidism",
+      "predicted_r0": "Uncertain / Additional Info Required",
+      "predicted_r2": "Uncertain / Additional Info Required",
+      "matched_symptoms": [],
+      "candidates_r2_count": 0,
+      "miss_type": "Normalization / Vocabulary Gap"
+    },
+    {
+      "id": 147,
+      "text": "sudden agonizing pain, swelling, and redness in big toe joint waking up at night",
+      "expected": "Gout",
+      "predicted_r0": "Myocarditis",
+      "predicted_r2": "Myocarditis",
+      "matched_symptoms": [
+        "chest_pain",
+        "joint_pain"
+      ],
+      "candidates_r2_count": 1,
+      "miss_type": "Normalization / Partial Feature Gap"
+    },
+    {
+      "id": 149,
+      "text": "aching joint pain and stiffness in knees when climbing stairs or standing up",
+      "expected": "Osteoarthristis",
+      "predicted_r0": "Zika Virus",
+      "predicted_r2": "Gout",
+      "matched_symptoms": [
+        "joint_pain"
+      ],
+      "candidates_r2_count": 2,
+      "miss_type": "Clinical Ambiguity (Unresolvable candidate tie)"
+    }
+  ]
+}

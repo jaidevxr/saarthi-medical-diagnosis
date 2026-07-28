@@ -141,57 +141,6 @@ with c2:
 
 st.divider()
 
-# ── Team & Project Contributors ──
-st.subheader("👥 Project Contributors")
-
-col_team1, col_team2 = st.columns(2)
-
-with col_team1:
-    st.markdown(
-        """
-        <div style="background:#FFFFFF;border:2px solid #3182CE;border-radius:12px;padding:1.4rem;text-align:center;box-shadow:0 4px 12px rgba(49,130,206,0.15);">
-            <h3 style="margin:0;color:#1A365D !important;font-weight:800;">Khushi Sharma</h3>
-            <p style="margin:0.2rem 0 0.8rem;color:#4A5568 !important;font-weight:600;font-size:0.95rem;">
-                Lead Data Analysis & Medical Domain Specialist
-            </p>
-            <p style="margin:0 0 1rem;color:#718096 !important;font-size:0.85rem;">
-                Designed clinical symptom indicator taxonomy, disease specialty mappings, and medical reference databases.
-            </p>
-            <a href="https://github.com/KhushiSharma006" target="_blank" style="
-                background:#3182CE;color:#FFFFFF !important;padding:0.5rem 1.2rem;
-                border-radius:20px;text-decoration:none;font-weight:700;font-size:0.88rem;display:inline-block;
-            ">
-                🔗 GitHub: @KhushiSharma006
-            </a>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-with col_team2:
-    st.markdown(
-        """
-        <div style="background:#FFFFFF;border:2px solid #3182CE;border-radius:12px;padding:1.4rem;text-align:center;box-shadow:0 4px 12px rgba(49,130,206,0.15);">
-            <h3 style="margin:0;color:#1A365D !important;font-weight:800;">Jai</h3>
-            <p style="margin:0.2rem 0 0.8rem;color:#4A5568 !important;font-weight:600;font-size:0.95rem;">
-                Machine Learning Architect & Systems Engineer
-            </p>
-            <p style="margin:0 0 1rem;color:#718096 !important;font-size:0.85rem;">
-                Architected Random Forest classifiers, real-time natural language NLP parser, and web dashboard interface.
-            </p>
-            <a href="https://github.com/jaidevxr" target="_blank" style="
-                background:#3182CE;color:#FFFFFF !important;padding:0.5rem 1.2rem;
-                border-radius:20px;text-decoration:none;font-weight:700;font-size:0.88rem;display:inline-block;
-            ">
-                🔗 GitHub: @jaidevxr
-            </a>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-st.divider()
-
 # ── Official Project Links ──
 st.subheader("🔗 Official Project Resources")
 

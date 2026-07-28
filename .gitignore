@@ -58,3 +58,8 @@ Thumbs.db
 # System Generated Logs
 .system_generated/
 scratch/
+
+# Large Model Files (>50MB, train locally with scripts/train_all.py)
+models/random_forest.pkl
+models/knn.pkl
+models/svm.pkl

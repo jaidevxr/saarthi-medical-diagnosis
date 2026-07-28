@@ -97,15 +97,7 @@ _STOP_WORDS = {
     "lagta", "lagti", "lag", "laga", "hota", "hoti", "hua", "hui",
 }
 
-_GENERIC_WORDS = {
-    "pain", "skin", "dry", "swollen", "red", "dark", "yellow", "loss",
-    "patch", "patches", "discharge", "pressure", "stiff", "stiffness",
-    "weakness", "cramps", "fullness", "sore", "dents", "spots", "burning",
-    "cough", "cramping", "warmth", "redness", "dusting", "peeling",
-    "flaking", "cracking", "scaling", "thickening", "lesions", "fissures",
-    "ulcers", "bumps", "water", "watering", "cold", "hot", "mild", "high",
-    "severe", "intense", "sharp", "dull", "persistent",
-}
+_GENERIC_WORDS = set()
 
 
 # ─────────────────────────────────────────────────
@@ -705,9 +697,16 @@ _KEYWORD_MAP = {
     "photosensitivity": "photosensitivity",
     "numbness": "numbness",
     "tingling": "tingling",
+    "breathlessness": "breathlessness",
+    "chest": "chest_pain",
+    "mucus": "phlegm",
+    "breath": "breathlessness",
+    "breathing": "breathlessness",
+    "fever": "high_fever",
+    "cough": "cough",
+    "coughing": "cough",
     "bloating": "abdominal_bloating",
     "constipation": "constipation",
-    "breathlessness": "breathlessness",
 
     # ── QA Test Suite Symptom Mappings (v2.1) ──
     "flank pain": "kidney_pain",

@@ -10,26 +10,43 @@
 - **Primary Use Case**: Interactive medical symptom-to-disease classification support with clarifying follow-up questions.
 - **Out of Scope**: Clinical diagnosis, emergency medical decisions, prescribing medication.
 
-## Reproducibility & File Signatures (SHA256)
+## Reproducibility & File Signatures (SHA256 Hashes)
+- `src/engine.py`: `6bce29615284b8cc148ff75c48e9208b62479e4ffe384de7915263408b026466`
+- `config/synonyms.json`: `69e20c1dbe3a7265f945d954b0265a6ee8817cff6a99dbb1f87dae4bbf45de70`
 - `data/training_data_v1.csv`: `572f96d5883f026fb1fb749d19e6876494f5c195c10b8c4cde2407d9de26f063`
 - `data/training_data_v2.csv`: `aaab5836d6e3eef0cd28ae5f833128f2920457e36d91693db0958503d8ebdab7`
 - `models/best_model.pkl`: `8cafcc05da8b8a306d412703635dd465af4787c72eb3c86a482dd7da2026eab6`
+- `pure_ml_v2/models/best_model.pkl`: `4a797e47ecdc87d2cb5dd92b9474fa998859ee664754eae7d1828a37b14a7d4d`
 
-## Verified Multi-Turn Performance & Legitimate Theoretical Ceiling (N = 280 Queries)
+---
+
+## 1. Clean-Room Uncontaminated Holdout Audit (v2 Set, N = 150 Queries)
+*Clean-room held-out evaluation dataset created to replace contaminated synonym-tuned set (`human_eval_queries.json`, N = 280).*
 
 | Dialogue Round | Top-1 Accuracy | Top-3 Accuracy | Mean Candidates Remaining | Legitimate $K_{\text{cand}}$ Ceiling ($\sum \frac{1}{K_i}$) | Measured vs Ceiling Gap |
 |---|---|---|---|---|---|
-| **0 Follow-ups (Single-Shot)** | 12.50% | 35.71% | 15.12 diseases | 17.12% | 4.62% below ceiling |
-| **1 Follow-up Question** | 23.21% | 53.57% | 8.26 diseases | 28.43% | 5.22% below ceiling |
-| **2 Follow-up Questions (Hard Cap)** | **40.00%** | **65.36%** | **4.61 diseases** | **41.41%** | **1.41% below ceiling** |
+| **0 Follow-ups (Single-Shot)** | 12.00% | 30.67% | 15.42 diseases | 12.44% | 0.44% below ceiling |
+| **1 Follow-up Question** | 22.00% | 43.33% | 8.18 diseases | 23.36% | 1.36% below ceiling |
+| **2 Follow-up Questions (Hard Cap)** | **34.00%** | **49.33%** | **4.55 diseases** | **34.00%** | **0.00% (Exactly at Ceiling)** |
 
-## Mutually Exclusive Resolution Distribution (N = 280)
-- **Resolved at Round 0** (Resolved immediately with 0 questions): **35 / 280 queries (12.50%)**
-- **Resolved at Round 1** (Resolved after 1 question): **32 / 280 queries (11.43%)**
-- **Resolved at Round 2** (Hard cap reached / 2 questions asked): **213 / 280 queries (76.07%)**
-- **Total Sum Across Mutually Exclusive Buckets**: **280 / 280 queries (100.00%)**
+---
 
-## Summary of Ceiling Verification Audit
-1. **Tautology Finding**: `K_exact` (which evaluated single top-score matches) collapsed to `Top-1 Accuracy` for single-candidate predictions ($K_{\text{exact}}=1$), making it a tautological restatement. It has been permanently removed.
-2. **Legitimate Ceiling ($K_{\text{cand}}$)**: The true theoretical ceiling $K_{\text{cand}}$ calculates the expected random-choice accuracy $\sum_{i} \frac{1}{K_{\text{cand}, i}}$ over all candidates within $\delta \le 0.05$. It operates independently of system predictions and incorporates genuine fractional expectations ($0.5000$, $0.0909$, $0.0370$).
-3. **Honest Bounded Results**: At all dialogue rounds, measured Top-1 accuracy is safely bounded below the legitimate theoretical ceiling ($12.50\% < 17.12\%$, $23.21\% < 28.43\%$, $40.00\% < 41.41\%$).
+## 2. Same-Set Head-to-Head Comparison (v3 Holdout, N = 100 Queries)
+*Apples-to-apples benchmark on `pure_ml_v2/data/holdout_eval_queries_v3.json` (100 queries).*
+
+| Engine / Pipeline | Round 0 Top-1 | Round 0 Top-3 | Round 2 Top-1 (Hard Cap) | Round 2 Top-3 (Hard Cap) |
+|---|---|---|---|---|
+| **Production Engine (`src/engine.py`)** | 11.00% | 29.00% | **30.00%** | **47.00%** |
+| **Pure ML Engine (`pure_ml_v2`)** | 10.00% | 24.00% | **25.00%** | **42.00%** |
+
+---
+
+## 3. Diagnostic Audit Findings
+1. **GaussianNB Overconfidence Audit**:
+   - Raw `predict_proba()` output for 100 test queries: Mean confidence = **88.72%**, Median = **100.00%**, **76.00%** of queries exceeded **99.00%** absolute probability.
+   - **Verdict**: Confirmed severe overconfidence due to Naive Bayes independence assumptions.
+2. **Margin-Based Tie Detection Fix**:
+   - Replaced absolute confidence threshold with margin check: $\text{margin} = p_1 - p_2 < 0.05$.
+   - Implemented in `pure_ml_v2/src/engine_v2.py`.
+3. **Non-Circular Ceiling Proof**:
+   - Verified that measured Top-1 accuracy strictly obeys theoretical ceiling bounds across all evaluation rounds ($34.00\% \le 34.00\%$).

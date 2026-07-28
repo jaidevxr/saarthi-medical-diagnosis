@@ -229,12 +229,14 @@ def plot_model_comparison(results_df, metric_cols=None):
         metric_cols = ["Accuracy", "Precision", "Recall", "F1 Score"]
     colors = PALETTE["chart_sequence"]
 
+    model_col = "Algorithm" if "Algorithm" in results_df.columns else ("Model" if "Model" in results_df.columns else results_df.columns[0])
+
     fig = go.Figure()
     for i, metric in enumerate(metric_cols):
         if metric in results_df.columns:
             fig.add_trace(go.Bar(
                 name=metric,
-                x=results_df["Algorithm"],
+                x=results_df[model_col],
                 y=results_df[metric],
                 marker_color=colors[i % len(colors)],
                 hovertemplate=f"{metric}: " + "%{y:.3f}<extra></extra>",

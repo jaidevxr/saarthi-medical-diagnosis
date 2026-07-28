@@ -73,6 +73,23 @@ if os.path.exists(results_path):
 
     if st.button("Set Active Model"):
         joblib.dump(chosen_model, best_file)
+        
+        model_filename_map = {
+            "Logistic Regression": "logistic_regression.pkl",
+            "Decision Tree": "decision_tree.pkl",
+            "Random Forest": "random_forest.pkl",
+            "KNN": "knn.pkl",
+            "SVM": "svm.pkl",
+            "Naive Bayes": "naive_bayes.pkl",
+            "Calibrated Naive Bayes": "naive_bayes.pkl",
+        }
+        if chosen_model in model_filename_map:
+            src_model = os.path.join(MODELS_DIR, model_filename_map[chosen_model])
+            if os.path.exists(src_model):
+                import shutil
+                shutil.copy2(src_model, os.path.join(MODELS_DIR, "best_model.pkl"))
+
+        st.cache_resource.clear()
         st.success(f"Active prediction model updated to: **{chosen_model}**")
 else:
     st.info("No benchmark results found. Run pretraining script or check models directory.")

@@ -23,6 +23,8 @@ from src.normalization import SymptomNormalizer
 
 # Load Base Dataset for Canonical Disease Profiles
 V1_PATH = os.path.join(DATA_DIR, "training_data_v1.csv")
+if not os.path.exists(V1_PATH):
+    V1_PATH = os.path.join(DATA_DIR, "Training.csv")
 v1_df = pd.read_csv(V1_PATH)
 symptom_cols = [c for c in v1_df.columns if c != "prognosis"]
 canonical_diseases = v1_df["prognosis"].unique()

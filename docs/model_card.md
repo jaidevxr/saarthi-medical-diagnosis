@@ -13,10 +13,9 @@
 ## Reproducibility & File Signatures (SHA256 Hashes)
 - `src/engine.py`: `6bce29615284b8cc148ff75c48e9208b62479e4ffe384de7915263408b026466`
 - `config/synonyms.json`: `69e20c1dbe3a7265f945d954b0265a6ee8817cff6a99dbb1f87dae4bbf45de70`
-- `data/training_data_v1.csv`: `572f96d5883f026fb1fb749d19e6876494f5c195c10b8c4cde2407d9de26f063`
-- `data/training_data_v2.csv`: `aaab5836d6e3eef0cd28ae5f833128f2920457e36d91693db0958503d8ebdab7`
+- `data/Training.csv`: `25,200 records x 398 columns (397 symptom indicators + prognosis)`
+- `data/Testing.csv`: `168 records x 398 columns`
 - `models/best_model.pkl`: `8cafcc05da8b8a306d412703635dd465af4787c72eb3c86a482dd7da2026eab6`
-- `pure_ml_v2/models/best_model.pkl`: `4a797e47ecdc87d2cb5dd92b9474fa998859ee664754eae7d1828a37b14a7d4d`
 
 ---
 

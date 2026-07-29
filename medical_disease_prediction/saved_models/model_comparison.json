@@ -1,0 +1,74 @@
+[
+    {
+        "Model": "Logistic Regression",
+        "Train Accuracy": 0.9958,
+        "Test Accuracy": 1.0,
+        "Precision": 1.0,
+        "Recall": 1.0,
+        "F1-Score": 1.0,
+        "CV Mean Accuracy": 0.9933,
+        "CV Std": 0.0007,
+        "Train-Test Gap": -0.0042,
+        "Status": "Low / No Overfit"
+    },
+    {
+        "Model": "Naive Bayes",
+        "Train Accuracy": 0.9958,
+        "Test Accuracy": 1.0,
+        "Precision": 1.0,
+        "Recall": 1.0,
+        "F1-Score": 1.0,
+        "CV Mean Accuracy": 0.9952,
+        "CV Std": 0.0006,
+        "Train-Test Gap": -0.0042,
+        "Status": "Low / No Overfit"
+    },
+    {
+        "Model": "Support Vector Machine (SVM)",
+        "Train Accuracy": 0.9955,
+        "Test Accuracy": 1.0,
+        "Precision": 1.0,
+        "Recall": 1.0,
+        "F1-Score": 1.0,
+        "CV Mean Accuracy": 0.9942,
+        "CV Std": 0.0003,
+        "Train-Test Gap": -0.0045,
+        "Status": "Low / No Overfit"
+    },
+    {
+        "Model": "KNN",
+        "Train Accuracy": 0.9946,
+        "Test Accuracy": 0.994,
+        "Precision": 0.9911,
+        "Recall": 0.994,
+        "F1-Score": 0.9921,
+        "CV Mean Accuracy": 0.9906,
+        "CV Std": 0.0009,
+        "Train-Test Gap": 0.0006,
+        "Status": "Low / No Overfit"
+    },
+    {
+        "Model": "Random Forest",
+        "Train Accuracy": 0.796,
+        "Test Accuracy": 0.7798,
+        "Precision": 0.7552,
+        "Recall": 0.7798,
+        "F1-Score": 0.7613,
+        "CV Mean Accuracy": 0.8082,
+        "CV Std": 0.0066,
+        "Train-Test Gap": 0.0163,
+        "Status": "Low / No Overfit"
+    },
+    {
+        "Model": "Decision Tree",
+        "Train Accuracy": 0.1286,
+        "Test Accuracy": 0.1071,
+        "Precision": 0.0963,
+        "Recall": 0.1071,
+        "F1-Score": 0.097,
+        "CV Mean Accuracy": 0.12,
+        "CV Std": 0.0096,
+        "Train-Test Gap": 0.0214,
+        "Status": "Low / No Overfit"
+    }
+]

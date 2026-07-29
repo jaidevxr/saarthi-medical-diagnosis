@@ -1,0 +1,1590 @@
+[
+    {
+        "raw": "itching",
+        "display": "Itching"
+    },
+    {
+        "raw": "skin_rash",
+        "display": "Skin Rash"
+    },
+    {
+        "raw": "nodal_skin_eruptions",
+        "display": "Nodal Skin Eruptions"
+    },
+    {
+        "raw": "continuous_sneezing",
+        "display": "Continuous Sneezing"
+    },
+    {
+        "raw": "shivering",
+        "display": "Shivering"
+    },
+    {
+        "raw": "chills",
+        "display": "Chills"
+    },
+    {
+        "raw": "joint_pain",
+        "display": "Joint Pain"
+    },
+    {
+        "raw": "stomach_pain",
+        "display": "Stomach Pain"
+    },
+    {
+        "raw": "acidity",
+        "display": "Acidity"
+    },
+    {
+        "raw": "ulcers_on_tongue",
+        "display": "Ulcers On Tongue"
+    },
+    {
+        "raw": "muscle_wasting",
+        "display": "Muscle Wasting"
+    },
+    {
+        "raw": "vomiting",
+        "display": "Vomiting"
+    },
+    {
+        "raw": "burning_micturition",
+        "display": "Burning Micturition"
+    },
+    {
+        "raw": "spotting_urination",
+        "display": "Spotting Urination"
+    },
+    {
+        "raw": "fatigue",
+        "display": "Fatigue"
+    },
+    {
+        "raw": "weight_gain",
+        "display": "Weight Gain"
+    },
+    {
+        "raw": "anxiety",
+        "display": "Anxiety"
+    },
+    {
+        "raw": "cold_hands_and_feets",
+        "display": "Cold Hands And Feets"
+    },
+    {
+        "raw": "mood_swings",
+        "display": "Mood Swings"
+    },
+    {
+        "raw": "weight_loss",
+        "display": "Weight Loss"
+    },
+    {
+        "raw": "restlessness",
+        "display": "Restlessness"
+    },
+    {
+        "raw": "lethargy",
+        "display": "Lethargy"
+    },
+    {
+        "raw": "patches_in_throat",
+        "display": "Patches In Throat"
+    },
+    {
+        "raw": "irregular_sugar_level",
+        "display": "Irregular Sugar Level"
+    },
+    {
+        "raw": "cough",
+        "display": "Cough"
+    },
+    {
+        "raw": "high_fever",
+        "display": "High Fever"
+    },
+    {
+        "raw": "sunken_eyes",
+        "display": "Sunken Eyes"
+    },
+    {
+        "raw": "breathlessness",
+        "display": "Breathlessness"
+    },
+    {
+        "raw": "sweating",
+        "display": "Sweating"
+    },
+    {
+        "raw": "dehydration",
+        "display": "Dehydration"
+    },
+    {
+        "raw": "indigestion",
+        "display": "Indigestion"
+    },
+    {
+        "raw": "headache",
+        "display": "Headache"
+    },
+    {
+        "raw": "yellowish_skin",
+        "display": "Yellowish Skin"
+    },
+    {
+        "raw": "dark_urine",
+        "display": "Dark Urine"
+    },
+    {
+        "raw": "nausea",
+        "display": "Nausea"
+    },
+    {
+        "raw": "loss_of_appetite",
+        "display": "Loss Of Appetite"
+    },
+    {
+        "raw": "pain_behind_the_eyes",
+        "display": "Pain Behind The Eyes"
+    },
+    {
+        "raw": "back_pain",
+        "display": "Back Pain"
+    },
+    {
+        "raw": "constipation",
+        "display": "Constipation"
+    },
+    {
+        "raw": "abdominal_pain",
+        "display": "Abdominal Pain"
+    },
+    {
+        "raw": "diarrhoea",
+        "display": "Diarrhoea"
+    },
+    {
+        "raw": "mild_fever",
+        "display": "Mild Fever"
+    },
+    {
+        "raw": "yellow_urine",
+        "display": "Yellow Urine"
+    },
+    {
+        "raw": "yellowing_of_eyes",
+        "display": "Yellowing Of Eyes"
+    },
+    {
+        "raw": "acute_liver_failure",
+        "display": "Acute Liver Failure"
+    },
+    {
+        "raw": "fluid_overload",
+        "display": "Fluid Overload"
+    },
+    {
+        "raw": "swelling_of_stomach",
+        "display": "Swelling Of Stomach"
+    },
+    {
+        "raw": "swelled_lymph_nodes",
+        "display": "Swelled Lymph Nodes"
+    },
+    {
+        "raw": "malaise",
+        "display": "Malaise"
+    },
+    {
+        "raw": "blurred_and_distorted_vision",
+        "display": "Blurred And Distorted Vision"
+    },
+    {
+        "raw": "phlegm",
+        "display": "Phlegm"
+    },
+    {
+        "raw": "throat_irritation",
+        "display": "Throat Irritation"
+    },
+    {
+        "raw": "redness_of_eyes",
+        "display": "Redness Of Eyes"
+    },
+    {
+        "raw": "sinus_pressure",
+        "display": "Sinus Pressure"
+    },
+    {
+        "raw": "runny_nose",
+        "display": "Runny Nose"
+    },
+    {
+        "raw": "congestion",
+        "display": "Congestion"
+    },
+    {
+        "raw": "chest_pain",
+        "display": "Chest Pain"
+    },
+    {
+        "raw": "weakness_in_limbs",
+        "display": "Weakness In Limbs"
+    },
+    {
+        "raw": "fast_heart_rate",
+        "display": "Fast Heart Rate"
+    },
+    {
+        "raw": "pain_during_bowel_movements",
+        "display": "Pain During Bowel Movements"
+    },
+    {
+        "raw": "pain_in_anal_region",
+        "display": "Pain In Anal Region"
+    },
+    {
+        "raw": "bloody_stool",
+        "display": "Bloody Stool"
+    },
+    {
+        "raw": "irritation_in_anus",
+        "display": "Irritation In Anus"
+    },
+    {
+        "raw": "neck_pain",
+        "display": "Neck Pain"
+    },
+    {
+        "raw": "dizziness",
+        "display": "Dizziness"
+    },
+    {
+        "raw": "cramps",
+        "display": "Cramps"
+    },
+    {
+        "raw": "bruising",
+        "display": "Bruising"
+    },
+    {
+        "raw": "obesity",
+        "display": "Obesity"
+    },
+    {
+        "raw": "swollen_legs",
+        "display": "Swollen Legs"
+    },
+    {
+        "raw": "swollen_blood_vessels",
+        "display": "Swollen Blood Vessels"
+    },
+    {
+        "raw": "puffy_face_and_eyes",
+        "display": "Puffy Face And Eyes"
+    },
+    {
+        "raw": "enlarged_thyroid",
+        "display": "Enlarged Thyroid"
+    },
+    {
+        "raw": "brittle_nails",
+        "display": "Brittle Nails"
+    },
+    {
+        "raw": "swollen_extremeties",
+        "display": "Swollen Extremeties"
+    },
+    {
+        "raw": "excessive_hunger",
+        "display": "Excessive Hunger"
+    },
+    {
+        "raw": "extra_marital_contacts",
+        "display": "Extra Marital Contacts"
+    },
+    {
+        "raw": "drying_and_tingling_lips",
+        "display": "Drying And Tingling Lips"
+    },
+    {
+        "raw": "slurred_speech",
+        "display": "Slurred Speech"
+    },
+    {
+        "raw": "knee_pain",
+        "display": "Knee Pain"
+    },
+    {
+        "raw": "hip_joint_pain",
+        "display": "Hip Joint Pain"
+    },
+    {
+        "raw": "muscle_weakness",
+        "display": "Muscle Weakness"
+    },
+    {
+        "raw": "stiff_neck",
+        "display": "Stiff Neck"
+    },
+    {
+        "raw": "swelling_joints",
+        "display": "Swelling Joints"
+    },
+    {
+        "raw": "movement_stiffness",
+        "display": "Movement Stiffness"
+    },
+    {
+        "raw": "spinning_movements",
+        "display": "Spinning Movements"
+    },
+    {
+        "raw": "loss_of_balance",
+        "display": "Loss Of Balance"
+    },
+    {
+        "raw": "unsteadiness",
+        "display": "Unsteadiness"
+    },
+    {
+        "raw": "weakness_of_one_body_side",
+        "display": "Weakness Of One Body Side"
+    },
+    {
+        "raw": "loss_of_smell",
+        "display": "Loss Of Smell"
+    },
+    {
+        "raw": "bladder_discomfort",
+        "display": "Bladder Discomfort"
+    },
+    {
+        "raw": "foul_smell_of_urine",
+        "display": "Foul Smell Of Urine"
+    },
+    {
+        "raw": "continuous_feel_of_urine",
+        "display": "Continuous Feel Of Urine"
+    },
+    {
+        "raw": "passage_of_gases",
+        "display": "Passage Of Gases"
+    },
+    {
+        "raw": "internal_itching",
+        "display": "Internal Itching"
+    },
+    {
+        "raw": "toxic_look_(typhos)",
+        "display": "Toxic Look (Typhos)"
+    },
+    {
+        "raw": "depression",
+        "display": "Depression"
+    },
+    {
+        "raw": "irritability",
+        "display": "Irritability"
+    },
+    {
+        "raw": "muscle_pain",
+        "display": "Muscle Pain"
+    },
+    {
+        "raw": "altered_sensorium",
+        "display": "Altered Sensorium"
+    },
+    {
+        "raw": "red_spots_over_body",
+        "display": "Red Spots Over Body"
+    },
+    {
+        "raw": "belly_pain",
+        "display": "Belly Pain"
+    },
+    {
+        "raw": "abnormal_menstruation",
+        "display": "Abnormal Menstruation"
+    },
+    {
+        "raw": "dischromic_patches",
+        "display": "Dischromic Patches"
+    },
+    {
+        "raw": "watering_from_eyes",
+        "display": "Watering From Eyes"
+    },
+    {
+        "raw": "increased_appetite",
+        "display": "Increased Appetite"
+    },
+    {
+        "raw": "polyuria",
+        "display": "Polyuria"
+    },
+    {
+        "raw": "family_history",
+        "display": "Family History"
+    },
+    {
+        "raw": "mucoid_sputum",
+        "display": "Mucoid Sputum"
+    },
+    {
+        "raw": "rusty_sputum",
+        "display": "Rusty Sputum"
+    },
+    {
+        "raw": "lack_of_concentration",
+        "display": "Lack Of Concentration"
+    },
+    {
+        "raw": "visual_disturbances",
+        "display": "Visual Disturbances"
+    },
+    {
+        "raw": "receiving_blood_transfusion",
+        "display": "Receiving Blood Transfusion"
+    },
+    {
+        "raw": "receiving_unsterile_injections",
+        "display": "Receiving Unsterile Injections"
+    },
+    {
+        "raw": "coma",
+        "display": "Coma"
+    },
+    {
+        "raw": "stomach_bleeding",
+        "display": "Stomach Bleeding"
+    },
+    {
+        "raw": "distention_of_abdomen",
+        "display": "Distention Of Abdomen"
+    },
+    {
+        "raw": "history_of_alcohol_consumption",
+        "display": "History Of Alcohol Consumption"
+    },
+    {
+        "raw": "fluid_overload_extra",
+        "display": "Fluid Overload Extra"
+    },
+    {
+        "raw": "blood_in_sputum",
+        "display": "Blood In Sputum"
+    },
+    {
+        "raw": "prominent_veins_on_calf",
+        "display": "Prominent Veins On Calf"
+    },
+    {
+        "raw": "palpitations",
+        "display": "Palpitations"
+    },
+    {
+        "raw": "painful_walking",
+        "display": "Painful Walking"
+    },
+    {
+        "raw": "pus_filled_pimples",
+        "display": "Pus Filled Pimples"
+    },
+    {
+        "raw": "blackheads",
+        "display": "Blackheads"
+    },
+    {
+        "raw": "scurring",
+        "display": "Scurring"
+    },
+    {
+        "raw": "skin_peeling",
+        "display": "Skin Peeling"
+    },
+    {
+        "raw": "silver_like_dusting",
+        "display": "Silver Like Dusting"
+    },
+    {
+        "raw": "small_dents_in_nails",
+        "display": "Small Dents In Nails"
+    },
+    {
+        "raw": "inflammatory_nails",
+        "display": "Inflammatory Nails"
+    },
+    {
+        "raw": "blister",
+        "display": "Blister"
+    },
+    {
+        "raw": "red_sore_around_nose",
+        "display": "Red Sore Around Nose"
+    },
+    {
+        "raw": "yellow_crust_ooze",
+        "display": "Yellow Crust Ooze"
+    },
+    {
+        "raw": "night_sweats",
+        "display": "Night Sweats"
+    },
+    {
+        "raw": "chronic_fatigue",
+        "display": "Chronic Fatigue"
+    },
+    {
+        "raw": "general_weakness",
+        "display": "General Weakness"
+    },
+    {
+        "raw": "pale_skin",
+        "display": "Pale Skin"
+    },
+    {
+        "raw": "flushing",
+        "display": "Flushing"
+    },
+    {
+        "raw": "excessive_thirst",
+        "display": "Excessive Thirst"
+    },
+    {
+        "raw": "dry_mouth",
+        "display": "Dry Mouth"
+    },
+    {
+        "raw": "bad_breath",
+        "display": "Bad Breath"
+    },
+    {
+        "raw": "metallic_taste",
+        "display": "Metallic Taste"
+    },
+    {
+        "raw": "loss_of_taste",
+        "display": "Loss Of Taste"
+    },
+    {
+        "raw": "body_aches",
+        "display": "Body Aches"
+    },
+    {
+        "raw": "swollen_glands",
+        "display": "Swollen Glands"
+    },
+    {
+        "raw": "recurrent_fever",
+        "display": "Recurrent Fever"
+    },
+    {
+        "raw": "heat_intolerance",
+        "display": "Heat Intolerance"
+    },
+    {
+        "raw": "cold_intolerance",
+        "display": "Cold Intolerance"
+    },
+    {
+        "raw": "easy_bruising",
+        "display": "Easy Bruising"
+    },
+    {
+        "raw": "slow_wound_healing",
+        "display": "Slow Wound Healing"
+    },
+    {
+        "raw": "frequent_infections",
+        "display": "Frequent Infections"
+    },
+    {
+        "raw": "low_energy",
+        "display": "Low Energy"
+    },
+    {
+        "raw": "feeling_unwell",
+        "display": "Feeling Unwell"
+    },
+    {
+        "raw": "facial_pain",
+        "display": "Facial Pain"
+    },
+    {
+        "raw": "facial_swelling",
+        "display": "Facial Swelling"
+    },
+    {
+        "raw": "facial_drooping",
+        "display": "Facial Drooping"
+    },
+    {
+        "raw": "facial_redness",
+        "display": "Facial Redness"
+    },
+    {
+        "raw": "jaw_pain",
+        "display": "Jaw Pain"
+    },
+    {
+        "raw": "jaw_stiffness",
+        "display": "Jaw Stiffness"
+    },
+    {
+        "raw": "scalp_tenderness",
+        "display": "Scalp Tenderness"
+    },
+    {
+        "raw": "hair_loss",
+        "display": "Hair Loss"
+    },
+    {
+        "raw": "thinning_hair",
+        "display": "Thinning Hair"
+    },
+    {
+        "raw": "facial_numbness",
+        "display": "Facial Numbness"
+    },
+    {
+        "raw": "lockjaw",
+        "display": "Lockjaw"
+    },
+    {
+        "raw": "swollen_face",
+        "display": "Swollen Face"
+    },
+    {
+        "raw": "eye_pain",
+        "display": "Eye Pain"
+    },
+    {
+        "raw": "eye_discharge",
+        "display": "Eye Discharge"
+    },
+    {
+        "raw": "eye_swelling",
+        "display": "Eye Swelling"
+    },
+    {
+        "raw": "dry_eyes",
+        "display": "Dry Eyes"
+    },
+    {
+        "raw": "photophobia",
+        "display": "Photophobia"
+    },
+    {
+        "raw": "floaters_in_vision",
+        "display": "Floaters In Vision"
+    },
+    {
+        "raw": "eye_itching",
+        "display": "Eye Itching"
+    },
+    {
+        "raw": "double_vision",
+        "display": "Double Vision"
+    },
+    {
+        "raw": "eye_burning",
+        "display": "Eye Burning"
+    },
+    {
+        "raw": "crusty_eyelids",
+        "display": "Crusty Eyelids"
+    },
+    {
+        "raw": "swollen_eyelid",
+        "display": "Swollen Eyelid"
+    },
+    {
+        "raw": "foreign_body_sensation_eye",
+        "display": "Foreign Body Sensation Eye"
+    },
+    {
+        "raw": "excessive_tearing",
+        "display": "Excessive Tearing"
+    },
+    {
+        "raw": "red_eye",
+        "display": "Red Eye"
+    },
+    {
+        "raw": "vision_loss",
+        "display": "Vision Loss"
+    },
+    {
+        "raw": "light_flashes_in_vision",
+        "display": "Light Flashes In Vision"
+    },
+    {
+        "raw": "ear_pain",
+        "display": "Ear Pain"
+    },
+    {
+        "raw": "ear_discharge",
+        "display": "Ear Discharge"
+    },
+    {
+        "raw": "hearing_loss",
+        "display": "Hearing Loss"
+    },
+    {
+        "raw": "tinnitus_ringing",
+        "display": "Tinnitus Ringing"
+    },
+    {
+        "raw": "ear_fullness",
+        "display": "Ear Fullness"
+    },
+    {
+        "raw": "ear_itching",
+        "display": "Ear Itching"
+    },
+    {
+        "raw": "ear_popping",
+        "display": "Ear Popping"
+    },
+    {
+        "raw": "muffled_hearing",
+        "display": "Muffled Hearing"
+    },
+    {
+        "raw": "ear_bleeding",
+        "display": "Ear Bleeding"
+    },
+    {
+        "raw": "balance_problems",
+        "display": "Balance Problems"
+    },
+    {
+        "raw": "nasal_discharge",
+        "display": "Nasal Discharge"
+    },
+    {
+        "raw": "post_nasal_drip",
+        "display": "Post Nasal Drip"
+    },
+    {
+        "raw": "nosebleeds",
+        "display": "Nosebleeds"
+    },
+    {
+        "raw": "facial_pressure",
+        "display": "Facial Pressure"
+    },
+    {
+        "raw": "nasal_itching",
+        "display": "Nasal Itching"
+    },
+    {
+        "raw": "snoring",
+        "display": "Snoring"
+    },
+    {
+        "raw": "nasal_obstruction",
+        "display": "Nasal Obstruction"
+    },
+    {
+        "raw": "loss_of_smell_gradual",
+        "display": "Loss Of Smell Gradual"
+    },
+    {
+        "raw": "sore_throat",
+        "display": "Sore Throat"
+    },
+    {
+        "raw": "difficulty_swallowing",
+        "display": "Difficulty Swallowing"
+    },
+    {
+        "raw": "painful_swallowing",
+        "display": "Painful Swallowing"
+    },
+    {
+        "raw": "hoarseness",
+        "display": "Hoarseness"
+    },
+    {
+        "raw": "voice_changes",
+        "display": "Voice Changes"
+    },
+    {
+        "raw": "dry_throat",
+        "display": "Dry Throat"
+    },
+    {
+        "raw": "throat_swelling",
+        "display": "Throat Swelling"
+    },
+    {
+        "raw": "mouth_sores",
+        "display": "Mouth Sores"
+    },
+    {
+        "raw": "tongue_swelling",
+        "display": "Tongue Swelling"
+    },
+    {
+        "raw": "bleeding_gums",
+        "display": "Bleeding Gums"
+    },
+    {
+        "raw": "tooth_pain",
+        "display": "Tooth Pain"
+    },
+    {
+        "raw": "lump_in_throat",
+        "display": "Lump In Throat"
+    },
+    {
+        "raw": "drooling",
+        "display": "Drooling"
+    },
+    {
+        "raw": "white_patches_on_tongue",
+        "display": "White Patches On Tongue"
+    },
+    {
+        "raw": "wheezing",
+        "display": "Wheezing"
+    },
+    {
+        "raw": "dry_cough",
+        "display": "Dry Cough"
+    },
+    {
+        "raw": "productive_cough",
+        "display": "Productive Cough"
+    },
+    {
+        "raw": "chest_tightness",
+        "display": "Chest Tightness"
+    },
+    {
+        "raw": "rapid_breathing",
+        "display": "Rapid Breathing"
+    },
+    {
+        "raw": "shallow_breathing",
+        "display": "Shallow Breathing"
+    },
+    {
+        "raw": "coughing_at_night",
+        "display": "Coughing At Night"
+    },
+    {
+        "raw": "barking_cough",
+        "display": "Barking Cough"
+    },
+    {
+        "raw": "stridor",
+        "display": "Stridor"
+    },
+    {
+        "raw": "pleuritic_chest_pain",
+        "display": "Pleuritic Chest Pain"
+    },
+    {
+        "raw": "coughing_after_eating",
+        "display": "Coughing After Eating"
+    },
+    {
+        "raw": "air_hunger",
+        "display": "Air Hunger"
+    },
+    {
+        "raw": "orthopnea",
+        "display": "Orthopnea"
+    },
+    {
+        "raw": "nocturnal_dyspnea",
+        "display": "Nocturnal Dyspnea"
+    },
+    {
+        "raw": "irregular_heartbeat",
+        "display": "Irregular Heartbeat"
+    },
+    {
+        "raw": "slow_heartbeat",
+        "display": "Slow Heartbeat"
+    },
+    {
+        "raw": "chest_pressure",
+        "display": "Chest Pressure"
+    },
+    {
+        "raw": "leg_pain",
+        "display": "Leg Pain"
+    },
+    {
+        "raw": "calf_pain",
+        "display": "Calf Pain"
+    },
+    {
+        "raw": "ankle_swelling",
+        "display": "Ankle Swelling"
+    },
+    {
+        "raw": "edema",
+        "display": "Edema"
+    },
+    {
+        "raw": "exercise_intolerance",
+        "display": "Exercise Intolerance"
+    },
+    {
+        "raw": "blue_discoloration",
+        "display": "Blue Discoloration"
+    },
+    {
+        "raw": "cold_feet",
+        "display": "Cold Feet"
+    },
+    {
+        "raw": "warm_swollen_leg",
+        "display": "Warm Swollen Leg"
+    },
+    {
+        "raw": "fainting",
+        "display": "Fainting"
+    },
+    {
+        "raw": "exertional_chest_pain",
+        "display": "Exertional Chest Pain"
+    },
+    {
+        "raw": "jaw_pain_with_exertion",
+        "display": "Jaw Pain With Exertion"
+    },
+    {
+        "raw": "heartburn",
+        "display": "Heartburn"
+    },
+    {
+        "raw": "acid_reflux",
+        "display": "Acid Reflux"
+    },
+    {
+        "raw": "excessive_belching",
+        "display": "Excessive Belching"
+    },
+    {
+        "raw": "rectal_bleeding",
+        "display": "Rectal Bleeding"
+    },
+    {
+        "raw": "mucus_in_stool",
+        "display": "Mucus In Stool"
+    },
+    {
+        "raw": "abdominal_cramping",
+        "display": "Abdominal Cramping"
+    },
+    {
+        "raw": "abdominal_bloating",
+        "display": "Abdominal Bloating"
+    },
+    {
+        "raw": "rumbling_stomach",
+        "display": "Rumbling Stomach"
+    },
+    {
+        "raw": "black_stool",
+        "display": "Black Stool"
+    },
+    {
+        "raw": "greasy_stool",
+        "display": "Greasy Stool"
+    },
+    {
+        "raw": "blood_in_vomit",
+        "display": "Blood In Vomit"
+    },
+    {
+        "raw": "feeling_full_quickly",
+        "display": "Feeling Full Quickly"
+    },
+    {
+        "raw": "epigastric_pain",
+        "display": "Epigastric Pain"
+    },
+    {
+        "raw": "right_upper_abdominal_pain",
+        "display": "Right Upper Abdominal Pain"
+    },
+    {
+        "raw": "left_lower_abdominal_pain",
+        "display": "Left Lower Abdominal Pain"
+    },
+    {
+        "raw": "right_lower_abdominal_pain",
+        "display": "Right Lower Abdominal Pain"
+    },
+    {
+        "raw": "rectal_pain",
+        "display": "Rectal Pain"
+    },
+    {
+        "raw": "excessive_gas",
+        "display": "Excessive Gas"
+    },
+    {
+        "raw": "difficulty_swallowing_food",
+        "display": "Difficulty Swallowing Food"
+    },
+    {
+        "raw": "regurgitation",
+        "display": "Regurgitation"
+    },
+    {
+        "raw": "loss_of_weight_with_appetite",
+        "display": "Loss Of Weight With Appetite"
+    },
+    {
+        "raw": "clay_colored_stool",
+        "display": "Clay Colored Stool"
+    },
+    {
+        "raw": "blood_in_urine",
+        "display": "Blood In Urine"
+    },
+    {
+        "raw": "foamy_urine",
+        "display": "Foamy Urine"
+    },
+    {
+        "raw": "decreased_urine_output",
+        "display": "Decreased Urine Output"
+    },
+    {
+        "raw": "urinary_urgency",
+        "display": "Urinary Urgency"
+    },
+    {
+        "raw": "urinary_incontinence",
+        "display": "Urinary Incontinence"
+    },
+    {
+        "raw": "flank_pain",
+        "display": "Flank Pain"
+    },
+    {
+        "raw": "groin_pain",
+        "display": "Groin Pain"
+    },
+    {
+        "raw": "cloudy_urine",
+        "display": "Cloudy Urine"
+    },
+    {
+        "raw": "difficulty_starting_urination",
+        "display": "Difficulty Starting Urination"
+    },
+    {
+        "raw": "weak_urine_stream",
+        "display": "Weak Urine Stream"
+    },
+    {
+        "raw": "dribbling_urine",
+        "display": "Dribbling Urine"
+    },
+    {
+        "raw": "nighttime_urination",
+        "display": "Nighttime Urination"
+    },
+    {
+        "raw": "kidney_pain",
+        "display": "Kidney Pain"
+    },
+    {
+        "raw": "pelvic_pressure",
+        "display": "Pelvic Pressure"
+    },
+    {
+        "raw": "morning_stiffness",
+        "display": "Morning Stiffness"
+    },
+    {
+        "raw": "muscle_cramps",
+        "display": "Muscle Cramps"
+    },
+    {
+        "raw": "muscle_twitching",
+        "display": "Muscle Twitching"
+    },
+    {
+        "raw": "bone_pain",
+        "display": "Bone Pain"
+    },
+    {
+        "raw": "joint_redness",
+        "display": "Joint Redness"
+    },
+    {
+        "raw": "joint_warmth",
+        "display": "Joint Warmth"
+    },
+    {
+        "raw": "limited_range_of_motion",
+        "display": "Limited Range Of Motion"
+    },
+    {
+        "raw": "gait_abnormality",
+        "display": "Gait Abnormality"
+    },
+    {
+        "raw": "foot_pain",
+        "display": "Foot Pain"
+    },
+    {
+        "raw": "hand_numbness",
+        "display": "Hand Numbness"
+    },
+    {
+        "raw": "finger_numbness",
+        "display": "Finger Numbness"
+    },
+    {
+        "raw": "toe_numbness",
+        "display": "Toe Numbness"
+    },
+    {
+        "raw": "wrist_pain",
+        "display": "Wrist Pain"
+    },
+    {
+        "raw": "shoulder_pain",
+        "display": "Shoulder Pain"
+    },
+    {
+        "raw": "elbow_pain",
+        "display": "Elbow Pain"
+    },
+    {
+        "raw": "ankle_pain",
+        "display": "Ankle Pain"
+    },
+    {
+        "raw": "lower_back_pain",
+        "display": "Lower Back Pain"
+    },
+    {
+        "raw": "upper_back_pain",
+        "display": "Upper Back Pain"
+    },
+    {
+        "raw": "heel_pain",
+        "display": "Heel Pain"
+    },
+    {
+        "raw": "finger_swelling",
+        "display": "Finger Swelling"
+    },
+    {
+        "raw": "hand_stiffness",
+        "display": "Hand Stiffness"
+    },
+    {
+        "raw": "muscle_spasms",
+        "display": "Muscle Spasms"
+    },
+    {
+        "raw": "seizures",
+        "display": "Seizures"
+    },
+    {
+        "raw": "tremors",
+        "display": "Tremors"
+    },
+    {
+        "raw": "memory_loss",
+        "display": "Memory Loss"
+    },
+    {
+        "raw": "numbness",
+        "display": "Numbness"
+    },
+    {
+        "raw": "tingling",
+        "display": "Tingling"
+    },
+    {
+        "raw": "coordination_problems",
+        "display": "Coordination Problems"
+    },
+    {
+        "raw": "involuntary_movements",
+        "display": "Involuntary Movements"
+    },
+    {
+        "raw": "sensitivity_to_light",
+        "display": "Sensitivity To Light"
+    },
+    {
+        "raw": "sensitivity_to_sound",
+        "display": "Sensitivity To Sound"
+    },
+    {
+        "raw": "brain_fog",
+        "display": "Brain Fog"
+    },
+    {
+        "raw": "temporary_vision_loss",
+        "display": "Temporary Vision Loss"
+    },
+    {
+        "raw": "one_sided_headache",
+        "display": "One Sided Headache"
+    },
+    {
+        "raw": "aura_before_headache",
+        "display": "Aura Before Headache"
+    },
+    {
+        "raw": "pins_and_needles",
+        "display": "Pins And Needles"
+    },
+    {
+        "raw": "dropping_objects",
+        "display": "Dropping Objects"
+    },
+    {
+        "raw": "difficulty_writing",
+        "display": "Difficulty Writing"
+    },
+    {
+        "raw": "electric_shock_sensation",
+        "display": "Electric Shock Sensation"
+    },
+    {
+        "raw": "progressive_weakness",
+        "display": "Progressive Weakness"
+    },
+    {
+        "raw": "dry_skin",
+        "display": "Dry Skin"
+    },
+    {
+        "raw": "oily_skin",
+        "display": "Oily Skin"
+    },
+    {
+        "raw": "skin_thickening",
+        "display": "Skin Thickening"
+    },
+    {
+        "raw": "skin_warmth",
+        "display": "Skin Warmth"
+    },
+    {
+        "raw": "skin_tenderness",
+        "display": "Skin Tenderness"
+    },
+    {
+        "raw": "open_sores",
+        "display": "Open Sores"
+    },
+    {
+        "raw": "skin_ulcers",
+        "display": "Skin Ulcers"
+    },
+    {
+        "raw": "skin_bumps",
+        "display": "Skin Bumps"
+    },
+    {
+        "raw": "skin_lesions",
+        "display": "Skin Lesions"
+    },
+    {
+        "raw": "skin_flaking",
+        "display": "Skin Flaking"
+    },
+    {
+        "raw": "skin_cracking",
+        "display": "Skin Cracking"
+    },
+    {
+        "raw": "skin_scaling",
+        "display": "Skin Scaling"
+    },
+    {
+        "raw": "hives",
+        "display": "Hives"
+    },
+    {
+        "raw": "skin_burning",
+        "display": "Skin Burning"
+    },
+    {
+        "raw": "ring_shaped_rash",
+        "display": "Ring Shaped Rash"
+    },
+    {
+        "raw": "vesicles",
+        "display": "Vesicles"
+    },
+    {
+        "raw": "nodules_under_skin",
+        "display": "Nodules Under Skin"
+    },
+    {
+        "raw": "crust_formation",
+        "display": "Crust Formation"
+    },
+    {
+        "raw": "oozing_from_skin",
+        "display": "Oozing From Skin"
+    },
+    {
+        "raw": "skin_fissures",
+        "display": "Skin Fissures"
+    },
+    {
+        "raw": "nail_discoloration",
+        "display": "Nail Discoloration"
+    },
+    {
+        "raw": "nail_thickening",
+        "display": "Nail Thickening"
+    },
+    {
+        "raw": "panic_attacks",
+        "display": "Panic Attacks"
+    },
+    {
+        "raw": "mood_changes",
+        "display": "Mood Changes"
+    },
+    {
+        "raw": "agitation",
+        "display": "Agitation"
+    },
+    {
+        "raw": "apathy",
+        "display": "Apathy"
+    },
+    {
+        "raw": "confusion_episodes",
+        "display": "Confusion Episodes"
+    },
+    {
+        "raw": "tearfulness",
+        "display": "Tearfulness"
+    },
+    {
+        "raw": "hopelessness",
+        "display": "Hopelessness"
+    },
+    {
+        "raw": "social_withdrawal",
+        "display": "Social Withdrawal"
+    },
+    {
+        "raw": "poor_concentration",
+        "display": "Poor Concentration"
+    },
+    {
+        "raw": "sleep_disturbance",
+        "display": "Sleep Disturbance"
+    },
+    {
+        "raw": "nightmares",
+        "display": "Nightmares"
+    },
+    {
+        "raw": "loss_of_interest",
+        "display": "Loss Of Interest"
+    },
+    {
+        "raw": "pelvic_pain",
+        "display": "Pelvic Pain"
+    },
+    {
+        "raw": "menstrual_cramps",
+        "display": "Menstrual Cramps"
+    },
+    {
+        "raw": "heavy_periods",
+        "display": "Heavy Periods"
+    },
+    {
+        "raw": "breast_tenderness",
+        "display": "Breast Tenderness"
+    },
+    {
+        "raw": "hot_flashes",
+        "display": "Hot Flashes"
+    },
+    {
+        "raw": "vaginal_discharge",
+        "display": "Vaginal Discharge"
+    },
+    {
+        "raw": "vaginal_itching",
+        "display": "Vaginal Itching"
+    },
+    {
+        "raw": "testicular_pain",
+        "display": "Testicular Pain"
+    },
+    {
+        "raw": "low_libido",
+        "display": "Low Libido"
+    },
+    {
+        "raw": "irregular_periods",
+        "display": "Irregular Periods"
+    },
+    {
+        "raw": "photosensitivity",
+        "display": "Photosensitivity"
+    },
+    {
+        "raw": "dry_eyes_and_mouth",
+        "display": "Dry Eyes And Mouth"
+    },
+    {
+        "raw": "raynaud_phenomenon",
+        "display": "Raynaud Phenomenon"
+    },
+    {
+        "raw": "butterfly_rash",
+        "display": "Butterfly Rash"
+    },
+    {
+        "raw": "mouth_ulcers_recurrent",
+        "display": "Mouth Ulcers Recurrent"
+    },
+    {
+        "raw": "anosmia",
+        "display": "Anosmia"
+    },
+    {
+        "raw": "ageusia",
+        "display": "Ageusia"
+    },
+    {
+        "raw": "brain_fog_severe",
+        "display": "Brain Fog Severe"
+    },
+    {
+        "raw": "resting_tremor",
+        "display": "Resting Tremor"
+    },
+    {
+        "raw": "shuffling_gait",
+        "display": "Shuffling Gait"
+    },
+    {
+        "raw": "muscle_rigidity",
+        "display": "Muscle Rigidity"
+    },
+    {
+        "raw": "nocturnal_cough",
+        "display": "Nocturnal Cough"
+    },
+    {
+        "raw": "blood_pressure_high",
+        "display": "Blood Pressure High"
+    },
+    {
+        "raw": "blood_pressure_low",
+        "display": "Blood Pressure Low"
+    },
+    {
+        "raw": "rapid_weight_change",
+        "display": "Rapid Weight Change"
+    },
+    {
+        "raw": "night_leg_cramps",
+        "display": "Night Leg Cramps"
+    },
+    {
+        "raw": "restless_legs",
+        "display": "Restless Legs"
+    },
+    {
+        "raw": "excessive_daytime_sleepiness",
+        "display": "Excessive Daytime Sleepiness"
+    },
+    {
+        "raw": "snoring_loud",
+        "display": "Snoring Loud"
+    },
+    {
+        "raw": "gasping_during_sleep",
+        "display": "Gasping During Sleep"
+    },
+    {
+        "raw": "skin_mole_change",
+        "display": "Skin Mole Change"
+    },
+    {
+        "raw": "asymmetric_mole",
+        "display": "Asymmetric Mole"
+    },
+    {
+        "raw": "bloody_diarrhea",
+        "display": "Bloody Diarrhea"
+    },
+    {
+        "raw": "abdominal_mass",
+        "display": "Abdominal Mass"
+    },
+    {
+        "raw": "perianal_fistula",
+        "display": "Perianal Fistula"
+    },
+    {
+        "raw": "urgency_to_defecate",
+        "display": "Urgency To Defecate"
+    },
+    {
+        "raw": "incomplete_evacuation",
+        "display": "Incomplete Evacuation"
+    },
+    {
+        "raw": "lactose_triggered_symptoms",
+        "display": "Lactose Triggered Symptoms"
+    },
+    {
+        "raw": "shortness_of_breath_at_rest",
+        "display": "Shortness Of Breath At Rest"
+    },
+    {
+        "raw": "orthopnea_severe",
+        "display": "Orthopnea Severe"
+    },
+    {
+        "raw": "leg_swelling_bilateral",
+        "display": "Leg Swelling Bilateral"
+    },
+    {
+        "raw": "cognitive_decline",
+        "display": "Cognitive Decline"
+    },
+    {
+        "raw": "personality_changes",
+        "display": "Personality Changes"
+    },
+    {
+        "raw": "word_finding_difficulty",
+        "display": "Word Finding Difficulty"
+    },
+    {
+        "raw": "repetitive_behaviors",
+        "display": "Repetitive Behaviors"
+    },
+    {
+        "raw": "post_exertional_malaise",
+        "display": "Post Exertional Malaise"
+    },
+    {
+        "raw": "phantom_smell",
+        "display": "Phantom Smell"
+    }
+]

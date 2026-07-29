@@ -6,3 +6,7 @@ matplotlib
 seaborn
 plotly
 joblib
+rapidfuzz
+fastapi
+uvicorn
+pydantic

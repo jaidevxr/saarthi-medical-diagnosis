@@ -8,7 +8,11 @@ into canonical symptom names using dictionary mapping and RapidFuzz fuzzy matchi
 import os
 import re
 import json
-from rapidfuzz import process, fuzz
+try:
+    from rapidfuzz import process, fuzz
+    HAVE_RAPIDFUZZ = True
+except ImportError:
+    HAVE_RAPIDFUZZ = False
 
 CONFIG_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "config")
 
@@ -54,17 +58,29 @@ class SymptomNormalizer:
             if sym in valid_symptoms:
                 return sym
 
-        # 3. Fuzzy match using RapidFuzz against valid_symptoms and synonyms
+        # 3. Fuzzy match using RapidFuzz or difflib fallback
         candidates = list(valid_symptoms) + list(self.synonyms.keys())
-        match = process.extractOne(phrase_clean, candidates, scorer=fuzz.WRatio)
-        if match and match[1] >= self.fuzzy_cutoff:
-            matched_term = match[0]
-            if matched_term in valid_symptoms:
-                return matched_term
-            elif matched_term in self.synonyms:
-                sym = self.synonyms[matched_term]
-                if sym in valid_symptoms:
-                    return sym
+        if HAVE_RAPIDFUZZ:
+            match = process.extractOne(phrase_clean, candidates, scorer=fuzz.WRatio)
+            if match and match[1] >= self.fuzzy_cutoff:
+                matched_term = match[0]
+                if matched_term in valid_symptoms:
+                    return matched_term
+                elif matched_term in self.synonyms:
+                    sym = self.synonyms[matched_term]
+                    if sym in valid_symptoms:
+                        return sym
+        else:
+            import difflib
+            matches = difflib.get_close_matches(phrase_clean, candidates, n=1, cutoff=self.fuzzy_cutoff / 100.0)
+            if matches:
+                matched_term = matches[0]
+                if matched_term in valid_symptoms:
+                    return matched_term
+                elif matched_term in self.synonyms:
+                    sym = self.synonyms[matched_term]
+                    if sym in valid_symptoms:
+                        return sym
 
         return None
 

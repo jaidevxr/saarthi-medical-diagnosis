@@ -67,7 +67,8 @@ if os.path.exists(results_path):
 
     st.divider()
     st.subheader("⚙️ Select Active Prediction Model")
-    all_models = results_df[algo_col].tolist()
+    raw_models = results_df[algo_col].tolist()
+    all_models = ["Production Multi-Turn Engine"] + [m for m in raw_models if m != "Production Multi-Turn Engine"]
     best_file = os.path.join(MODELS_DIR, "best_model_name.pkl")
     current_best = joblib.load(best_file) if os.path.exists(best_file) else all_models[0]
 
@@ -81,6 +82,7 @@ if os.path.exists(results_path):
             "Decision Tree": "decision_tree.pkl",
             "Random Forest": "random_forest.pkl",
             "KNN": "knn.pkl",
+            "SVC": "svm.pkl",
             "SVM": "svm.pkl",
             "Naive Bayes": "naive_bayes.pkl",
             "Calibrated Naive Bayes": "naive_bayes.pkl",

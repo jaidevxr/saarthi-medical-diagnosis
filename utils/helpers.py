@@ -28,38 +28,34 @@ def _ensure_history_dir():
 
 
 def load_prediction_history():
-    """Load prediction history from JSON file."""
-    _ensure_history_dir()
-    if os.path.exists(_HISTORY_FILE):
-        try:
-            with open(_HISTORY_FILE, "r", encoding="utf-8") as f:
-                return json.load(f)
-        except (json.JSONDecodeError, IOError):
-            return []
+    """Load session-private prediction history for the current user."""
+    import streamlit as st
+    if hasattr(st, "session_state"):
+        if "user_prediction_history" not in st.session_state:
+            st.session_state["user_prediction_history"] = []
+        return st.session_state["user_prediction_history"]
     return []
 
 
 def save_prediction(symptoms, predictions):
-    """
-    Append a prediction record to history.
-    """
-    _ensure_history_dir()
-    history = load_prediction_history()
+    """Save a prediction record into the active user session history."""
+    import streamlit as st
     record = {
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "symptoms": symptoms,
         "predictions": predictions,
     }
-    history.insert(0, record)
-    history = history[:500]
-    with open(_HISTORY_FILE, "w", encoding="utf-8") as f:
-        json.dump(history, f, indent=2, ensure_ascii=False)
+    if hasattr(st, "session_state"):
+        if "user_prediction_history" not in st.session_state:
+            st.session_state["user_prediction_history"] = []
+        st.session_state["user_prediction_history"].insert(0, record)
 
 
 def clear_prediction_history():
-    """Delete the prediction history file."""
-    if os.path.exists(_HISTORY_FILE):
-        os.remove(_HISTORY_FILE)
+    """Clear session-private prediction history for the current user."""
+    import streamlit as st
+    if hasattr(st, "session_state"):
+        st.session_state["user_prediction_history"] = []
 
 
 # ─────────────────────────────────────────────────
